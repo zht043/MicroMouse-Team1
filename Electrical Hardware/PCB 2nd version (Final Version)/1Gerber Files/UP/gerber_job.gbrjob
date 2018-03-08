@@ -1,0 +1,13 @@
+G04 Gerber job file.*
+%TF.FileFunction,JobInfo*%
+%TF.GenerationSoftware,Autodesk,EAGLE,8.6.0*%
+%TF.CreationDate,2018-03-08T02:15:54Z*%
+%TF.Part,Single*%
+%MOMM*%
+%TJ.B_Owner,Hongtao Zhang <hoz043@ucsd.edu>*%
+%TJ.B_ID,Up*%
+%TJ.B_LayerNum,2*%
+%TJ.B_Thickness,1.671119*%
+%TJ.B_Size_X,58.000000*%
+%TJ.B_Size_Y,29.750000*%
+M02*
