@@ -32,7 +32,7 @@ void initGPIO(GPIO*);
 GPIO initIO(uint8_t, uint8_t);
 void digitalWrite(GPIO, uint8_t);
 uint8_t digitalRead(GPIO);
-
+GPIO Pxx_decoder(uint8_t Pxx);
 #define A 0x00
 #define B 0x01
 #define C 0x02

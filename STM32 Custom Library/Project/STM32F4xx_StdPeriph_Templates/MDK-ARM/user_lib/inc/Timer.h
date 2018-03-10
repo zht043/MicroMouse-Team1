@@ -25,10 +25,11 @@ TIM initIO_TIM(uint8_t, uint8_t);
 #define TIMER5 0x05
 #define TIMER8 0x08
 #define TIMER9 0x09
-#define TIMER10 0x10
-#define TIMER11 0x11
-#define TIMER12 0x12
-#define TIMER13 0x13
-#define TIMER14 0x14
+#define TIMER10 0x0A
+#define TIMER11 0x0B
+#define TIMER12 0x0C
+#define TIMER13 0x0D
+#define TIMER14 0x0E
+#define TIMER15 0x0F
 
 #endif 

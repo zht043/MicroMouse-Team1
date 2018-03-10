@@ -9,8 +9,8 @@ void initGPIO(GPIO* obj) {
 		GPIO_InitStructure.GPIO_Speed = obj->Speed; 
 		GPIO_Init(obj->GPIOx, &GPIO_InitStructure);
 }
-GPIO initIO(uint8_t Pxx, uint8_t Mode) {
-	  GPIO obj;
+GPIO Pxx_decoder(uint8_t Pxx) {
+		GPIO obj;		
 		switch((Pxx /0x10) % 0x10) {
 			case A:
 				obj.GPIOx = GPIOA;
@@ -51,26 +51,79 @@ GPIO initIO(uint8_t Pxx, uint8_t Mode) {
 				break;*/
 			default: break;
 		}
-		RCC_AHB1PeriphClockCmd(obj.RCC_CMD, ENABLE);
 		switch(Pxx %0x10) {
-			case 0x00: obj.Pin = GPIO_Pin_0; break;
-			case 0x01: obj.Pin = GPIO_Pin_1; break;
-			case 0x02: obj.Pin = GPIO_Pin_2; break;
-			case 0x03: obj.Pin = GPIO_Pin_3; break;
-			case 0x04: obj.Pin = GPIO_Pin_4; break;
-			case 0x05: obj.Pin = GPIO_Pin_5; break;
-			case 0x06: obj.Pin = GPIO_Pin_6; break;
-			case 0x07: obj.Pin = GPIO_Pin_7; break;
-			case 0x08: obj.Pin = GPIO_Pin_8; break;
-			case 0x09: obj.Pin = GPIO_Pin_9; break;
-			case 0x10: obj.Pin = GPIO_Pin_10; break;
-			case 0x11: obj.Pin = GPIO_Pin_11; break;
-			case 0x12: obj.Pin = GPIO_Pin_12; break;
-			case 0x13: obj.Pin = GPIO_Pin_13; break;
-			case 0x14: obj.Pin = GPIO_Pin_14; break;
-			case 0x15: obj.Pin = GPIO_Pin_15; break;
+			case 0x00: obj.Pin = 
+				GPIO_Pin_0;
+				obj.GPIO_PinSource = GPIO_PinSource0;
+				break;
+			case 0x01: 
+				obj.Pin = GPIO_Pin_1; 
+				obj.GPIO_PinSource = GPIO_PinSource1;
+				break;
+			case 0x02: 
+				obj.Pin = GPIO_Pin_2; 
+				obj.GPIO_PinSource = GPIO_PinSource2;
+				break;
+			case 0x03: 
+				obj.Pin = GPIO_Pin_3; 
+				obj.GPIO_PinSource = GPIO_PinSource3;
+				break;
+			case 0x04: 
+				obj.Pin = GPIO_Pin_4; 
+				obj.GPIO_PinSource = GPIO_PinSource4;
+				break;
+			case 0x05: 
+				obj.Pin = GPIO_Pin_5; 
+				obj.GPIO_PinSource = GPIO_PinSource5;
+				break;
+			case 0x06: 
+				obj.Pin = GPIO_Pin_6; 
+				obj.GPIO_PinSource = GPIO_PinSource6;
+				break;
+			case 0x07: 
+				obj.Pin = GPIO_Pin_7; 
+				obj.GPIO_PinSource = GPIO_PinSource7;
+				break;
+			case 0x08: 
+				obj.Pin = GPIO_Pin_8; 
+			  obj.GPIO_PinSource = GPIO_PinSource8;
+			  break;
+			case 0x09: 
+				obj.Pin = GPIO_Pin_9; 
+			  obj.GPIO_PinSource = GPIO_PinSource9;
+			  break;
+			case 0x10: 
+				obj.Pin = GPIO_Pin_10; 
+			  obj.GPIO_PinSource = GPIO_PinSource10;
+				break;
+			case 0x11: 
+				obj.Pin = GPIO_Pin_11; 
+				obj.GPIO_PinSource = GPIO_PinSource11;
+				break;
+			case 0x12: 
+				obj.Pin = GPIO_Pin_12; 
+				obj.GPIO_PinSource = GPIO_PinSource12;
+				break;
+			case 0x13: 
+				obj.Pin = GPIO_Pin_13; 
+				obj.GPIO_PinSource = GPIO_PinSource13;
+				break;
+			case 0x14: 
+				obj.Pin = GPIO_Pin_14; 
+				obj.GPIO_PinSource = GPIO_PinSource14;
+				break;
+			case 0x15: 
+				obj.Pin = GPIO_Pin_15; 
+				obj.GPIO_PinSource = GPIO_PinSource15;
+				break;
 			default : break;
 		}
+		return obj;
+}
+GPIO initIO(uint8_t Pxx, uint8_t Mode) {
+	  GPIO obj;
+		obj = Pxx_decoder(Pxx);
+		RCC_AHB1PeriphClockCmd(obj.RCC_CMD, ENABLE);
 		GPIO_InitTypeDef GPIO_InitStructure;
 		GPIO_InitStructure.GPIO_Pin   = obj.Pin;
 		switch(Mode) {
