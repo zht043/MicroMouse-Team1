@@ -92,23 +92,23 @@ GPIO Pxx_decoder(uint8_t Pxx) {
 				obj.Pin = GPIO_Pin_9; 
 			  obj.GPIO_PinSource = GPIO_PinSource9;
 			  break;
-			case 0x10: 
+			case 0x0A: 
 				obj.Pin = GPIO_Pin_10; 
 			  obj.GPIO_PinSource = GPIO_PinSource10;
 				break;
-			case 0x0A: 
+			case 0x0B: 
 				obj.Pin = GPIO_Pin_11; 
 				obj.GPIO_PinSource = GPIO_PinSource11;
 				break;
-			case 0x0B: 
+			case 0x0C: 
 				obj.Pin = GPIO_Pin_12; 
 				obj.GPIO_PinSource = GPIO_PinSource12;
 				break;
-			case 0x0C: 
+			case 0x0D: 
 				obj.Pin = GPIO_Pin_13; 
 				obj.GPIO_PinSource = GPIO_PinSource13;
 				break;
-			case 0x0D: 
+			case 0x0E: 
 				obj.Pin = GPIO_Pin_14; 
 				obj.GPIO_PinSource = GPIO_PinSource14;
 				break;

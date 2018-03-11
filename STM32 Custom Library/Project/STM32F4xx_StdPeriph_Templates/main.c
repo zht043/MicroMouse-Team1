@@ -33,7 +33,7 @@ void PWM_Tester(void) {
 		SysTime_Init();
 		TIM pwm1 = initIO_TIM(TIMER1, PA8);
 		TIM pwm2 = initIO_TIM(TIMER1, PA9);
-		PWM_ON(pwm1.TIMERx,10000);
+		PWM_ON(pwm1.TIMERx,10000); //pwm frequency = 10khz
 		while(1) {
 			  setPWM(pwm1, 666);
 				setPWM(pwm2, 333);
