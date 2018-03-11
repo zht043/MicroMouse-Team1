@@ -28,10 +28,10 @@ typedef struct
 		uint8_t           GPIO_PinSource;
 }GPIO;
 
-void initGPIO(GPIO*);
-GPIO initIO(uint8_t, uint8_t);
-void digitalWrite(GPIO, uint8_t);
-uint8_t digitalRead(GPIO);
+void initGPIO(GPIO* obj);
+GPIO initIO(uint8_t Pxx, uint8_t Mode);
+void digitalWrite(GPIO port, uint8_t state);
+uint8_t digitalRead(GPIO port);
 GPIO Pxx_decoder(uint8_t Pxx);
 #define A 0x00
 #define B 0x01

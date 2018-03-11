@@ -33,10 +33,10 @@ void PWM_Tester(void) {
 		SysTime_Init();
 		TIM pwm1 = initIO_TIM(TIMER1, PA8);
 		TIM pwm2 = initIO_TIM(TIMER1, PA9);
-		initTimer_PWM_OUTPUT(pwm1.TIMERx,pwm1.Ch + pwm2.Ch,10000);
+		PWM_ON(pwm1.TIMERx,10000);
 		while(1) {
-			  PWM_OUT(pwm1, 666);
-				PWM_OUT(pwm2, 333);
+			  setPWM(pwm1, 666);
+				setPWM(pwm2, 333);
 		}
 }
 int main(void)

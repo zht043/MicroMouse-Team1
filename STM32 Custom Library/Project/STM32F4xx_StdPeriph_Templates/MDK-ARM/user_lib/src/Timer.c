@@ -1,9 +1,9 @@
 #include "Timer.h"
 #include "stm32f4xx_tim.h"
 
-uint8_t ADVTIM_PWM_OUTPUT(uint8_t, uint16_t, uint32_t);
-uint8_t NORTIM_PWM_OUTPUT(uint8_t, uint16_t, uint32_t);
-
+void ADVTIM_PWM_OUTPUT(uint8_t, uint32_t);
+void NORTIM_PWM_OUTPUT(uint8_t, uint32_t);
+uint16_t channel[16] = {0};
 TIM initIO_TIM(uint8_t TIMERx, uint8_t Pxx) {
 		GPIO_InitTypeDef GPIO_InitStructure;
 	  if(TIMERx == TIMER1) RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE);
@@ -11,7 +11,6 @@ TIM initIO_TIM(uint8_t TIMERx, uint8_t Pxx) {
 		GPIO obj;
 		obj = Pxx_decoder(Pxx);
     RCC_AHB1PeriphClockCmd(obj.RCC_CMD, ENABLE);
-
 		GPIO_InitStructure.GPIO_Pin = obj.Pin;
 		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
@@ -51,31 +50,32 @@ TIM initIO_TIM(uint8_t TIMERx, uint8_t Pxx) {
 				default: break;
 			}
 		}
+		channel[TIMERx] += ch;
 		TIM ret;
 		ret.Ch = ch;
 		ret.TIMERx = TIMERx;
 		return ret;
 }
 
-void initTimer_PWM_OUTPUT(uint8_t TIMERx, uint16_t Ch, uint32_t Frequency) 
+void PWM_ON(uint8_t TIMERx, uint32_t Frequency) 
 {
 		switch(TIMERx) {
-			case TIMER1: ADVTIM_PWM_OUTPUT(TIMERx, Ch, Frequency); break;
-			case TIMER8: ADVTIM_PWM_OUTPUT(TIMERx, Ch, Frequency); break;
-			case TIMER2: NORTIM_PWM_OUTPUT(TIMERx, Ch, Frequency); break;
-			case TIMER3: NORTIM_PWM_OUTPUT(TIMERx, Ch, Frequency); break;
-			case TIMER4: NORTIM_PWM_OUTPUT(TIMERx, Ch, Frequency); break;
-			case TIMER5: NORTIM_PWM_OUTPUT(TIMERx, Ch, Frequency); break;
-			case TIMER9: NORTIM_PWM_OUTPUT(TIMERx, Ch, Frequency); break;
-			case TIMER10: NORTIM_PWM_OUTPUT(TIMERx, Ch, Frequency); break;
-			case TIMER11: NORTIM_PWM_OUTPUT(TIMERx, Ch, Frequency); break;
-			case TIMER12: NORTIM_PWM_OUTPUT(TIMERx, Ch, Frequency); break;
-			case TIMER13: NORTIM_PWM_OUTPUT(TIMERx, Ch, Frequency); break;
-			case TIMER14: NORTIM_PWM_OUTPUT(TIMERx, Ch, Frequency); break;
+			case TIMER1: ADVTIM_PWM_OUTPUT(TIMERx, Frequency); break;
+			case TIMER8: ADVTIM_PWM_OUTPUT(TIMERx, Frequency); break;
+			case TIMER2: NORTIM_PWM_OUTPUT(TIMERx, Frequency); break;
+			case TIMER3: NORTIM_PWM_OUTPUT(TIMERx, Frequency); break;
+			case TIMER4: NORTIM_PWM_OUTPUT(TIMERx, Frequency); break;
+			case TIMER5: NORTIM_PWM_OUTPUT(TIMERx, Frequency); break;
+			case TIMER9: NORTIM_PWM_OUTPUT(TIMERx, Frequency); break;
+			case TIMER10: NORTIM_PWM_OUTPUT(TIMERx, Frequency); break;
+			case TIMER11: NORTIM_PWM_OUTPUT(TIMERx, Frequency); break;
+			case TIMER12: NORTIM_PWM_OUTPUT(TIMERx, Frequency); break;
+			case TIMER13: NORTIM_PWM_OUTPUT(TIMERx, Frequency); break;
+			case TIMER14: NORTIM_PWM_OUTPUT(TIMERx, Frequency); break;
 			default: break;
 		}
 }  
-uint8_t ADVTIM_PWM_OUTPUT(uint8_t TIMERx, uint16_t Ch, uint32_t Frequency) {
+void ADVTIM_PWM_OUTPUT(uint8_t TIMERx, uint32_t Frequency) {
 		TIM_TypeDef * TIMx;
 		switch(TIMERx) {
 			case TIMER1: TIMx = TIM1; break;
@@ -104,6 +104,7 @@ uint8_t ADVTIM_PWM_OUTPUT(uint8_t TIMERx, uint16_t Ch, uint32_t Frequency) {
 		TIM_OCInitStructure.TIM_OCIdleState = TIM_OCIdleState_Set;
 		TIM_OCInitStructure.TIM_OCNIdleState = TIM_OCNIdleState_Reset; 
 	  //-------------------------------------------------------------
+		uint16_t Ch = channel[TIMERx];
 		if(Ch%10) {
 			TIM_OC1Init(TIMx, &TIM_OCInitStructure);
 			TIM_OC1PreloadConfig(TIMx, TIM_OCPreload_Enable);
@@ -137,9 +138,9 @@ uint8_t ADVTIM_PWM_OUTPUT(uint8_t TIMERx, uint16_t Ch, uint32_t Frequency) {
 		TIM_ARRPreloadConfig(TIMx, ENABLE);
 		TIM_Cmd(TIMx, ENABLE);
 }
-uint8_t NORTIM_PWM_OUTPUT(uint8_t TIMx, uint16_t Pxx, uint32_t Frequency) {
+void NORTIM_PWM_OUTPUT(uint8_t TIMx, uint32_t Frequency) {
 }
-void PWM_OUT(TIM port, uint32_t dutyCircle) {
+void setPWM(TIM port, uint32_t dutyCircle) {
 		switch(port.TIMERx) {
 			case TIMER1: 
 				if(port.Ch == Ch1) TIM1->CCR1 = dutyCircle;
