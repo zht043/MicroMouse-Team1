@@ -1,5 +1,0 @@
---cpu Cortex-M4.fp "..\obj\misc.o" "..\obj\stm32f4xx_adc.o" "..\obj\stm32f4xx_dma.o" "..\obj\stm32f4xx_exti.o" "..\obj\stm32f4xx_flash.o" "..\obj\stm32f4xx_gpio.o" "..\obj\stm32f4xx_rcc.o" "..\obj\stm32f4xx_spi.o" "..\obj\stm32f4xx_syscfg.o" "..\obj\stm32f4xx_tim.o" "..\obj\stm32f4xx_usart.o" "..\obj\main.o" "..\obj\stm32f4xx_it.o" "..\obj\delay.o" "..\obj\led.o" "..\obj\button.o" "..\obj\usart.o" "..\obj\matrixdisplay.o" "..\obj\spi.o" "..\obj\pwm.o" "..\obj\buzzer.o" "..\obj\encoder.o" "..\obj\adc.o" "..\obj\sensor_function.o" "..\obj\startup_stm32f4xx.o" "..\obj\system_stm32f4xx.o" 
---strict --scatter "..\obj\micromouse_test.sct" 
---summary_stderr --info summarysizes --map --xref --callgraph --symbols 
---info sizes --info totals --info unused --info veneers 
- --list ".\micromouse_test.map" -o ..\obj\micromouse_test.axf
