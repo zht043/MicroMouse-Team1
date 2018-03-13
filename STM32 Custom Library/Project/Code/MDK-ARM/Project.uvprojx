@@ -1299,6 +1299,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>SPI.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\SPI.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1323,6 +1328,11 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>SPI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\SPI.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2627,6 +2637,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>SPI.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\SPI.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2651,6 +2666,11 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>SPI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\SPI.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -3955,6 +3975,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>SPI.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\SPI.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -3979,6 +4004,11 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>SPI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\SPI.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -5330,6 +5360,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>SPI.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\SPI.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -5354,6 +5389,11 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>SPI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\SPI.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -6658,6 +6698,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>SPI.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\SPI.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -6682,6 +6727,11 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>SPI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\SPI.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -7886,6 +7936,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>SPI.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\SPI.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -7910,6 +7965,11 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>SPI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\SPI.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -9113,6 +9173,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>SPI.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\SPI.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -9137,6 +9202,11 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>SPI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\SPI.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -10290,6 +10360,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>SPI.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\SPI.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -10314,6 +10389,11 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>SPI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\SPI.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -11417,6 +11497,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>SPI.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\SPI.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -11441,6 +11526,11 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>SPI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\SPI.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -12545,6 +12635,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>SPI.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\SPI.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -12569,6 +12664,11 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>SPI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\SPI.c</FilePath>
             </File>
           </Files>
         </Group>
