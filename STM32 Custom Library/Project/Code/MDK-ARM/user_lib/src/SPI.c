@@ -1,36 +1,36 @@
 #include "SPI.h"
 //SPI
-#define FLASH_SPI                           SPI3  
-#define FLASH_SPI_CLK                       RCC_APB1Periph_SPI3  
+#define FLASH_SPI                           SPI1  
+#define FLASH_SPI_CLK                       RCC_APB2Periph_SPI1  
 #define FLASH_SPI_CLK_INIT                  RCC_APB1PeriphClockCmd  
 //SCK  
-#define FLASH_SPI_SCK_PIN                   GPIO_Pin_3  
-#define FLASH_SPI_SCK_GPIO_PORT             GPIOB  
-#define FLASH_SPI_SCK_GPIO_CLK              RCC_AHB1Periph_GPIOB  
-#define FLASH_SPI_SCK_PINSOURCE             GPIO_PinSource3 
-#define FLASH_SPI_SCK_AF                    GPIO_AF_SPI3 
+#define FLASH_SPI_SCK_PIN                   GPIO_Pin_5  
+#define FLASH_SPI_SCK_GPIO_PORT             GPIOA  
+#define FLASH_SPI_SCK_GPIO_CLK              RCC_AHB1Periph_GPIOA  
+#define FLASH_SPI_SCK_PINSOURCE             GPIO_PinSource5 
+#define FLASH_SPI_SCK_AF                    GPIO_AF_SPI1 
 //MISO 
-#define FLASH_SPI_MISO_PIN                  GPIO_Pin_4 
-#define FLASH_SPI_MISO_GPIO_PORT            GPIOB 
-#define FLASH_SPI_MISO_GPIO_CLK             RCC_AHB1Periph_GPIOB 
-#define FLASH_SPI_MISO_PINSOURCE            GPIO_PinSource4 
-#define FLASH_SPI_MISO_AF                   GPIO_AF_SPI3 
+#define FLASH_SPI_MISO_PIN                  GPIO_Pin_6 
+#define FLASH_SPI_MISO_GPIO_PORT            GPIOA 
+#define FLASH_SPI_MISO_GPIO_CLK             RCC_AHB1Periph_GPIOA 
+#define FLASH_SPI_MISO_PINSOURCE            GPIO_PinSource6 
+#define FLASH_SPI_MISO_AF                   GPIO_AF_SPI1 
 //MOSI 
-#define FLASH_SPI_MOSI_PIN                  GPIO_Pin_5 
-#define FLASH_SPI_MOSI_GPIO_PORT            GPIOB 
-#define FLASH_SPI_MOSI_GPIO_CLK             RCC_AHB1Periph_GPIOB 
-#define FLASH_SPI_MOSI_PINSOURCE            GPIO_PinSource5 
-#define FLASH_SPI_MOSI_AF                    GPIO_AF_SPI3 
+#define FLASH_SPI_MOSI_PIN                  GPIO_Pin_7 
+#define FLASH_SPI_MOSI_GPIO_PORT            GPIOA 
+#define FLASH_SPI_MOSI_GPIO_CLK             RCC_AHB1Periph_GPIOA
+#define FLASH_SPI_MOSI_PINSOURCE            GPIO_PinSource7 
+#define FLASH_SPI_MOSI_AF                    GPIO_AF_SPI1 
 //CS(NSS)
-#define FLASH_CS_PIN                         GPIO_Pin_8 
-#define FLASH_CS_GPIO_PORT                   GPIOC 
-#define FLASH_CS_GPIO_CLK                    RCC_AHB1Periph_GPIOC 
+#define FLASH_CS_PIN                         GPIO_Pin_4 
+#define FLASH_CS_GPIO_PORT                   GPIOA 
+#define FLASH_CS_GPIO_CLK                    RCC_AHB1Periph_GPIOA 
   
 // CS(NSS) 
-#define SPI_FLASH_CS_LOW()      {FLASH_CS_GPIO_PORT->BSRRH=FLASH_CS_PIN;} 
+#define SPI_FLASH_CS_LOW()      GPIO_ResetBits(FLASH_CS_GPIO_PORT, FLASH_CS_PIN)
 //CS(NSS)
-#define SPI_FLASH_CS_HIGH()     {FLASH_CS_GPIO_PORT->BSRRL=FLASH_CS_PIN;} 
-void SPI_init()
+#define SPI_FLASH_CS_HIGH()     GPIO_SetBits(FLASH_CS_GPIO_PORT, FLASH_CS_PIN) 
+void SPI_init(void)
 {
 		GPIO_InitTypeDef GPIO_InitStructure; 
     RCC_AHB1PeriphClockCmd (FLASH_SPI_SCK_GPIO_CLK | FLASH_SPI_MISO_GPIO_CLK| 
@@ -73,16 +73,20 @@ void SPI_init()
 #define Dummy_Byte 0xFF 
 uint8_t SPI_FLASH_SendByte(uint8_t byte)
 {
-		SPITimeout = SPIT_FLAG_TIMEOUT;
+		//SPITimeout = SPIT_FLAG_TIMEOUT;
 		while(SPI_I2S_GetFlagStatus(FLASH_SPI, SPI_I2S_FLAG_TXE) == RESET)
 		{
-				if((SPITimeout--) == 0) return SPI_TIMEOUT_UserCallback(0);
+				//if((SPITimeout--) == 0) return SPI_TIMEOUT_UserCallback(0);
 		}
 		SPI_I2S_SendData(FLASH_SPI, byte);
-		SPITimeout = SPIT_FLAG_TIMEOUT;
+		//SPITimeout = SPIT_FLAG_TIMEOUT;
 		while (SPI_I2S_GetFlagStatus(FLASH_SPI, SPI_I2S_FLAG_RXNE) == RESET)
 		{
-				if((SPITimeout--) == 0) return SPI_TIMEOUT_UserCallback(1);
+				//if((SPITimeout--) == 0) return SPI_TIMEOUT_UserCallback(1);
 		}
 		return SPI_I2S_ReceiveData(FLASH_SPI);
 } 
+uint8_t SPI_FLASH_ReadByte(void)
+{  
+		return (SPI_FLASH_SendByte(Dummy_Byte));
+}

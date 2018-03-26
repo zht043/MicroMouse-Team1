@@ -2,4 +2,6 @@
 #define __SPI_H
 #include "GPIO.h"
 #include "stm32f4xx_spi.h"
+void SPI_init(void);
+uint8_t SPI_FLASH_SendByte(uint8_t byte);
 #endif 

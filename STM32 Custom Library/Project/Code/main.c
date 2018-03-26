@@ -3,6 +3,7 @@
 #include "GPIO.h"
 #include "Initiation.h"
 #include "Timer.h"
+#include "SPI.h"
 void initAlles() {
 		SysTime_Init();
 }
@@ -39,12 +40,20 @@ void PWM_Tester(void) {
 				setPWM(pwm2, 333);
 		}
 }
+void SPI_Tester(void) {
+		SPI_init();
+		while(1) {
+				SPI_FLASH_SendByte(0x05);
+		}
+	
+}
 int main(void)
 {
 		//initAlles();
 	  //GPIO_Tester();
 		//SysClock_Tester();
-		PWM_Tester();
+		//PWM_Tester();
+		SPI_Tester();
 }
 
 
