@@ -20,14 +20,14 @@ void GPIO_Tester(void) {
 }
 void SysClock_Tester(void) {
 		SysTime_Init();
-		GPIO LED0 = initIO(PA0,OUTPUT);
-		GPIO Button0 = initIO(PA1, INPUT);
-		while(digitalRead(Button0)) doNothing();
+		GPIO LED0 = initIO(PC0,OUTPUT);
+		//GPIO Button0 = initIO(PA1, INPUT);
+		//while(digitalRead(Button0)) doNothing();
 	  while(1) {
 				digitalWrite(LED0, HIGH);
-				delay_us(1);
+				delay_us(10);
 				digitalWrite(LED0, LOW);
-				delay_us(1);
+				delay_us(10);
 		}
 }
 void PWM_Tester(void) {
@@ -51,9 +51,9 @@ int main(void)
 {
 		//initAlles();
 	  //GPIO_Tester();
-		//SysClock_Tester();
+		SysClock_Tester();
 		//PWM_Tester();
-		SPI_Tester();
+		//SPI_Tester();
 }
 
 
