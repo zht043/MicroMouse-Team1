@@ -1069,13 +1069,13 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 </pass>
 </autorouter>
 <elements>
-<element name="CLMC_1" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" package="0805" package3d_urn="urn:adsk.eagle:package:37429/1" value="0.1µF" x="52.79" y="16.54">
+<element name="CLMC_1" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" package="0805" package3d_urn="urn:adsk.eagle:package:37429/1" value="0.33µF" x="52.79" y="16.54">
 <attribute name="PROD_ID" value="CAP-08469" x="52.79" y="16.54" size="1.778" layer="27" display="off"/>
 </element>
 <element name="CLMC_2" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" package="EIA7343" package3d_urn="urn:adsk.eagle:package:37416/1" value="100uF" x="36.03" y="16.49" rot="R90">
 <attribute name="PROD_ID" value="CAP-07890" x="36.03" y="16.49" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="CRMC_1" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" package="0805" package3d_urn="urn:adsk.eagle:package:37429/1" value="0.1µF" x="56.63" y="16.54" rot="R180">
+<element name="CRMC_1" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" package="0805" package3d_urn="urn:adsk.eagle:package:37429/1" value="0.33µF" x="56.63" y="16.54" rot="R180">
 <attribute name="PROD_ID" value="CAP-08469" x="56.63" y="16.54" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="CRMC_2" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" package="EIA7343" package3d_urn="urn:adsk.eagle:package:37416/1" value="100uF" x="74.05" y="16.48" rot="R90.1">
@@ -1091,17 +1091,17 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <element name="R_LMC_2" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" package="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="47K" x="40.92" y="18.54" rot="R180">
 <attribute name="PROD_ID" value="RES-08474" x="40.92" y="18.54" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R_RMC_1" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" package="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="47k" x="65.53" y="18.47">
+<element name="R_RMC_1" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" package="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="0.75" x="65.53" y="18.47">
 <attribute name="PROD_ID" value="RES-08474" x="65.53" y="18.47" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R_RMC_2" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" package="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="47k" x="69.1" y="18.49">
+<element name="R_RMC_2" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" package="0805" package3d_urn="urn:adsk.eagle:package:39651/1" value="0.75" x="69.1" y="18.49">
 <attribute name="PROD_ID" value="RES-08474" x="69.1" y="18.49" size="1.778" layer="27" display="off"/>
 </element>
 <element name="U$15" library="TC4427(8MSOP)" package="TC4427(8MSOP)" value="TC4427(8MSOP)" x="42" y="21"/>
 <element name="U$16" library="ZXMHC3F381N8" package="ZXMHC3F381N8" value="ZXMHC3F381N8" x="50" y="21" rot="R269.9"/>
 <element name="U$17" library="TC4427(8MSOP)" package="TC4427(8MSOP)" value="TC4427(8MSOP)" x="68" y="21" rot="R180"/>
 <element name="U$18" library="ZXMHC3F381N8" package="ZXMHC3F381N8" value="ZXMHC3F381N8" x="60" y="21" rot="R90.3"/>
-<element name="CPWR_1" library="SparkFun-Capacitors" package="0805" value="0.47µF" x="30.5" y="20.6" rot="R180">
+<element name="CPWR_1" library="SparkFun-Capacitors" package="0805" value="0.33µF" x="30.5" y="20.6" rot="R180">
 <attribute name="PROD_ID" value="CAP-08469" x="34.5" y="4.6" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="REG1" library="LM2940IMP-5.0" package="MP04A" value="LM2940IMP-5.0/NOPB" x="29.01" y="15.5" rot="R270">
@@ -1117,7 +1117,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <attribute name="VENDOR" value="National Semiconductor" x="41.01" y="29.5" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VERSION" value="1" x="41.01" y="29.5" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="CPWR_2" library="SparkFun-Capacitors" package="0805" value="22uF or 33uF" x="27.28" y="20.6">
+<element name="CPWR_2" library="SparkFun-Capacitors" package="0805" value="0.33µF" x="27.28" y="20.6">
 <attribute name="PROD_ID" value="CAP-08469" x="5.28" y="36.6" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R_VMTR_1" library="SparkFun-Resistors" package="0805" value="10K" x="28" y="23.01" rot="R90">
@@ -1127,7 +1127,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <attribute name="PROD_ID" value="RES-08474" x="38.5" y="34.65" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="P1" library="jst-ph" package="JST-PH2" value="" x="55.01" y="13.92" rot="R180"/>
-<element name="CPWR_3" library="SparkFun-Capacitors" package="0805" value="0.1uF" x="71.01" y="28">
+<element name="CPWR_3" library="SparkFun-Capacitors" package="0805" value="0.33µF" x="71.01" y="28">
 <attribute name="PROD_ID" value="CAP-08469" x="67.01" y="44" size="1.778" layer="27" display="off"/>
 </element>
 <element name="CPWR_4" library="SparkFun-Capacitors" package="0805" value="0.33µF" x="75" y="28" rot="R180">
@@ -1139,31 +1139,31 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <attribute name="VENDOR" value="National Semiconductor" x="61" y="15" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="U$1" library="STM32F405RG" package="STM32F405/415_LQFP64" value="STM32F405/415_LQFP64" x="55" y="33"/>
-<element name="C_V3" library="SparkFun-Capacitors" package="0805" value="0.1uF" x="45" y="37" rot="R270">
+<element name="C_V3" library="SparkFun-Capacitors" package="0805" value="22uF" x="45" y="37" rot="R270">
 <attribute name="PROD_ID" value="CAP-08402" x="53" y="40.3" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="C_BAT" library="SparkFun-Capacitors" package="0805" value="2.2uF" x="47" y="37" rot="R270">
+<element name="C_BAT" library="SparkFun-Capacitors" package="0805" value="22uF" x="47" y="37" rot="R270">
 <attribute name="PROD_ID" value="CAP-08402" x="51" y="51.22" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="C_VA1" library="SparkFun-Capacitors" package="0805" value="2.2uF" x="47.01" y="31" rot="R270">
+<element name="C_VA1" library="SparkFun-Capacitors" package="0805" value="22uF" x="47.01" y="31" rot="R270">
 <attribute name="PROD_ID" value="CAP-08402" x="55.01" y="47.02" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="C_VA2" library="SparkFun-Capacitors" package="0805" value="0.1uF" x="45" y="31" rot="R270">
+<element name="C_VA2" library="SparkFun-Capacitors" package="0805" value="22uF" x="45" y="31" rot="R270">
 <attribute name="PROD_ID" value="CAP-08402" x="53" y="53.38" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="C_V1" library="SparkFun-Capacitors" package="0805" value="0.1uF" x="48.4" y="26.66">
+<element name="C_V1" library="SparkFun-Capacitors" package="0805" value="22uF" x="48.4" y="26.66">
 <attribute name="PROD_ID" value="CAP-08402" x="21.22" y="30.66" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C_V4" library="SparkFun-Capacitors" package="0805" value="0.1uF" x="63" y="28" rot="R180">
+<element name="C_V4" library="SparkFun-Capacitors" package="0805" value="22uF" x="63" y="28" rot="R180">
 <attribute name="PROD_ID" value="CAP-08402" x="85.86" y="20" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="C_VCAP1" library="SparkFun-Capacitors" package="0805" value="2.2uF" x="63.5" y="26" rot="R180">
+<element name="C_VCAP1" library="SparkFun-Capacitors" package="0805" value="22uF" x="63.5" y="26" rot="R180">
 <attribute name="PROD_ID" value="CAP-08402" x="86.98" y="22" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="C_V2" library="SparkFun-Capacitors" package="0805" value="0.1uF" x="63.5" y="38">
+<element name="C_V2" library="SparkFun-Capacitors" package="0805" value="22uF" x="63.5" y="38">
 <attribute name="PROD_ID" value="CAP-08402" x="22.98" y="42" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C_VCAP2" library="SparkFun-Capacitors" package="0805" value="2.2uF" x="63.5" y="36">
+<element name="C_VCAP2" library="SparkFun-Capacitors" package="0805" value="22uF" x="63.5" y="36">
 <attribute name="PROD_ID" value="CAP-08402" x="29.23" y="40" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C1" library="SparkFun-Capacitors" package="0603" value="12pF" x="42.28" y="37.84">
@@ -1174,7 +1174,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 </element>
 <element name="U$2" library="Cristal Oscillator" package="OSC" value="OSC" x="42.34" y="32.15" rot="R90"/>
 <element name="SWD" library="headers(2mm)" package="1X5" value="1X5" x="55" y="41.5"/>
-<element name="CPWR_5" library="SparkFun-Capacitors" package="0805" value="0.47µF" x="82.69" y="20.56" rot="R180">
+<element name="CPWR_5" library="SparkFun-Capacitors" package="0805" value="0.33µF" x="82.69" y="20.56" rot="R180">
 <attribute name="PROD_ID" value="CAP-08469" x="87.69" y="4.56" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="REG3" library="LM2940IMP-5.0" package="MP04A" value="LM2940IMP-5.0/NOPB" x="81" y="15.5" rot="R270">
@@ -1190,7 +1190,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <attribute name="VENDOR" value="National Semiconductor" x="93" y="30.5" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VERSION" value="1" x="93" y="30.5" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="CPWR_6" library="SparkFun-Capacitors" package="0805" value="22uF or 33uF" x="79.5" y="20.56">
+<element name="CPWR_6" library="SparkFun-Capacitors" package="0805" value="0.33µF" x="79.5" y="20.56">
 <attribute name="PROD_ID" value="CAP-08469" x="56.5" y="36.56" size="1.778" layer="27" display="off"/>
 </element>
 <element name="SPI2" library="headers(2mm)" package="1X4" value="1X4" x="68" y="29" rot="R90"/>
