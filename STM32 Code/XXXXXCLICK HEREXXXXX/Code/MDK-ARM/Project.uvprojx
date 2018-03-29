@@ -1304,6 +1304,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>USART.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\USART.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1333,6 +1338,11 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>USART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\USART.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2642,6 +2652,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>USART.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\USART.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2671,6 +2686,11 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>USART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\USART.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -3980,6 +4000,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>USART.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\USART.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4009,6 +4034,11 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>USART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\USART.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -5365,6 +5395,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>USART.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\USART.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -5394,6 +5429,11 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>USART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\USART.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -6703,6 +6743,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>USART.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\USART.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -6732,6 +6777,11 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>USART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\USART.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -7941,6 +7991,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>USART.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\USART.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -7970,6 +8025,11 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>USART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\USART.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -9178,6 +9238,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>USART.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\USART.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -9207,6 +9272,11 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>USART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\USART.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -10363,6 +10433,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>USART.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\USART.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -10392,6 +10467,11 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>USART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\USART.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -11500,6 +11580,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>USART.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\USART.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -11529,6 +11614,11 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>USART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\USART.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -12638,6 +12728,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>USART.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\USART.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -12667,6 +12762,11 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>USART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\USART.c</FilePath>
             </File>
           </Files>
         </Group>

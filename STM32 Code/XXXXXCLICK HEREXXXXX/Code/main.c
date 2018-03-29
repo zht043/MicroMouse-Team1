@@ -1,8 +1,11 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "main.h"
 #include "SysTime.h"
 #include "GPIO.h"
 #include "Initiation.h"
 #include "Timer.h"
+#include "USART.h"
 #include "SPI.h"
 void initAlles() {
 		SysTime_Init();
@@ -40,6 +43,18 @@ void PWM_Tester(void) {
 				setPWM(pwm2, 333);
 		}
 }
+void USART_Tester(void) {
+	SysTime_Init();
+	initUSART(USART1, PA9, PA10, 9600);
+	printfForUx(USART1);
+	scanfForUx(USART1);
+	printf("EL PSY CONGROO <<<<<>>>>> Ich Liebe dich~\r\n");
+	char str[100];
+	while(1) {
+		readLine(str);
+		printf("%s\r\n",str);
+	}
+}
 void SPI_Tester(void) {
 		SPI_init();
 		while(1) {
@@ -51,8 +66,9 @@ int main(void)
 {
 		//initAlles();
 	  //GPIO_Tester();
-		SysClock_Tester();
+		//SysClock_Tester();
 		//PWM_Tester();
+		USART_Tester();
 		//SPI_Tester();
 }
 
