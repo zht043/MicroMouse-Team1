@@ -35,20 +35,83 @@ void SysClock_Tester(void) {
 }
 void PWM_Tester(void) {
 		SysTime_Init();
-		TIM pwm1 = initIO_TIM(TIMER1, PA8);
-		TIM pwm2 = initIO_TIM(TIMER1, PA9);
+
+//ADVTIM Testing
+		TIM pwm1 = initIO_TIM(TIMER1, PA8, Ch1);
+		TIM pwm2 = initIO_TIM(TIMER1, PA9, Ch2);
+	
+//		TIM pwm1 = initIO_TIM(TIMER8, PC6, Ch1);
+//	  TIM pwm2 = initIO_TIM(TIMER8, PC7, Ch2);
+		
+//NORTIM Testing	
+//		TIM pwm1 = initIO_TIM(TIMER2, PA0, Ch1);
+//	  TIM pwm2 = initIO_TIM(TIMER2, PA1, Ch2);
+	
+//		TIM pwm1 = initIO_TIM(TIMER3, PA6, Ch1);
+//	  TIM pwm2 = initIO_TIM(TIMER3, PA7, Ch2);
+	
+//	  TIM pwm1 = initIO_TIM(TIMER4, PB6, Ch1);
+//	  TIM pwm2 = initIO_TIM(TIMER4, PB7, Ch2);
+	
+//		TIM pwm1 = initIO_TIM(TIMER5, PA0, Ch1);
+//	  TIM pwm2 = initIO_TIM(TIMER5, PA1, Ch2);
+
+//    TIM pwm1 = initIO_TIM(TIMER9, PA2, Ch1);
+//	  TIM pwm2 = initIO_TIM(TIMER9, PA3, Ch2);
+
+//		No Use of TIMER10, 11 
+		
+//		TIM pwm1 = initIO_TIM(TIMER12, PB14, Ch1);
+//	  TIM pwm2 = initIO_TIM(TIMER12, PB15, Ch2);
+    
+//		No Use of TIMER13, 14
+		
 		PWM_ON(pwm1.TIMERx,10000); //pwm frequency = 10khz
+	
 		while(1) {
-			  setPWM(pwm1, 666);
-				setPWM(pwm2, 333);
+			  setPWM(pwm1, 250);
+				setPWM(pwm2, 750);
 		}
 }
 void USART_Tester(void) {
 	SysTime_Init();
-	initUSART(USART1, PA9, PA10, 9600);
-	printfForUx(USART1);
-	scanfForUx(USART1);
+	
+	/*initUSART(USART1, PA9, PA10, 9600);
+		printfForUx(USART1);
+		scanfForUx(USART1);
+	*/
+	
+	// Warning USART2 doesn't work, rest do
+	//initUSART(USART2, PA2, PA3, 9600);
+	//printfForUx(USART2);
+	//scanfForUx(USART2);
+	
+	/*initUSART(USART3, PB10, PC5, 9600);
+		printfForUx(USART3);
+		scanfForUx(USART3);
+	*/
+
+	/*initUSART(UART4, PA0, PA1, 9600);
+		printfForUx(UART4);
+		scanfForUx(UART4);
+	*/
+	
+	/*initUSART(UART5, PC12, PD2, 9600);
+		printfForUx(UART5);
+		scanfForUx(UART5);
+	*/
+	
+	initUSART(USART6, PC6, PC7, 9600);
+	printfForUx(USART6);
+	scanfForUx(USART6);
+	
 	printf("EL PSY CONGROO <<<<<>>>>> Ich Liebe dich~\r\n");
+	printf("Float = %.2f", (float)32.0);
+	printf("Double = %.2f", (double)42.0);
+	printf("Int = %d", -77);
+	printf("Long = %ld", (long)2147483647);
+	printf("Char = %c", 'y');
+	
 	char str[100];
 	while(1) {
 		readLine(str);
@@ -67,8 +130,8 @@ int main(void)
 		//initAlles();
 	  //GPIO_Tester();
 		//SysClock_Tester();
-		//PWM_Tester();
-		USART_Tester();
+		PWM_Tester();
+		//USART_Tester();
 		//SPI_Tester();
 }
 
@@ -120,3 +183,13 @@ void assert_failed(uint8_t* file, uint32_t line)
 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+
+
+
+
+
+
+
+
+
