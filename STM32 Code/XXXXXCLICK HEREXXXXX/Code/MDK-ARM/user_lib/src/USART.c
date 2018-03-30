@@ -2,9 +2,31 @@
 USART USART_decoder(USART_TypeDef* USARTx) {
 		USART U;
 		U.USARTx = USARTx;
-		if(USARTx == USART1) {
-				RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
-				U.USARTx_AF = GPIO_AF_USART1;
+	  
+	  //Switch USART case
+		if (USARTx == USART1) {
+				RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE); 
+			  U.USARTx_AF = GPIO_AF_USART1;
+		}
+		else if (USARTx == USART6) {
+				RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART6, ENABLE); 
+			  U.USARTx_AF = GPIO_AF_USART6;
+		}
+		else if (USARTx == USART2) {
+				RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE); 
+			  U.USARTx_AF = GPIO_AF_USART2;
+		}
+		else if (USARTx == USART3) {
+				RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART3, ENABLE); 
+			  U.USARTx_AF = GPIO_AF_USART3;
+		}
+		else if (USARTx == UART4) {
+				RCC_APB1PeriphClockCmd(RCC_APB1Periph_UART4, ENABLE); 
+			  U.USARTx_AF = GPIO_AF_UART4;
+		}
+		else if (USARTx == UART5) {
+				RCC_APB1PeriphClockCmd(RCC_APB1Periph_UART5, ENABLE); 
+			  U.USARTx_AF = GPIO_AF_UART5;
 		}
 		return U;
 }
@@ -20,6 +42,9 @@ void initUSART(USART_TypeDef* USARTx, uint8_t TX_Pxx, uint8_t RX_Pxx, uint32_t U
 		U = USART_decoder(USARTx);
 		RCC_AHB1PeriphClockCmd(TX.RCC_CMD, ENABLE);
 		RCC_AHB1PeriphClockCmd(RX.RCC_CMD, ENABLE);
+	//  RCC_AHB2PeriphClockCmd(TX.RCC_CMD, ENABLE);
+//		RCC_AHB2PeriphClockCmd(RX.RCC_CMD, ENABLE);
+	
 		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 		GPIO_InitStructure.GPIO_OType = GPIO_OType_PP; 
 		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP; 
@@ -36,7 +61,7 @@ void initUSART(USART_TypeDef* USARTx, uint8_t TX_Pxx, uint8_t RX_Pxx, uint32_t U
 		GPIO_PinAFConfig(RX.GPIOx, RX.GPIO_PinSource, U.USARTx_AF); 
 		
 		USART_InitStructure.USART_BaudRate = USARTx_BAUDRATE; 
-		USART_InitStructure.USART_WordLength = USART_WordLength_8b; 
+		USART_InitStructure.USART_WordLength = USART_WordLength_9b; 
     USART_InitStructure.USART_StopBits = USART_StopBits_1;
     USART_InitStructure.USART_Parity = USART_Parity_No;
 		USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None; 
@@ -76,6 +101,7 @@ void readLine(char* str) {
 		int i = 0;
 		str[i] = getchar();
 		while(str[i++] != '\r') str[i] = getchar();
+		str[i-1] = '\n';
 		str[i] = '\0';
 			
 }
