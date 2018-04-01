@@ -159,6 +159,7 @@ uint8_t SPI_FLASH_SendByte(uint8_t byte)
 		}
 		SPI_I2S_SendData(FLASH_SPI, byte);
 		//SPITimeout = SPIT_FLAG_TIMEOUT;
+		
 		while (SPI_I2S_GetFlagStatus(FLASH_SPI, SPI_I2S_FLAG_RXNE) == RESET)
 		{
 				//if((SPITimeout--) == 0) return SPI_TIMEOUT_UserCallback(1);

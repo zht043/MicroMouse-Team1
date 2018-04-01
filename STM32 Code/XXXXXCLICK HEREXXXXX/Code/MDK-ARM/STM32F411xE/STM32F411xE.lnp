@@ -46,6 +46,7 @@
 "stm32f411xe\spi.o"
 "stm32f411xe\systime.o"
 "stm32f411xe\timer.o"
+"stm32f411xe\usart.o"
 --library_type=microlib --strict --scatter "STM32F411xE\STM32F411xE.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

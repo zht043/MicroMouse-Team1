@@ -56,11 +56,33 @@ void USART_Tester(void) {
 	}
 }
 void SPI_Tester(void) {
+		SysTime_Init();
+		//initUSART(USART1, PA9, PA10, 9600);
+		//printfForUx(USART1);
+	  //scanfForUx(USART1);
+		//printf("EL PSY CONGROO <<<<<>>>>> Ich Liebe dich~\r\n");
 		SPI_init();
+		GPIO LED = initIO(PD13, OUTPUT);
+		digitalWrite(LED, HIGH);
+		delay(300);
+		digitalWrite(LED, LOW);
+		delay(300);
+		digitalWrite(LED, HIGH);
+		delay(300);
+		digitalWrite(LED, LOW);
+		delay(300);
+		digitalWrite(LED, HIGH);
+		delay(1000);
 		while(1) {
-				SPI_FLASH_SendByte(0x05);
+			digitalWrite(LED, LOW);
+			SPI_FLASH_SendByte(0x01);
+			delay(100);
+			digitalWrite(LED, HIGH);
 		}
-	
+		while(1) {
+			char c = SPI_FLASH_ReadByte();
+			printf("%c",c);
+		}
 }
 int main(void)
 {
@@ -68,8 +90,8 @@ int main(void)
 	  //GPIO_Tester();
 		//SysClock_Tester();
 		//PWM_Tester();
-		USART_Tester();
-		//SPI_Tester();
+		//USART_Tester();
+		SPI_Tester();
 }
 
 
