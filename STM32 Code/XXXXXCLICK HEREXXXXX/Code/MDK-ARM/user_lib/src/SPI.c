@@ -73,7 +73,7 @@ static TestStatus Buffercmp(uint8_t* pBuffer1, __IO uint8_t* pBuffer2, uint16_t 
   #define SPIx_RX_DMA_CHANNEL            DMA_Channel_0
   #define SPIx_RX_DMA_STREAM             DMA1_Stream3
   #define SPIx_RX_DMA_FLAG_TCIF          DMA_FLAG_TCIF3
-void SPI_init(void)
+void SPI1_init(void)
 {
 		GPIO_InitTypeDef GPIO_InitStructure; 
     RCC_AHB1PeriphClockCmd (FLASH_SPI_SCK_GPIO_CLK | FLASH_SPI_MISO_GPIO_CLK| 
@@ -149,8 +149,48 @@ void SPI_init(void)
   SPI_I2S_DMACmd(FLASH_SPI, SPI_I2S_DMAReq_Rx, ENABLE);*/
 	SPI_Cmd(FLASH_SPI, ENABLE);	
 }
+void SPI2_init(void)
+{
+		GPIO_InitTypeDef GPIO_InitStructure; 
+		RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC | RCC_AHB1Periph_GPIOB, ENABLE);
+		
+		GPIO_PinAFConfig(GPIOC, , 
+										 FLASH_SPI_SCK_AF); 
+		GPIO_PinAFConfig(FLASH_SPI_MISO_GPIO_PORT,FLASH_SPI_MISO_PINSOURCE, 
+										 FLASH_SPI_MISO_AF); 
+		GPIO_PinAFConfig(FLASH_SPI_MOSI_GPIO_PORT,FLASH_SPI_MOSI_PINSOURCE, 
+										 FLASH_SPI_MOSI_AF);
+		GPIO_InitStructure.GPIO_Pin = FLASH_SPI_SCK_PIN;
+		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF; 
+		GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL; 
+		GPIO_Init(FLASH_SPI_SCK_GPIO_PORT, &GPIO_InitStructure); 
+		GPIO_InitStructure.GPIO_Pin = FLASH_SPI_MISO_PIN; 
+		GPIO_Init(FLASH_SPI_MISO_GPIO_PORT, &GPIO_InitStructure); 
+		GPIO_InitStructure.GPIO_Pin = FLASH_SPI_MOSI_PIN; 
+    GPIO_Init(FLASH_SPI_MOSI_GPIO_PORT, &GPIO_InitStructure); 
+		GPIO_InitStructure.GPIO_Pin = FLASH_CS_PIN;
+		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+		GPIO_Init(FLASH_CS_GPIO_PORT, &GPIO_InitStructure);
+		SPI_FLASH_CS_HIGH(); 
+		
+		SPI_I2S_DeInit(FLASH_SPI);
+		SPI_InitTypeDef  SPI_InitStructure;
+		SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
+		SPI_InitStructure.SPI_Mode = SPI_Mode_Master; 	
+		SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
+		SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;
+		SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;
+		SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
+		SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_2;
+		SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
+		SPI_InitStructure.SPI_CRCPolynomial = 7;
+		SPI_Init(FLASH_SPI, &SPI_InitStructure);
+	SPI_Cmd(FLASH_SPI, ENABLE);	
+}
 #define Dummy_Byte 0xFF 
-uint8_t SPI_FLASH_SendByte(uint8_t byte)
+uint8_t SPI1_FLASH_SendByte(uint8_t byte)
 {
 		//SPITimeout = SPIT_FLAG_TIMEOUT;
 		while(SPI_I2S_GetFlagStatus(FLASH_SPI, SPI_I2S_FLAG_TXE) == RESET)
@@ -166,7 +206,7 @@ uint8_t SPI_FLASH_SendByte(uint8_t byte)
 		}
 		return SPI_I2S_ReceiveData(FLASH_SPI);
 } 
-uint8_t SPI_FLASH_ReadByte(void)
+uint8_t SPI1_FLASH_ReadByte(void)
 {  
-		return (SPI_FLASH_SendByte(Dummy_Byte));
+		return (SPI1_FLASH_SendByte(Dummy_Byte));
 }
