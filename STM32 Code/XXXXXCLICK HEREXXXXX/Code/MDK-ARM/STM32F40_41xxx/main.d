@@ -1,4 +1,6 @@
 stm32f40_41xxx\main.o: ../main.c
+stm32f40_41xxx\main.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+stm32f40_41xxx\main.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 stm32f40_41xxx\main.o: ../main.h
 stm32f40_41xxx\main.o: ../../../Libraries/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
 stm32f40_41xxx\main.o: E:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h
@@ -38,4 +40,5 @@ stm32f40_41xxx\main.o: .\user_lib\inc\SysTime.h
 stm32f40_41xxx\main.o: .\user_lib\inc\GPIO.h
 stm32f40_41xxx\main.o: .\user_lib\inc\Initiation.h
 stm32f40_41xxx\main.o: .\user_lib\inc\Timer.h
+stm32f40_41xxx\main.o: .\user_lib\inc\USART.h
 stm32f40_41xxx\main.o: .\user_lib\inc\SPI.h

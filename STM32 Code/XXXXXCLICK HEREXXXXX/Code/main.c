@@ -23,14 +23,56 @@ void GPIO_Tester(void) {
 }
 void SysClock_Tester(void) {
 		SysTime_Init();
-		GPIO LED0 = initIO(PC0,OUTPUT);
+		GPIO LED0 = initIO(PB13,OUTPUT);
+	  GPIO LED1 = initIO(PB12,OUTPUT);
+		GPIO LED2 = initIO(PB14,OUTPUT);
+		GPIO LED3 = initIO(PB15,OUTPUT);
+		GPIO LED4 = initIO(PB1,OUTPUT);
+		GPIO LED5 = initIO(PB0,OUTPUT);
+		GPIO LED6 = initIO(PC4,OUTPUT);
+		GPIO LED7 = initIO(PC5,OUTPUT);
+		GPIO LED8 = initIO(PA8,OUTPUT);
+		GPIO LED9 = initIO(PA9,OUTPUT);
+		GPIO LED10 = initIO(PA10,OUTPUT);
+		GPIO LED11 = initIO(PA11,OUTPUT);
+		GPIO LED12 = initIO(PC1,OUTPUT);
+		GPIO LED13 = initIO(PC2,OUTPUT);
+		GPIO LED14 = initIO(PA2,OUTPUT);
 		//GPIO Button0 = initIO(PA1, INPUT);
 		//while(digitalRead(Button0)) doNothing();
 	  while(1) {
 				digitalWrite(LED0, HIGH);
-				delay_us(10);
+				digitalWrite(LED1, HIGH);
+				digitalWrite(LED2, HIGH);
+				digitalWrite(LED3, HIGH);
+				digitalWrite(LED4, HIGH);
+				digitalWrite(LED5, HIGH);
+				digitalWrite(LED6, HIGH);
+				digitalWrite(LED7, HIGH);
+				digitalWrite(LED8, HIGH);
+				digitalWrite(LED9, HIGH);
+				digitalWrite(LED10, HIGH);
+				digitalWrite(LED11, HIGH);
+				digitalWrite(LED12, HIGH);
+				digitalWrite(LED13, HIGH);
+				digitalWrite(LED14, HIGH);
+			delay(1000);
 				digitalWrite(LED0, LOW);
-				delay_us(10);
+				digitalWrite(LED1, LOW);
+				digitalWrite(LED2, LOW);
+				digitalWrite(LED3, LOW);
+				digitalWrite(LED4, LOW);
+				digitalWrite(LED5, LOW);
+				digitalWrite(LED6, LOW);
+				digitalWrite(LED7, LOW);
+				digitalWrite(LED8, LOW);
+				digitalWrite(LED9, LOW);
+				digitalWrite(LED10, LOW);
+				digitalWrite(LED11, LOW);
+				digitalWrite(LED12, LOW);
+				digitalWrite(LED13, LOW);
+				digitalWrite(LED14, LOW);
+			delay(1000);
 		}
 }
 void PWM_Tester(void) {
@@ -57,41 +99,35 @@ void USART_Tester(void) {
 }
 void SPI_Tester(void) {
 		SysTime_Init();
-		//initUSART(USART1, PA9, PA10, 9600);
-		//printfForUx(USART1);
-	  //scanfForUx(USART1);
-		//printf("EL PSY CONGROO <<<<<>>>>> Ich Liebe dich~\r\n");
-		SPI_init();
-		GPIO LED = initIO(PD13, OUTPUT);
-		digitalWrite(LED, HIGH);
-		delay(300);
-		digitalWrite(LED, LOW);
-		delay(300);
-		digitalWrite(LED, HIGH);
-		delay(300);
-		digitalWrite(LED, LOW);
-		delay(300);
-		digitalWrite(LED, HIGH);
-		delay(1000);
-		while(1) {
-			digitalWrite(LED, LOW);
-			SPI_FLASH_SendByte(0x01);
-			delay(100);
-			digitalWrite(LED, HIGH);
-		}
-		while(1) {
-			char c = SPI_FLASH_ReadByte();
-			printf("%c",c);
-		}
+		initUSART(USART1, PA9, PA10, 9600);
+		printfForUx(USART1);
+	  scanfForUx(USART1);
+		printf("EL PSY CONGROO <<<<<>>>>> Ich Liebe dich~\r\n");
+		SPI1_init();
+		SPI2_init();
+		
+	for(int i = 0; i < 10; i++) {
+		while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_TXE) == RESET);
+		SPI_I2S_SendData(SPI2, 10 - i);  //SPI2 -> SPI1
+		while(SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_TXE) == RESET);
+		SPI_I2S_SendData(SPI1, i); // SPI1 -> SPI2
+		printf("SENT\r\n");
+		while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+		char b = SPI_I2S_ReceiveData(SPI2);
+		while(SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_RXNE) == RESET);
+		char a = SPI_I2S_ReceiveData(SPI1);
+		printf("SPI1 receives %d     SPI2 receives %d\r\n", a, b);
+		
+	}
 }
 int main(void)
 {
 		//initAlles();
 	  //GPIO_Tester();
-		//SysClock_Tester();
+		SysClock_Tester();
 		//PWM_Tester();
 		//USART_Tester();
-		SPI_Tester();
+		//SPI_Tester();
 }
 
 

@@ -59,7 +59,7 @@ I (../../../Libraries/STM32F4xx_StdPeriph_Driver/inc/misc.h)(0x581CC67B)
 I (../../../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_flash_ramfunc.h)(0x581CC67B)
 I (../main.h)(0x5AB88AC8)
 I (.\user_lib\inc\SysTime.h)(0x5AB88AC8)
-F (../main.c)(0x5ABF1355)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../ -I ../../../Libraries/CMSIS/Device/ST/STM32F4xx/Include -I ../../../Libraries/STM32F4xx_StdPeriph_Driver/inc -I ../../../Utilities/STM32_EVAL/Common -I .\user_lib\inc --C99-I.\RTE\_STM32F411xE-IE:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IE:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F411xE -DUSE_STDPERIPH_DRIVER -DSTM32F411xE --C99-o stm32f411xe\main.o --omf_browse stm32f411xe\main.crf --depend stm32f411xe\main.d)
+F (../main.c)(0x5AC43AEB)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../ -I ../../../Libraries/CMSIS/Device/ST/STM32F4xx/Include -I ../../../Libraries/STM32F4xx_StdPeriph_Driver/inc -I ../../../Utilities/STM32_EVAL/Common -I .\user_lib\inc --C99-I.\RTE\_STM32F411xE-IE:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IE:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F411xE -DUSE_STDPERIPH_DRIVER -DSTM32F411xE --C99-o stm32f411xe\main.o --omf_browse stm32f411xe\main.crf --depend stm32f411xe\main.d)
 I (E:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588C5634)
 I (E:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588C5634)
 I (../main.h)(0x5AB88AC8)
@@ -95,7 +95,7 @@ I (.\user_lib\inc\GPIO.h)(0x5AB88AC8)
 I (.\user_lib\inc\Initiation.h)(0x5AB88AC8)
 I (.\user_lib\inc\Timer.h)(0x5AB88AC8)
 I (.\user_lib\inc\USART.h)(0x5ABC5F73)
-I (.\user_lib\inc\SPI.h)(0x5ABF0B3E)
+I (.\user_lib\inc\SPI.h)(0x5AC43AEB)
 F (../../../Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.c)(0x581CC67B)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../ -I ../../../Libraries/CMSIS/Device/ST/STM32F4xx/Include -I ../../../Libraries/STM32F4xx_StdPeriph_Driver/inc -I ../../../Utilities/STM32_EVAL/Common -I .\user_lib\inc --C99-I.\RTE\_STM32F411xE-IE:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IE:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F411xE -DUSE_STDPERIPH_DRIVER -DSTM32F411xE --C99-o stm32f411xe\stm32f4xx_flash.o --omf_browse stm32f411xe\stm32f4xx_flash.crf --depend stm32f411xe\stm32f4xx_flash.d)
 I (../../../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_flash.h)(0x581CC67B)
 I (../../../Libraries/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x582097AB)
@@ -1348,7 +1348,7 @@ F (../../../Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm
 F (../../../Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f429_439xx.s)(0x582097A0)()
 F (.\user_lib\inc\GPIO.h)(0x5AB88AC8)()
 F (.\user_lib\inc\Initiation.h)(0x5AB88AC8)()
-F (.\user_lib\inc\SPI.h)(0x5ABF0B3E)()
+F (.\user_lib\inc\SPI.h)(0x5AC43AEB)()
 F (.\user_lib\inc\SysTime.h)(0x5AB88AC8)()
 F (.\user_lib\inc\Timer.h)(0x5AB88AC8)()
 F (.\user_lib\inc\USART.h)(0x5ABC5F73)()
@@ -1412,8 +1412,8 @@ I (../../../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_wwdg.h)(0x581CC67
 I (../../../Libraries/STM32F4xx_StdPeriph_Driver/inc/misc.h)(0x581CC67B)
 I (../../../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_flash_ramfunc.h)(0x581CC67B)
 I (.\user_lib\inc\SysTime.h)(0x5AB88AC8)
-F (.\user_lib\src\SPI.c)(0x5ABF133C)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../ -I ../../../Libraries/CMSIS/Device/ST/STM32F4xx/Include -I ../../../Libraries/STM32F4xx_StdPeriph_Driver/inc -I ../../../Utilities/STM32_EVAL/Common -I .\user_lib\inc --C99-I.\RTE\_STM32F411xE-IE:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IE:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F411xE -DUSE_STDPERIPH_DRIVER -DSTM32F411xE --C99-o stm32f411xe\spi.o --omf_browse stm32f411xe\spi.crf --depend stm32f411xe\spi.d)
-I (.\user_lib\inc\SPI.h)(0x5ABF0B3E)
+F (.\user_lib\src\SPI.c)(0x5AC4389B)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../ -I ../../../Libraries/CMSIS/Device/ST/STM32F4xx/Include -I ../../../Libraries/STM32F4xx_StdPeriph_Driver/inc -I ../../../Utilities/STM32_EVAL/Common -I .\user_lib\inc --C99-I.\RTE\_STM32F411xE-IE:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IE:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F411xE -DUSE_STDPERIPH_DRIVER -DSTM32F411xE --C99-o stm32f411xe\spi.o --omf_browse stm32f411xe\spi.crf --depend stm32f411xe\spi.d)
+I (.\user_lib\inc\SPI.h)(0x5AC43AEB)
 I (.\user_lib\inc\GPIO.h)(0x5AB88AC8)
 I (../../../Libraries/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x582097AB)
 I (E:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h)(0x58991C7A)

@@ -3,7 +3,8 @@
 #include "GPIO.h"
 #include "stm32f4xx_spi.h"
 #include "stm32f4xx_dma.h"
-void SPI_init(void);
-uint8_t SPI_FLASH_SendByte(uint8_t byte);
-uint8_t SPI_FLASH_ReadByte(void);
+void SPI1_init(void);
+uint8_t SPI_SendByte(uint8_t byte, SPI_TypeDef * SPIx);
+uint8_t SPI_ReadByte(SPI_TypeDef * SPIx);
+void SPI2_init(void);
 #endif 
