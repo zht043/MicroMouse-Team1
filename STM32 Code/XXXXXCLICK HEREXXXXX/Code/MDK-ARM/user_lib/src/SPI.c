@@ -86,7 +86,7 @@ static TestStatus Buffercmp(uint8_t* pBuffer1, __IO uint8_t* pBuffer2, uint16_t 
 void SPI1_init(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure; 	
-	RCC_AHB1PeriphClockCmd (RCC_AHB1Periph_GPIOA | RCC_AHB1Periph_GPIOB, ENABLE);
+	RCC_AHB1PeriphClockCmd (RCC_AHB1Periph_GPIOA|RCC_AHB1Periph_GPIOB, ENABLE);
 	RCC_APB2PeriphClockCmd (RCC_APB2Periph_SPI1, ENABLE);
 	GPIO_PinAFConfig(GPIOA,GPIO_PinSource5,GPIO_AF_SPI1);
 	GPIO_PinAFConfig(GPIOA,GPIO_PinSource6,GPIO_AF_SPI1);
@@ -125,8 +125,8 @@ void SPI2_init(void)
 	GPIO_InitTypeDef GPIO_InitStructure; 	
 	RCC_AHB1PeriphClockCmd (RCC_AHB1Periph_GPIOC | RCC_AHB1Periph_GPIOB, ENABLE);
 	RCC_APB1PeriphClockCmd (RCC_APB1Periph_SPI2, ENABLE);
-	GPIO_PinAFConfig(GPIOC,GPIO_PinSource3,GPIO_AF_SPI2);
 	GPIO_PinAFConfig(GPIOC,GPIO_PinSource2,GPIO_AF_SPI2);
+	GPIO_PinAFConfig(GPIOC,GPIO_PinSource3,GPIO_AF_SPI2);
 	GPIO_PinAFConfig(GPIOB,GPIO_PinSource10,GPIO_AF_SPI2);
 
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;

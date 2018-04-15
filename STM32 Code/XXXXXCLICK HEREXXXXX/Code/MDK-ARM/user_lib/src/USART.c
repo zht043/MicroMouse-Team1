@@ -76,6 +76,6 @@ void readLine(char* str) {
 		int i = 0;
 		str[i] = getchar();
 		while(str[i++] != '\r') str[i] = getchar();
-		str[i] = '\0';
+		str[i-1] = '\0';
 			
 }

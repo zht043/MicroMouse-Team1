@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "main.h"
 #include "SysTime.h"
 #include "GPIO.h"
@@ -94,7 +95,7 @@ void USART_Tester(void) {
 	initUSART(USART1, PA9, PA10, 9600);
 	printfForUx(USART1);
 	scanfForUx(USART1);
-	printf("EL PSY CONGROO <<<<<>>>>> Ich Liebe dich~\r\n");
+	printf("a");
 	char str[100];
 	while(1) {
 		readLine(str);
@@ -116,7 +117,11 @@ void SPI_Tester(void) {
 		while(SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_TXE) == RESET);
 		SPI_I2S_SendData(SPI1, i); // SPI1 -> SPI2
 		printf("SENT\r\n");
-		while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+		while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET) {
+	//		printf("SPI2 status = Reset");
+		}
+					printf("SPI2 status != Reset");
+
 		char b = SPI_I2S_ReceiveData(SPI2);
 		while(SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_RXNE) == RESET);
 		char a = SPI_I2S_ReceiveData(SPI1);
@@ -124,14 +129,65 @@ void SPI_Tester(void) {
 		
 	}
 }
+void UPtester(void) {
+		SysTime_Init();
+		initUSART(USART1, PB6, PB7, 9600);
+		printfForUx(USART1);
+		scanfForUx(USART1);
+		printf("\rHellow World!!!!!!!!!!!!!!!!!!!!!!EL PSY CONGROO\r\n");
+		
+		GPIO Button0 = initIO(PC9, INPUT);
+	  GPIO LED1 = initIO(PA3,OUTPUT);
+		GPIO LED2 = initIO(PC4,OUTPUT);
+		GPIO LED3 = initIO(PB10,OUTPUT);
+		GPIO LED4 = initIO(PB11,OUTPUT);
+		GPIO LED5 = initIO(PC13,OUTPUT);
+		GPIO LED6 = initIO(PB4,OUTPUT);
+		//while(digitalRead(Button0));
+		char str[100];
+		readLine(str);
+		while(strcmp(str, "start")) readLine(str);
+		while(1) {
+			digitalWrite(LED1, HIGH);
+			delay(1000);
+			digitalWrite(LED1, LOW);
+			delay(1000);
+			
+			digitalWrite(LED2, HIGH);
+			delay(1000);
+			digitalWrite(LED2, LOW);
+			delay(1000);
+					
+			digitalWrite(LED3, HIGH);
+			delay(1000);
+			digitalWrite(LED3, LOW);
+			delay(1000);
+
+			digitalWrite(LED4, HIGH);
+			delay(1000);
+			digitalWrite(LED4, LOW);
+			delay(1000);
+
+			digitalWrite(LED5, HIGH);
+			delay(1000);
+			digitalWrite(LED5, LOW);
+			delay(1000);
+						
+			digitalWrite(LED6, HIGH);
+			delay(1000);
+			digitalWrite(LED6, LOW);
+			delay(1000);
+		}
+}
 int main(void)
 {
 		//initAlles();
-	  GPIO_Tester();
+	  //GPIO_Tester();
 		//SysClock_Tester();
 		//PWM_Tester();
 		//USART_Tester();
 		//SPI_Tester();
+		UPtester();
 }
 
 
