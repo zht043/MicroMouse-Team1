@@ -879,10 +879,10 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <element name="C_V3" library="SparkFun-Capacitors" package="0805" value="0.1uF" x="37" y="49" rot="R270">
 <attribute name="PROD_ID" value="CAP-08402" x="72" y="80" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="C_BAT" library="SparkFun-Capacitors" package="0805" value="22uF" x="39" y="49" rot="R270">
+<element name="C_BAT" library="SparkFun-Capacitors" package="0805" value="2.2uF" x="39" y="49" rot="R270">
 <attribute name="PROD_ID" value="CAP-08402" x="74" y="72" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="C_VA1" library="SparkFun-Capacitors" package="0805" value="22uF" x="39" y="44" rot="R270">
+<element name="C_VA1" library="SparkFun-Capacitors" package="0805" value="2.2uF" x="39" y="44" rot="R270">
 <attribute name="PROD_ID" value="CAP-08402" x="74" y="91" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C_VA2" library="SparkFun-Capacitors" package="0805" value="0.1uF" x="37" y="44" rot="R270">
@@ -894,13 +894,13 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <element name="C_V4" library="SparkFun-Capacitors" package="0805" value="0.1uF" x="55" y="40" rot="R180">
 <attribute name="PROD_ID" value="CAP-08402" x="110" y="5" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="C_VCAP1" library="SparkFun-Capacitors" package="0805" value="22uF" x="55.5" y="38" rot="R180">
+<element name="C_VCAP1" library="SparkFun-Capacitors" package="0805" value="2.2uF" x="55.5" y="38" rot="R180">
 <attribute name="PROD_ID" value="CAP-08402" x="90.5" y="3" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="C_V2" library="SparkFun-Capacitors" package="0805" value="0.1uF" x="55.5" y="50">
 <attribute name="PROD_ID" value="CAP-08402" x="0.5" y="85" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C_VCAP2" library="SparkFun-Capacitors" package="0805" value="22uF" x="55.5" y="48">
+<element name="C_VCAP2" library="SparkFun-Capacitors" package="0805" value="2.2uF" x="55.5" y="48">
 <attribute name="PROD_ID" value="CAP-08402" x="8.5" y="83" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C1" library="SparkFun-Capacitors" package="0603" value="12pF" x="34.34" y="49.67">

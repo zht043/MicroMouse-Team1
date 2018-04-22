@@ -1644,23 +1644,23 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND1" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="GND2" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="GND3" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
-<part name="C_V3" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="22uF"/>
+<part name="C_V3" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="0.1uF"/>
 <part name="C_BAT" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="22uF"/>
 <part name="C_VA1" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="22uF"/>
-<part name="C_VA2" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="22uF"/>
-<part name="C_V1" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="22uF"/>
+<part name="C_VA2" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="0.1uF"/>
+<part name="C_V1" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="0.1uF"/>
 <part name="GND4" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
-<part name="C_V4" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="22uF"/>
+<part name="C_V4" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="0.1uF"/>
 <part name="C_VCAP1" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="22uF"/>
 <part name="GND6" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
-<part name="C_V2" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="22uF"/>
+<part name="C_V2" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="0.1uF"/>
 <part name="C_VCAP2" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="22uF"/>
 <part name="GND5" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="GND19" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="C1" library="SparkFun-Capacitors" deviceset="22PF" device="-0603-50V-5%" value="12pF"/>
 <part name="C2" library="SparkFun-Capacitors" deviceset="22PF" device="-0603-50V-5%" value="12pF"/>
 <part name="GND22" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="U$2" library="Cristal Oscillator" deviceset="OSC" device=""/>
+<part name="CX5032GA" library="Cristal Oscillator" deviceset="OSC" device=""/>
 <part name="LM" library="headers(2mm)" deviceset="1X4" device=""/>
 <part name="RM" library="headers(2mm)" deviceset="1X4" device=""/>
 <part name="SPI2" library="headers(2mm)" deviceset="1X4" device=""/>
@@ -1721,7 +1721,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="C1" gate="G$1" x="54.56" y="82.9"/>
 <instance part="C2" gate="G$1" x="24.08" y="82.9"/>
 <instance part="GND22" gate="1" x="24.08" y="67.66"/>
-<instance part="U$2" gate="G$1" x="39.32" y="98.521"/>
+<instance part="CX5032GA" gate="G$1" x="39.32" y="98.521"/>
 <instance part="LM" gate="G$1" x="270.46" y="24.48" rot="R90"/>
 <instance part="RM" gate="G$1" x="290.78" y="24.48" rot="R90"/>
 <instance part="SPI2" gate="G$1" x="293.32" y="54.96" rot="R180"/>
@@ -2085,7 +2085,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="C1" gate="G$1" pin="1"/>
 <wire x1="54.56" y1="105.76" x2="54.56" y2="98.14" width="0.1524" layer="91"/>
 <label x="54.56" y="105.76" size="0.8128" layer="95" rot="R90" xref="yes"/>
-<pinref part="U$2" gate="G$1" pin="IN2"/>
+<pinref part="CX5032GA" gate="G$1" pin="IN2"/>
 <wire x1="54.56" y1="98.14" x2="54.56" y2="87.98" width="0.1524" layer="91"/>
 <wire x1="51.06" y1="98.141" x2="51.06" y2="98.14" width="0.1524" layer="91"/>
 <wire x1="51.06" y1="98.14" x2="54.56" y2="98.14" width="0.1524" layer="91"/>
@@ -2102,7 +2102,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="C2" gate="G$1" pin="1"/>
 <wire x1="24.08" y1="105.76" x2="24.08" y2="98.14" width="0.1524" layer="91"/>
 <label x="24.08" y="105.76" size="0.8128" layer="95" rot="R90" xref="yes"/>
-<pinref part="U$2" gate="G$1" pin="IN1"/>
+<pinref part="CX5032GA" gate="G$1" pin="IN1"/>
 <wire x1="24.08" y1="98.14" x2="24.08" y2="87.98" width="0.1524" layer="91"/>
 <wire x1="27.36" y1="98.141" x2="27.36" y2="98.14" width="0.1524" layer="91"/>
 <wire x1="27.36" y1="98.14" x2="24.08" y2="98.14" width="0.1524" layer="91"/>

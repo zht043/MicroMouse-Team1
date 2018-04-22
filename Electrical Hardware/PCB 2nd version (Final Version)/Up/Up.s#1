@@ -1645,16 +1645,16 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND2" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="GND3" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="C_V3" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="0.1uF"/>
-<part name="C_BAT" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="22uF"/>
-<part name="C_VA1" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="22uF"/>
+<part name="C_BAT" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="2.2uF"/>
+<part name="C_VA1" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="2.2uF"/>
 <part name="C_VA2" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="0.1uF"/>
 <part name="C_V1" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="0.1uF"/>
 <part name="GND4" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="C_V4" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="0.1uF"/>
-<part name="C_VCAP1" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="22uF"/>
+<part name="C_VCAP1" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="2.2uF"/>
 <part name="GND6" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="C_V2" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="0.1uF"/>
-<part name="C_VCAP2" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="22uF"/>
+<part name="C_VCAP2" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="2.2uF"/>
 <part name="GND5" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="GND19" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="C1" library="SparkFun-Capacitors" deviceset="22PF" device="-0603-50V-5%" value="12pF"/>
