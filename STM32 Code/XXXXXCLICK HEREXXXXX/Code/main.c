@@ -130,9 +130,9 @@ int main(void)
 		//initAlles();
 	  //GPIO_Tester();
 		//SysClock_Tester();
-		PWM_Tester();
+		//PWM_Tester();
 		//USART_Tester();
-		//SPI_Tester();
+		SPI_Tester();
 }
 
 

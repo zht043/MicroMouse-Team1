@@ -20,21 +20,21 @@
 #define FLASH_SPI_MOSI_GPIO_PORT            GPIOA 
 #define FLASH_SPI_MOSI_GPIO_CLK             RCC_AHB1Periph_GPIOA
 #define FLASH_SPI_MOSI_PINSOURCE            GPIO_PinSource7 
-#define FLASH_SPI_MOSI_AF                    GPIO_AF_SPI1 
+#define FLASH_SPI_MOSI_AF                   GPIO_AF_SPI1 
 //CS(NSS)
-#define FLASH_CS_PIN                         GPIO_Pin_4 
-#define FLASH_CS_GPIO_PORT                   GPIOA 
-#define FLASH_CS_GPIO_CLK                    RCC_AHB1Periph_GPIOA 
+#define FLASH_CS_PIN                        GPIO_Pin_4 
+#define FLASH_CS_GPIO_PORT                  GPIOA 
+#define FLASH_CS_GPIO_CLK                   RCC_AHB1Periph_GPIOA 
   
-// CS(NSS) 
-#define SPI_FLASH_CS_LOW()      GPIO_ResetBits(FLASH_CS_GPIO_PORT, FLASH_CS_PIN)
+//CS(NSS) 
+#define SPI_FLASH_CS_LOW()      						GPIO_ResetBits(FLASH_CS_GPIO_PORT, FLASH_CS_PIN)
 //CS(NSS)
-#define SPI_FLASH_CS_HIGH()     GPIO_SetBits(FLASH_CS_GPIO_PORT, FLASH_CS_PIN) 
+#define SPI_FLASH_CS_HIGH()     						GPIO_SetBits(FLASH_CS_GPIO_PORT, FLASH_CS_PIN) 
 
 
-#define USER_TIMEOUT                    ((uint32_t)0x64)
+#define USER_TIMEOUT                    		((uint32_t)0x64)
 
-#define BUFFERSIZE                       100
+#define BUFFERSIZE                       		100
 uint8_t aTxBuffer[BUFFERSIZE] = "SPI Master/Slave : Communication between two SPI using DMA";
 __IO uint8_t aRxBuffer [BUFFERSIZE];
 __IO uint8_t ubRxIndex = 0;
@@ -42,7 +42,7 @@ __IO uint8_t ubTxIndex = 0;
 __IO uint32_t TimeOut = 0;
 
 
-#define countof(a)   (sizeof(a) / sizeof(*(a)))
+#define countof(a)   												(sizeof(a) / sizeof(*(a)))
 typedef enum {FAILED = 0, PASSED = !FAILED} TestStatus;
 /**
   * @brief  Compares two buffers.
@@ -66,13 +66,13 @@ static TestStatus Buffercmp(uint8_t* pBuffer1, __IO uint8_t* pBuffer2, uint16_t 
   return PASSED;
 }
 #define SPIx_DMA                       DMA1
-  #define SPIx_DMA_CLK                   RCC_AHB1Periph_DMA1
-  #define SPIx_TX_DMA_CHANNEL            DMA_Channel_0
-  #define SPIx_TX_DMA_STREAM             DMA1_Stream4
-  #define SPIx_TX_DMA_FLAG_TCIF          DMA_FLAG_TCIF4
-  #define SPIx_RX_DMA_CHANNEL            DMA_Channel_0
-  #define SPIx_RX_DMA_STREAM             DMA1_Stream3
-  #define SPIx_RX_DMA_FLAG_TCIF          DMA_FLAG_TCIF3
+#define SPIx_DMA_CLK                   RCC_AHB1Periph_DMA1
+#define SPIx_TX_DMA_CHANNEL            DMA_Channel_0
+#define SPIx_TX_DMA_STREAM             DMA1_Stream4
+#define SPIx_TX_DMA_FLAG_TCIF          DMA_FLAG_TCIF4
+#define SPIx_RX_DMA_CHANNEL            DMA_Channel_0
+#define SPIx_RX_DMA_STREAM             DMA1_Stream3
+#define SPIx_RX_DMA_FLAG_TCIF          DMA_FLAG_TCIF3
 void SPI_init(void)
 {
 		GPIO_InitTypeDef GPIO_InitStructure; 
