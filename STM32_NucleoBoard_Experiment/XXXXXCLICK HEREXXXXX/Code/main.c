@@ -79,10 +79,9 @@ void PWM_Tester(void) {
 }
 void USART_Tester(void) {
 	SysTime_Init();
-	initUSART(USART1, PA9, PA10, 9600);
-	printfForUx(USART1);
-	scanfForUx(USART1);
-	printf("a");
+	initUSART(USART2, PA2, PA3, 9600);
+	printfForUx(USART2);
+	scanfForUx(USART2);
 	char str[100];
 	while(1) {
 		readLine(str);
@@ -116,6 +115,52 @@ void SPI_Tester(void) {
 		
 	}
 }
+void fuck(void) {
+	SysTime_Init();
+	initUSART(USART2, PA2, PA3, 9600);
+	printfForUx(USART2);
+	scanfForUx(USART2);
+	printf("\rFUCK\r\n");
+				GPIO_InitTypeDef GPIO_InitStructure; 	
+	RCC_AHB1PeriphClockCmd (RCC_AHB1Periph_GPIOB | RCC_AHB1Periph_GPIOC , ENABLE);
+	RCC_APB1PeriphClockCmd (RCC_APB1Periph_SPI2, ENABLE);
+	GPIO_PinAFConfig(GPIOB,GPIO_PinSource10,GPIO_AF_SPI2);
+	GPIO_PinAFConfig(GPIOC,GPIO_PinSource2,GPIO_AF_SPI2);
+	GPIO_PinAFConfig(GPIOC,GPIO_PinSource3,GPIO_AF_SPI2);
+
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
+	GPIO_Init(GPIOB, &GPIO_InitStructure);
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+	GPIO_Init(GPIOC, &GPIO_InitStructure);
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;
+	GPIO_Init(GPIOC, &GPIO_InitStructure);
+	/*
+	GPIO_InitStructure.GPIO_Pin = FLASH_CS_PIN;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO_Init(FLASH_CS_GPIO_PORT, &GPIO_InitStructure);*/
+	//SPI_FLASH_CS_HIGH(); 
+	SPI_InitTypeDef  SPI_InitStructure;
+	SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
+	SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
+	SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
+	SPI_InitStructure.SPI_CPOL = SPI_CPOL_High;
+	SPI_InitStructure.SPI_CPHA = SPI_CPHA_2Edge;
+	SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
+	SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_2;
+	SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
+	SPI_InitStructure.SPI_CRCPolynomial = 7;
+	SPI_Init(SPI2, &SPI_InitStructure);
+	SPI_Cmd(SPI2, ENABLE);
+	int r;
+	while(1) { 
+			r = SPI_ReadByte(SPI2);
+			printf("\r%c\r\n", r);
+	}
+}
 int main(void)
 {
 		//initAlles();
@@ -123,7 +168,8 @@ int main(void)
 		//SysClock_Tester();
 		//PWM_Tester();
 		//USART_Tester();
-		SPI_Tester();
+		//SPI_Tester();
+	fuck();
 }
 
 

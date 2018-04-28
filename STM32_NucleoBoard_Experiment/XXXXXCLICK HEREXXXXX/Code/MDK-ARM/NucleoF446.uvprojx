@@ -1309,6 +1309,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\USART.h</FilePath>
             </File>
+            <File>
+              <FileName>ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\ADC.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1343,6 +1348,11 @@
               <FileName>USART.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\USART.c</FilePath>
+            </File>
+            <File>
+              <FileName>ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\ADC.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2657,6 +2667,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\USART.h</FilePath>
             </File>
+            <File>
+              <FileName>ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\ADC.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2691,6 +2706,11 @@
               <FileName>USART.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\USART.c</FilePath>
+            </File>
+            <File>
+              <FileName>ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\ADC.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -4005,6 +4025,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\USART.h</FilePath>
             </File>
+            <File>
+              <FileName>ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\ADC.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4039,6 +4064,11 @@
               <FileName>USART.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\USART.c</FilePath>
+            </File>
+            <File>
+              <FileName>ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\ADC.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -5400,6 +5430,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\USART.h</FilePath>
             </File>
+            <File>
+              <FileName>ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\ADC.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -5434,6 +5469,11 @@
               <FileName>USART.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\USART.c</FilePath>
+            </File>
+            <File>
+              <FileName>ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\ADC.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -6748,6 +6788,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\USART.h</FilePath>
             </File>
+            <File>
+              <FileName>ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\ADC.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -6782,6 +6827,11 @@
               <FileName>USART.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\USART.c</FilePath>
+            </File>
+            <File>
+              <FileName>ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\ADC.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -7996,6 +8046,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\USART.h</FilePath>
             </File>
+            <File>
+              <FileName>ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\ADC.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -8030,6 +8085,11 @@
               <FileName>USART.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\USART.c</FilePath>
+            </File>
+            <File>
+              <FileName>ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\ADC.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -9243,6 +9303,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\USART.h</FilePath>
             </File>
+            <File>
+              <FileName>ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\ADC.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -9277,6 +9342,11 @@
               <FileName>USART.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\USART.c</FilePath>
+            </File>
+            <File>
+              <FileName>ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\ADC.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -10438,6 +10508,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\USART.h</FilePath>
             </File>
+            <File>
+              <FileName>ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\ADC.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -10472,6 +10547,11 @@
               <FileName>USART.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\USART.c</FilePath>
+            </File>
+            <File>
+              <FileName>ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\ADC.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -11585,6 +11665,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\USART.h</FilePath>
             </File>
+            <File>
+              <FileName>ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\ADC.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -11619,6 +11704,11 @@
               <FileName>USART.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\USART.c</FilePath>
+            </File>
+            <File>
+              <FileName>ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\ADC.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -12733,6 +12823,11 @@
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\USART.h</FilePath>
             </File>
+            <File>
+              <FileName>ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\user_lib\inc\ADC.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -12767,6 +12862,11 @@
               <FileName>USART.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\USART.c</FilePath>
+            </File>
+            <File>
+              <FileName>ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user_lib\src\ADC.c</FilePath>
             </File>
           </Files>
         </Group>
