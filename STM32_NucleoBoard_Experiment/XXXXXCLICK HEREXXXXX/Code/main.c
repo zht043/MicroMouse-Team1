@@ -8,6 +8,7 @@
 #include "Timer.h"
 #include "USART.h"
 #include "SPI.h"
+#include "Stack.h"
 void initAlles() {
 		SysTime_Init();
 }
@@ -116,6 +117,32 @@ void SPI_Tester(void) {
 		
 	}
 }
+void Stack_Tester(void){
+	SystemInit();
+	initUSART(USART1, PA9, PA10, 9600);
+	printfForUx(USART1);
+	scanfForUx(USART1);
+	printf("\rEL PSY CONGROO <<<<<>>>>> Ich Liebe dich~\r\n");
+	Stack* stack = newStack();
+	if(isEmpty(stack) != 0){
+		printf("\rStack is Empty\r\n");
+	}
+	for(int i = 1;i <= 25;i++){
+		push(stack, i);
+	}
+	printf("\rSize of StackNode is %d\r\n", sizeof(stack));
+	printf("\rStack is pushed \r\n");
+	while(!isEmpty(stack)){
+		printf("\rStack has %d \r\n", peek(stack));
+		pop(stack);
+		
+	}
+	if(isEmpty(stack)){
+		printf("\rStack is Empty\r\n");
+	}
+}
+void Floodfill_Tester(void){
+}
 int main(void)
 {
 		//initAlles();
@@ -123,7 +150,9 @@ int main(void)
 		//SysClock_Tester();
 		//PWM_Tester();
 		//USART_Tester();
-		SPI_Tester();
+		//SPI_Tester();
+	  Stack_Tester();
+	  //Floodfill_Tester();
 }
 
 

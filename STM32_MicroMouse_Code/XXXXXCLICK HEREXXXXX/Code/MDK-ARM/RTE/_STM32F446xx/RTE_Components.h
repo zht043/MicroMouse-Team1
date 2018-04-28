@@ -3,7 +3,7 @@
  * Auto generated Run-Time-Environment Component Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'Project' 
+ * Project: 'MicroMouse' 
  * Target:  'STM32F446xx' 
  */
 

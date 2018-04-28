@@ -2,10 +2,10 @@ stm32f40_41xxx\initiation.o: user_lib\src\Initiation.c
 stm32f40_41xxx\initiation.o: .\user_lib\inc\Initiation.h
 stm32f40_41xxx\initiation.o: .\user_lib\inc\GPIO.h
 stm32f40_41xxx\initiation.o: ../../../Libraries/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
-stm32f40_41xxx\initiation.o: E:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h
-stm32f40_41xxx\initiation.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-stm32f40_41xxx\initiation.o: E:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h
-stm32f40_41xxx\initiation.o: E:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h
+stm32f40_41xxx\initiation.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h
+stm32f40_41xxx\initiation.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+stm32f40_41xxx\initiation.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h
+stm32f40_41xxx\initiation.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h
 stm32f40_41xxx\initiation.o: ../../../Libraries/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 stm32f40_41xxx\initiation.o: ../stm32f4xx_conf.h
 stm32f40_41xxx\initiation.o: ../../../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_adc.h
