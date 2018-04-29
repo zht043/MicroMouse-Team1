@@ -4,7 +4,6 @@
 #include <stdlib.h>
 
 #define MAX 20000
-
 typedef enum {false, true} bool;
 
 typedef struct Stack{
