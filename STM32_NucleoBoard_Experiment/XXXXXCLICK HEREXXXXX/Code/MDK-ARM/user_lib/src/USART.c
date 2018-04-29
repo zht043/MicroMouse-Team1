@@ -6,6 +6,10 @@ USART USART_decoder(USART_TypeDef* USARTx) {
 				RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
 				U.USARTx_AF = GPIO_AF_USART1;
 		}
+		if(USARTx == USART2) {
+			  RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
+				U.USARTx_AF = GPIO_AF_USART2;
+		}
 		return U;
 }
 void initUSART(USART_TypeDef* USARTx, uint8_t TX_Pxx, uint8_t RX_Pxx, uint32_t USARTx_BAUDRATE)  

@@ -4,43 +4,38 @@
 #include <limits.h>
 #include "Stack.h"
 // A structure to represent a stack
-Stack* newStack(){
-	Stack* stack = (Stack*) malloc(sizeof(Stack));;
-	stack->root = NULL;
+Stack* newStack(int capacity){
+	Stack* stack = (Stack*)malloc(sizeof(Stack));
+	if(capacity > MAX){
+		return NULL;
+	}
+	stack->top = -1;
+	stack->capacity = capacity;
 	return stack;
 }
-StackNode* newNode(int data)
+
+int isEmpty(int store[], Stack* stack)
 {
-    StackNode* stackNode =
-              (StackNode*) malloc(sizeof(StackNode));
-    stackNode->data = data;
-    stackNode->next = NULL;
-    return stackNode;
+    return stack->top == -1;
 }
-int isEmpty(Stack* stack)
+void push(int store[], Stack* stack, int data)
 {
-    return !stack->root;
+		++stack->top;
+		store[stack->top] = data;
 }
-void push(Stack* stack, int data)
+int pop(int store[], Stack* stack)
 {
-    StackNode* stackNode = newNode(data);
-    stackNode->next = stack->root;
-    stack->root = stackNode;
+    if(isEmpty(store, stack)){
+			return false;
+		}
+		else{
+			return store[stack->top--];
+		}
 }
-int pop(Stack* stack)
+int peek(int store[], Stack * stack)
 {
-    if (isEmpty(stack))
+    if (isEmpty(store, stack)){
         return false;
-    StackNode* temp = stack->root;
-    stack->root = stack->root->next;
-    int popped = temp->data;
-    free(temp);
- 
-    return popped;
-}
-int peek(Stack * stack)
-{
-    if (isEmpty(stack))
-        return false;
-    return stack->root->data;
+		}
+    return store[stack->top];
 }

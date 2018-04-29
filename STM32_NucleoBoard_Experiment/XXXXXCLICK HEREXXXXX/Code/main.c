@@ -117,30 +117,50 @@ void SPI_Tester(void) {
 		
 	}
 }
-void Stack_Tester(void){
+static void Stack_Tester(void){
 	SystemInit();
-	initUSART(USART1, PA9, PA10, 9600);
-	printfForUx(USART1);
-	scanfForUx(USART1);
+	initUSART(USART2, PA2, PA3, 9600);
+	printfForUx(USART2);
+	scanfForUx(USART2);
 	printf("\rEL PSY CONGROO <<<<<>>>>> Ich Liebe dich~\r\n");
-	Stack* stack = newStack();
-	if(isEmpty(stack) != 0){
+	Stack* stack = newStack(MAX);
+	static int store[MAX];
+	if(isEmpty(store, stack)){
 		printf("\rStack is Empty\r\n");
 	}
-	for(int i = 1;i <= 25;i++){
-		push(stack, i);
+	for(int i = 1;i <= MAX;i++){
+ 		push(store, stack, i);
 	}
 	printf("\rSize of StackNode is %d\r\n", sizeof(stack));
 	printf("\rStack is pushed \r\n");
-	while(!isEmpty(stack)){
-		printf("\rStack has %d \r\n", peek(stack));
-		pop(stack);
-		
+	while(!isEmpty(store, stack)){
+		printf("\rStack has %d \r\n", peek(store, stack));
+		pop(store, stack);
 	}
-	if(isEmpty(stack)){
+	if(isEmpty(store, stack)){
 		printf("\rStack is Empty\r\n");
 	}
 }
+
+/*static void Checkstack_Tester(void){
+	//int ar[100]
+	//for loop access memory, each value 2 * i
+	//print memory
+	SystemInit();
+	initUSART(USART2, PA2, PA3, 9600);
+	printfForUx(USART2);
+	scanfForUx(USART2);
+	printf("\rEL PSY CONGROO <<<<<>>>>> Ich Liebe dich~\r\n");
+	const int maxsize = 2000;
+	static int arr[maxsize];
+	for (int i = 0; i < maxsize; i++){
+		arr[i] = i * 2;
+	}
+	for (int i = 0; i < maxsize; i ++){
+		printf("\rWe have %d\n\r", arr[i]);
+	}
+	printf("\rWe are done\n\r");
+}*/
 void Floodfill_Tester(void){
 }
 int main(void)
@@ -152,6 +172,7 @@ int main(void)
 		//USART_Tester();
 		//SPI_Tester();
 	  Stack_Tester();
+	  //Checkstack_Tester();  
 	  //Floodfill_Tester();
 }
 
