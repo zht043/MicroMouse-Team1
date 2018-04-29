@@ -205,6 +205,7 @@
 <wire x1="93" y1="44" x2="81" y2="44" width="0.0762" layer="49"/>
 <wire x1="77" y1="57" x2="77" y2="33" width="0.3048" layer="49"/>
 <wire x1="51" y1="72" x2="103" y2="72" width="0.0762" layer="20"/>
+<wire x1="77" y1="57" x2="77" y2="72" width="0.0762" layer="49"/>
 </plain>
 <libraries>
 <library name="TC4427(8MSOP)">
@@ -1231,7 +1232,7 @@ design rules under a new name.</description>
 </element>
 <element name="JP1" library="adafruit" library_urn="urn:adsk.eagle:library:420" package="1X06" value="" x="76" y="70"/>
 <element name="JP2" library="adafruit" library_urn="urn:adsk.eagle:library:420" package="1X01" value="" x="84.89" y="70"/>
-<element name="U$2" library="headers(2mm)" package="1X7" value="1X7" x="-168" y="-297"/>
+<element name="U$2" library="headers(2mm)" package="1X7" value="1X7" x="77" y="74"/>
 </elements>
 <signals>
 <signal name="GND">
@@ -1828,37 +1829,37 @@ design rules under a new name.</description>
 <signal name="N$9">
 <contactref element="JP2" pad="1"/>
 <contactref element="U$2" pad="7"/>
-<wire x1="84.89" y1="70" x2="-162" y2="-297" width="0" layer="19" extent="1-1"/>
+<wire x1="84.89" y1="70" x2="83" y2="74" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$10">
 <contactref element="JP1" pad="6"/>
 <contactref element="U$2" pad="6"/>
-<wire x1="82.35" y1="70" x2="-164" y2="-297" width="0" layer="19" extent="1-1"/>
+<wire x1="82.35" y1="70" x2="81" y2="74" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$11">
 <contactref element="JP1" pad="5"/>
 <contactref element="U$2" pad="5"/>
-<wire x1="79.81" y1="70" x2="-166" y2="-297" width="0" layer="19" extent="1-1"/>
+<wire x1="79.81" y1="70" x2="79" y2="74" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$12">
 <contactref element="JP1" pad="4"/>
 <contactref element="U$2" pad="4"/>
-<wire x1="77.27" y1="70" x2="-168" y2="-297" width="0" layer="19" extent="1-1"/>
+<wire x1="77.27" y1="70" x2="77" y2="74" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$13">
 <contactref element="JP1" pad="3"/>
 <contactref element="U$2" pad="3"/>
-<wire x1="74.73" y1="70" x2="-170" y2="-297" width="0" layer="19" extent="1-1"/>
+<wire x1="74.73" y1="70" x2="75" y2="74" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$14">
 <contactref element="JP1" pad="2"/>
 <contactref element="U$2" pad="2"/>
-<wire x1="72.19" y1="70" x2="-172" y2="-297" width="0" layer="19" extent="1-1"/>
+<wire x1="72.19" y1="70" x2="73" y2="74" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$15">
 <contactref element="JP1" pad="1"/>
 <contactref element="U$2" pad="1"/>
-<wire x1="69.65" y1="70" x2="-174" y2="-297" width="0" layer="19" extent="1-1"/>
+<wire x1="69.65" y1="70" x2="71" y2="74" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>
