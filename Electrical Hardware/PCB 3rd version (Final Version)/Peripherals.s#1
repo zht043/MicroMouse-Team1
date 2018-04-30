@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.6.0">
+<eagle version="9.0.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -1739,7 +1739,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="EM_R" library="sfh4550 &amp; teft4300" deviceset="EMITTER" device=""/>
 <part name="U$10" library="headers(2mm)" deviceset="1X3" device=""/>
 <part name="U$1" library="headers(2mm)" deviceset="1X3" device=""/>
-<part name="MGND" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="0.75OHM" device="-0805-1/4W-1%" value="0"/>
 <part name="AGND" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="0.75OHM" device="-0805-1/4W-1%" value="0"/>
 <part name="GND" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="0.75OHM" device="-0805-1/4W-1%" value="0"/>
 <part name="CB2" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" deviceset="0.33UF/330NF" device="-0805-50V-10%" value="10µF"/>
@@ -1836,7 +1835,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="EM_R" gate="G$1" x="-93.98" y="-43.18"/>
 <instance part="U$10" gate="G$1" x="-266.7" y="20.32"/>
 <instance part="U$1" gate="G$1" x="-93.98" y="22.86"/>
-<instance part="MGND" gate="G$1" x="25.4" y="-43.18" rot="R90"/>
 <instance part="AGND" gate="G$1" x="38.1" y="-40.64" rot="R90"/>
 <instance part="GND" gate="G$1" x="50.8" y="-43.18" rot="R90"/>
 <instance part="CB2" gate="G$1" x="68.58" y="-35.56" rot="R90"/>
@@ -2403,9 +2401,16 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="147.32" y="127" size="0.8128" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<pinref part="MGND" gate="G$1" pin="2"/>
-<wire x1="25.4" y1="-38.1" x2="25.4" y2="-33.02" width="0.1524" layer="91"/>
 <label x="25.4" y="-33.02" size="1.778" layer="95" rot="R90" xref="yes"/>
+<pinref part="AGND" gate="G$1" pin="1"/>
+<pinref part="GND" gate="G$1" pin="1"/>
+<wire x1="38.1" y1="-45.72" x2="38.1" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="-48.26" x2="38.1" y2="-55.88" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="-48.26" x2="38.1" y2="-48.26" width="0.1524" layer="91"/>
+<junction x="38.1" y="-48.26"/>
+<wire x1="38.1" y1="-48.26" x2="50.8" y2="-48.26" width="0.1524" layer="91"/>
+<label x="38.1" y="-55.88" size="1.778" layer="95" rot="R270" xref="yes"/>
+<wire x1="25.4" y1="-33.02" x2="25.4" y2="-48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="EM_RF" class="0">
@@ -2891,17 +2896,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </segment>
 </net>
 <net name="BGND" class="0">
-<segment>
-<pinref part="MGND" gate="G$1" pin="1"/>
-<pinref part="AGND" gate="G$1" pin="1"/>
-<pinref part="GND" gate="G$1" pin="1"/>
-<wire x1="38.1" y1="-45.72" x2="38.1" y2="-48.26" width="0.1524" layer="91"/>
-<wire x1="38.1" y1="-48.26" x2="38.1" y2="-55.88" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="-48.26" x2="38.1" y2="-48.26" width="0.1524" layer="91"/>
-<junction x="38.1" y="-48.26"/>
-<wire x1="38.1" y1="-48.26" x2="50.8" y2="-48.26" width="0.1524" layer="91"/>
-<label x="38.1" y="-55.88" size="1.778" layer="95" rot="R270" xref="yes"/>
-</segment>
 <segment>
 <pinref part="BAT" gate="G$1" pin="2"/>
 <wire x1="68.58" y1="-53.34" x2="71.12" y2="-50.8" width="0.1524" layer="91"/>
