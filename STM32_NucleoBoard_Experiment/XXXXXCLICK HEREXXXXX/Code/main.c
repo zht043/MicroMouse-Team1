@@ -43,10 +43,10 @@ void SysClock_Tester() {
 		}
 }
 void PWM_Tester(void) {
-		SysTime_Init();
+			SysTime_Init();
 //ADVTIM Testing
-		TIM pwm1 = initIO_TIM(TIMER1, PA8, Ch1);
-		TIM pwm2 = initIO_TIM(TIMER1, PA9, Ch2);
+			TIM pwm1 = initIO_TIM(TIMER1, PA8, Ch1);
+			TIM pwm2 = initIO_TIM(TIMER1, PA9, Ch2);
 //		TIM pwm1 = initIO_TIM(TIMER8, PC6, Ch1);
 //	  TIM pwm2 = initIO_TIM(TIMER8, PC7, Ch2);
 //NORTIM Testing	
@@ -161,6 +161,139 @@ void fuck(void) {
 			printf("\r%c\r\n", r);
 	}
 }
+void Gyro_Tester(void) {
+	SysTime_Init();
+	initUSART(USART2, PA2, PA3, 9600);
+	printfForUx(USART2);
+	scanfForUx(USART2);
+	printf("\rThis is a Gyro Tester\r\n");
+	//SPI setup			
+	GPIO_InitTypeDef GPIO_InitStructure; 	
+	RCC_AHB1PeriphClockCmd (RCC_AHB1Periph_GPIOB | RCC_AHB1Periph_GPIOC , ENABLE);
+	RCC_APB1PeriphClockCmd (RCC_APB1Periph_SPI2, ENABLE);
+	GPIO_PinAFConfig(GPIOB,GPIO_PinSource10,GPIO_AF_SPI2);
+	GPIO_PinAFConfig(GPIOC,GPIO_PinSource2,GPIO_AF_SPI2);
+	GPIO_PinAFConfig(GPIOC,GPIO_PinSource3,GPIO_AF_SPI2);
+
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_Init(GPIOB, &GPIO_InitStructure);
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+	GPIO_Init(GPIOC, &GPIO_InitStructure);
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;
+	GPIO_Init(GPIOC, &GPIO_InitStructure);
+	/*
+	GPIO_InitStructure.GPIO_Pin = FLASH_CS_PIN;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO_Init(FLASH_CS_GPIO_PORT, &GPIO_InitStructure);*/
+	//SPI_FLASH_CS_HIGH(); 
+	GPIO CS = initIO(PA4, OUTPUT);
+	digitalWrite(CS, HIGH);
+	
+	SPI_InitTypeDef  SPI_InitStructure;
+	SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
+	SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
+	SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
+	SPI_InitStructure.SPI_CPOL = SPI_CPOL_High;
+	SPI_InitStructure.SPI_CPHA = SPI_CPHA_2Edge;
+	SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
+	SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_256;
+	SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
+	SPI_InitStructure.SPI_CRCPolynomial = 7;
+	SPI_Init(SPI2, &SPI_InitStructure);
+	SPI_Cmd(SPI2, ENABLE);
+	int r;
+	//delay(1000);
+					while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_TXE) == RESET);
+					SPI_I2S_SendData(SPI2, (uint8_t)(0x00));  //SPI2 -> SPI1
+					while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+					r = SPI_I2S_ReceiveData(SPI2);
+	delay(1000);
+	while(1) { 
+			digitalWrite(CS, LOW);
+			//r = SPI_SendByte((uint8_t)0x45, SPI2);
+					while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_TXE) == RESET);
+					SPI_I2S_SendData(SPI2, (uint8_t)(0x70 | 0x80));  //SPI2 -> SPI1
+					while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+					r = SPI_I2S_ReceiveData(SPI2);
+			digitalWrite(CS, HIGH);
+			
+			delay(100);
+			//delay_us(1);
+			printf("\r%x\r\n", r);
+	}
+}
+TIM LpwmA, LpwmB, RpwmA, RpwmB;
+void motor(double Lpwr, double Rpwr) {
+		if(Lpwr > 0.00f) {
+				if(Lpwr > 100.00f) Lpwr = 100.00f;
+				Lpwr*=10.00f; 
+				if(Lpwr!=0.00f) Lpwr-=1.00f;
+				setPWM(LpwmA, (uint32_t)Lpwr);
+				setPWM(LpwmB, 0);
+		}
+		else {
+				if(Lpwr < -100.00f) Lpwr = -100.00f;
+				Lpwr*=-10.00f; 
+				if(Lpwr!=0.00f) Lpwr-=1.00f;
+				setPWM(LpwmB, (uint32_t)Lpwr);
+				setPWM(LpwmA, 0);
+		}
+		if(Rpwr > 0.00f) {
+				if(Rpwr > 100.00f) Rpwr = 100.00f;
+				Rpwr*=10.00f; 
+				if(Rpwr!=0.00f) Rpwr-=1.00f;
+				setPWM(RpwmA, (uint32_t)Rpwr);
+				setPWM(RpwmB, 0);
+		}
+		else {
+				if(Rpwr < -100.00f) Rpwr = -100.00f;
+				Rpwr*=-10.00f; 
+				if(Rpwr!=0.00f) Rpwr+=1.00f;
+				setPWM(RpwmB, (uint32_t)Rpwr);
+				setPWM(RpwmA, 0);
+		}
+}
+void motorTester(void) {
+		SysTime_Init();
+		initUSART(USART2, PA2, PA3, 9600);
+		printfForUx(USART2);
+		scanfForUx(USART2);
+		printf("\rThis is a Motor Tester\r\n");
+		
+		LpwmA = initIO_TIM(TIMER1, PA8, Ch1);
+		LpwmB = initIO_TIM(TIMER1, PA9, Ch2);
+		RpwmA = initIO_TIM(TIMER1, PA10, Ch3);
+		RpwmB = initIO_TIM(TIMER1, PA11, Ch4);
+		PWM_ON(TIMER1,10000);
+		double m=35.32;
+		while(1) {
+				for(double pwr = 0.00f; pwr <= 100.00f; pwr+=0.1) {
+						motor(pwr, pwr);
+						delay(3);
+				}
+				
+				for(double pwr = 100.00f; pwr > 0.00f; pwr-=0.1) {
+						motor(pwr, pwr);
+						delay(3);
+				}
+				for(double pwr = 0.00f; pwr >= -100.00f; pwr-=0.1) {
+						motor(pwr, pwr);
+						delay(3);
+				}
+				for(double pwr = -100.00f; pwr <= 0.00f; pwr+=0.1) {
+						motor(pwr, pwr);
+						delay(3);
+				}
+				
+				//scanf("%lf",&m); 
+				//motor(-m,m);
+
+		}
+}
 int main(void)
 {
 		//initAlles();
@@ -169,7 +302,9 @@ int main(void)
 		//PWM_Tester();
 		//USART_Tester();
 		//SPI_Tester();
-	fuck();
+		//fuck();
+		//Gyro_Tester();
+		motorTester();
 }
 
 
