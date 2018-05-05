@@ -92,12 +92,14 @@ void USART_Tester(void) {
 }
 void SPI_Tester(void) {
 		SysTime_Init();
-		initUSART(USART1, PA9, PA10, 9600);
-		printfForUx(USART1);
-	  scanfForUx(USART1);
+		initUSART(USART2, PA2, PA3, 9600);
+		printfForUx(USART2);
+	  scanfForUx(USART2);
 		printf("EL PSY CONGROO <<<<<>>>>> Ich Liebe dich~\r\n");
 		SPI1_init();
-		SPI2_init();
+	  while(true){
+		}
+/*	  SPI2_init();
 		
 	for(int i = 0; i < 10; i++) {
 		while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_TXE) == RESET);
@@ -114,8 +116,8 @@ void SPI_Tester(void) {
 		while(SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_RXNE) == RESET);
 		char a = SPI_I2S_ReceiveData(SPI1);
 		printf("SPI1 receives %d     SPI2 receives %d\r\n", a, b);
-		
 	}
+*/
 }
 static void Stack_Tester(void){
 	SystemInit();
@@ -170,8 +172,8 @@ int main(void)
 		//SysClock_Tester();
 		//PWM_Tester();
 		//USART_Tester();
-		//SPI_Tester();
-	  Stack_Tester();
+		SPI_Tester();
+	  //Stack_Tester();
 	  //Checkstack_Tester();  
 	  //Floodfill_Tester();
 }
