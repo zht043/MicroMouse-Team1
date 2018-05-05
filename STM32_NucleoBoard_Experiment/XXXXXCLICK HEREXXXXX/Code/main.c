@@ -294,6 +294,14 @@ void motorTester(void) {
 
 		}
 }
+void ADCtester(void) {
+		addADC(uint8_t Pxx, uint8_t ADCchannel); // ADCchannel
+		addADC(uint8_t Pxx, uint8_t ADCchannel);
+		addADC(uint8_t Pxx, uint8_t ADCchannel);
+		addADC(uint8_t Pxx, uint8_t ADCchannel);
+		initADC(ADC_TypeDef * ADCx); 
+		ADC_Value[]
+}	
 int main(void)
 {
 		//initAlles();

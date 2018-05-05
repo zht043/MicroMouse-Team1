@@ -1126,17 +1126,17 @@ design rules under a new name.</description>
 <signal name="N$2">
 <contactref element="U$4" pad="PA9"/>
 <contactref element="CH4" pad="2"/>
-<wire x1="82.75" y1="59.75" x2="62.9" y2="48" width="0" layer="19" extent="1-1"/>
+<wire x1="62.9" y1="48" x2="82.75" y2="59.75" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$7">
 <contactref element="U$4" pad="PA0_WKUP"/>
-<contactref element="CH8" pad="1"/>
-<wire x1="71.25" y1="56.25" x2="91.1" y2="50" width="0" layer="19" extent="1-1"/>
+<contactref element="CH7" pad="1"/>
+<wire x1="71.25" y1="56.25" x2="91.09" y2="51.99" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$8">
 <contactref element="U$4" pad="PA1"/>
-<contactref element="CH7" pad="1"/>
-<wire x1="71.25" y1="55.75" x2="91.09" y2="51.99" width="0" layer="19" extent="1-1"/>
+<contactref element="CH8" pad="1"/>
+<wire x1="71.25" y1="55.75" x2="91.1" y2="50" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$5">
 <contactref element="U$4" pad="PA15"/>
@@ -1211,12 +1211,30 @@ design rules under a new name.</description>
 <signal name="N$3">
 <contactref element="U$4" pad="PA11"/>
 <contactref element="CH1" pad="2"/>
-<wire x1="91.1" y1="48" x2="82.75" y2="60.75" width="0" layer="19" extent="1-1"/>
+<wire x1="82.75" y1="60.75" x2="84.13" y2="60.75" width="0.3048" layer="1"/>
+<wire x1="90.29" y1="54.59" x2="90.29" y2="53.83" width="0.3048" layer="1"/>
+<via x="90.29" y="53.83" extent="1-16" drill="0.35"/>
+<wire x1="90.29" y1="53.83" x2="89.81" y2="53.35" width="0.3048" layer="16"/>
+<wire x1="89.81" y1="49.08" x2="90.04" y2="48.85" width="0.3048" layer="16"/>
+<via x="90.04" y="48.85" extent="1-16" drill="0.35"/>
+<wire x1="90.04" y1="48.85" x2="90.89" y2="48" width="0.3048" layer="1"/>
+<wire x1="90.89" y1="48" x2="91.1" y2="48" width="0.3048" layer="1"/>
+<wire x1="84.13" y1="60.75" x2="90.29" y2="54.59" width="0.3048" layer="1"/>
+<wire x1="89.81" y1="53.35" x2="89.81" y2="49.08" width="0.3048" layer="16"/>
 </signal>
 <signal name="N$4">
 <contactref element="U$4" pad="PA10"/>
 <contactref element="CH2" pad="2"/>
-<wire x1="91.1" y1="46" x2="82.75" y2="60.25" width="0" layer="19" extent="1-1"/>
+<wire x1="82.75" y1="60.25" x2="83.75" y2="60.25" width="0.3048" layer="1"/>
+<via x="89.29" y="48.08" extent="1-16" drill="0.35"/>
+<wire x1="89.24" y1="48.13" x2="89.29" y2="48.08" width="0.3048" layer="16"/>
+<wire x1="89.29" y1="48.08" x2="91.1" y2="46.27" width="0.3048" layer="1"/>
+<wire x1="91.1" y1="46.27" x2="91.1" y2="46" width="0.3048" layer="1"/>
+<wire x1="83.75" y1="60.25" x2="89.21" y2="54.79" width="0.3048" layer="1"/>
+<wire x1="89.21" y1="54.79" x2="89.21" y2="53.84" width="0.3048" layer="1"/>
+<via x="89.21" y="53.84" extent="1-16" drill="0.35"/>
+<wire x1="89.21" y1="53.84" x2="89.21" y2="48.16" width="0.3048" layer="16"/>
+<wire x1="89.21" y1="48.16" x2="89.24" y2="48.13" width="0.3048" layer="16"/>
 </signal>
 </signals>
 </board>
