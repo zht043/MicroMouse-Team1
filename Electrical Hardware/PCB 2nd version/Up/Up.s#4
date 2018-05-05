@@ -2451,6 +2451,13 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="147.78" y1="-33.16" x2="147.78" y2="-28.08" width="0.1524" layer="91"/>
 <label x="147.78" y="-28.08" size="0.8128" layer="95" rot="R90" xref="yes"/>
 </segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="PC5"/>
+<wire x1="163.78" y1="44.8" x2="163.78" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="163.78" y1="38.1" x2="165.1" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="38.1" x2="165.1" y2="35.56" width="0.1524" layer="91"/>
+<label x="165.1" y="35.56" size="0.8128" layer="95" rot="R270" xref="yes"/>
+</segment>
 </net>
 <net name="UBT" class="0">
 <segment>

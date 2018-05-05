@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.6.0">
+<eagle version="8.2.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -1119,7 +1119,7 @@ With round pins</description>
 <description>&lt;b&gt;Pin Header Connectors&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
 <packages>
-<package name="1X02" urn="urn:adsk.eagle:footprint:22309/1" library_version="3">
+<package name="1X02" library_version="3">
 <description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
 <wire x1="-1.905" y1="1.27" x2="-0.635" y2="1.27" width="0.1524" layer="21"/>
 <wire x1="-0.635" y1="1.27" x2="0" y2="0.635" width="0.1524" layer="21"/>
@@ -1143,7 +1143,7 @@ With round pins</description>
 <rectangle x1="-1.524" y1="-0.254" x2="-1.016" y2="0.254" layer="51"/>
 <rectangle x1="1.016" y1="-0.254" x2="1.524" y2="0.254" layer="51"/>
 </package>
-<package name="1X02/90" urn="urn:adsk.eagle:footprint:22310/1" library_version="3">
+<package name="1X02/90" library_version="3">
 <description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
 <wire x1="-2.54" y1="-1.905" x2="0" y2="-1.905" width="0.1524" layer="21"/>
 <wire x1="0" y1="-1.905" x2="0" y2="0.635" width="0.1524" layer="21"/>
@@ -1163,7 +1163,7 @@ With round pins</description>
 <rectangle x1="-1.651" y1="-2.921" x2="-0.889" y2="-1.905" layer="21"/>
 <rectangle x1="0.889" y1="-2.921" x2="1.651" y2="-1.905" layer="21"/>
 </package>
-<package name="1X04" urn="urn:adsk.eagle:footprint:22258/1" library_version="3">
+<package name="1X04" library_version="3">
 <description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
 <wire x1="0" y1="0.635" x2="0.635" y2="1.27" width="0.1524" layer="21"/>
 <wire x1="0.635" y1="1.27" x2="1.905" y2="1.27" width="0.1524" layer="21"/>
@@ -1205,7 +1205,7 @@ With round pins</description>
 <rectangle x1="-4.064" y1="-0.254" x2="-3.556" y2="0.254" layer="51"/>
 <rectangle x1="3.556" y1="-0.254" x2="4.064" y2="0.254" layer="51"/>
 </package>
-<package name="1X04/90" urn="urn:adsk.eagle:footprint:22259/1" library_version="3">
+<package name="1X04/90" library_version="3">
 <description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
 <wire x1="-5.08" y1="-1.905" x2="-2.54" y2="-1.905" width="0.1524" layer="21"/>
 <wire x1="-2.54" y1="-1.905" x2="-2.54" y2="0.635" width="0.1524" layer="21"/>
@@ -1240,22 +1240,8 @@ With round pins</description>
 <rectangle x1="3.429" y1="-2.921" x2="4.191" y2="-1.905" layer="21"/>
 </package>
 </packages>
-<packages3d>
-<package3d name="1X02" urn="urn:adsk.eagle:package:22435/2" type="model" library_version="3">
-<description>PIN HEADER</description>
-</package3d>
-<package3d name="1X02/90" urn="urn:adsk.eagle:package:22437/2" type="model" library_version="3">
-<description>PIN HEADER</description>
-</package3d>
-<package3d name="1X04" urn="urn:adsk.eagle:package:22407/2" type="model" library_version="3">
-<description>PIN HEADER</description>
-</package3d>
-<package3d name="1X04/90" urn="urn:adsk.eagle:package:22404/2" type="model" library_version="3">
-<description>PIN HEADER</description>
-</package3d>
-</packages3d>
 <symbols>
-<symbol name="PINHD2" urn="urn:adsk.eagle:symbol:22308/1" library_version="3">
+<symbol name="PINHD2" library_version="3">
 <wire x1="-6.35" y1="-2.54" x2="1.27" y2="-2.54" width="0.4064" layer="94"/>
 <wire x1="1.27" y1="-2.54" x2="1.27" y2="5.08" width="0.4064" layer="94"/>
 <wire x1="1.27" y1="5.08" x2="-6.35" y2="5.08" width="0.4064" layer="94"/>
@@ -1265,7 +1251,7 @@ With round pins</description>
 <pin name="1" x="-2.54" y="2.54" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="2" x="-2.54" y="0" visible="pad" length="short" direction="pas" function="dot"/>
 </symbol>
-<symbol name="PINHD4" urn="urn:adsk.eagle:symbol:22257/1" library_version="3">
+<symbol name="PINHD4" library_version="3">
 <wire x1="-6.35" y1="-5.08" x2="1.27" y2="-5.08" width="0.4064" layer="94"/>
 <wire x1="1.27" y1="-5.08" x2="1.27" y2="7.62" width="0.4064" layer="94"/>
 <wire x1="1.27" y1="7.62" x2="-6.35" y2="7.62" width="0.4064" layer="94"/>
@@ -1279,7 +1265,7 @@ With round pins</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="PINHD-1X2" urn="urn:adsk.eagle:component:22516/3" prefix="JP" uservalue="yes" library_version="3">
+<deviceset name="PINHD-1X2" prefix="JP" uservalue="yes" library_version="3">
 <description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="PINHD2" x="0" y="0"/>
@@ -1290,9 +1276,6 @@ With round pins</description>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:22435/2"/>
-</package3dinstances>
 <technologies>
 <technology name=""/>
 </technologies>
@@ -1302,16 +1285,13 @@ With round pins</description>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:22437/2"/>
-</package3dinstances>
 <technologies>
 <technology name=""/>
 </technologies>
 </device>
 </devices>
 </deviceset>
-<deviceset name="PINHD-1X4" urn="urn:adsk.eagle:component:22499/4" prefix="JP" uservalue="yes" library_version="3">
+<deviceset name="PINHD-1X4" prefix="JP" uservalue="yes" library_version="3">
 <description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
 <gates>
 <gate name="A" symbol="PINHD4" x="0" y="0"/>
@@ -1324,9 +1304,6 @@ With round pins</description>
 <connect gate="A" pin="3" pad="3"/>
 <connect gate="A" pin="4" pad="4"/>
 </connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:22407/2"/>
-</package3dinstances>
 <technologies>
 <technology name=""/>
 </technologies>
@@ -1338,9 +1315,6 @@ With round pins</description>
 <connect gate="A" pin="3" pad="3"/>
 <connect gate="A" pin="4" pad="4"/>
 </connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:22404/2"/>
-</package3dinstances>
 <technologies>
 <technology name=""/>
 </technologies>
@@ -1360,14 +1334,14 @@ With round pins</description>
 <packages>
 </packages>
 <symbols>
-<symbol name="GND" urn="urn:adsk.eagle:symbol:26925/1" library_version="1">
+<symbol name="GND" library_version="1">
 <wire x1="-1.905" y1="0" x2="1.905" y2="0" width="0.254" layer="94"/>
 <text x="-2.54" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="GND" urn="urn:adsk.eagle:component:26954/1" prefix="GND" library_version="1">
+<deviceset name="GND" prefix="GND" library_version="1">
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
 <gate name="1" symbol="GND" x="0" y="0"/>
@@ -1660,7 +1634,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="C1" library="SparkFun-Capacitors" deviceset="22PF" device="-0603-50V-5%" value="12pF"/>
 <part name="C2" library="SparkFun-Capacitors" deviceset="22PF" device="-0603-50V-5%" value="12pF"/>
 <part name="GND22" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="CX5032GA" library="Cristal Oscillator" deviceset="OSC" device=""/>
+<part name="CX5032GA*8MHZ*CYSTAL" library="Cristal Oscillator" deviceset="OSC" device=""/>
 <part name="LM" library="headers(2mm)" deviceset="1X4" device=""/>
 <part name="RM" library="headers(2mm)" deviceset="1X4" device=""/>
 <part name="SPI2" library="headers(2mm)" deviceset="1X4" device=""/>
@@ -1670,8 +1644,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="SWD" library="headers(2mm)" deviceset="1X5" device=""/>
 <part name="U$7" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="PINHD-1X10" device=""/>
 <part name="GND13" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="JP1" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X2" device="" package3d_urn="urn:adsk.eagle:package:22435/2"/>
-<part name="JP2" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X4" device="" package3d_urn="urn:adsk.eagle:package:22407/2"/>
+<part name="JP1" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X2" device=""/>
+<part name="JP2" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X4" device=""/>
 <part name="U$8" library="headers(2mm)" deviceset="1X4" device=""/>
 <part name="RSTR" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="10K"/>
 <part name="RSTC" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="0.1uf"/>
@@ -1721,7 +1695,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="C1" gate="G$1" x="54.56" y="82.9"/>
 <instance part="C2" gate="G$1" x="24.08" y="82.9"/>
 <instance part="GND22" gate="1" x="24.08" y="67.66"/>
-<instance part="CX5032GA" gate="G$1" x="39.32" y="98.521"/>
+<instance part="CX5032GA*8MHZ*CYSTAL" gate="G$1" x="39.32" y="98.521"/>
 <instance part="LM" gate="G$1" x="270.46" y="24.48" rot="R90"/>
 <instance part="RM" gate="G$1" x="290.78" y="24.48" rot="R90"/>
 <instance part="SPI2" gate="G$1" x="293.32" y="54.96" rot="R180"/>
@@ -2085,7 +2059,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="C1" gate="G$1" pin="1"/>
 <wire x1="54.56" y1="105.76" x2="54.56" y2="98.14" width="0.1524" layer="91"/>
 <label x="54.56" y="105.76" size="0.8128" layer="95" rot="R90" xref="yes"/>
-<pinref part="CX5032GA" gate="G$1" pin="IN2"/>
+<pinref part="CX5032GA*8MHZ*CYSTAL" gate="G$1" pin="IN2"/>
 <wire x1="54.56" y1="98.14" x2="54.56" y2="87.98" width="0.1524" layer="91"/>
 <wire x1="51.06" y1="98.141" x2="51.06" y2="98.14" width="0.1524" layer="91"/>
 <wire x1="51.06" y1="98.14" x2="54.56" y2="98.14" width="0.1524" layer="91"/>
@@ -2102,7 +2076,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="C2" gate="G$1" pin="1"/>
 <wire x1="24.08" y1="105.76" x2="24.08" y2="98.14" width="0.1524" layer="91"/>
 <label x="24.08" y="105.76" size="0.8128" layer="95" rot="R90" xref="yes"/>
-<pinref part="CX5032GA" gate="G$1" pin="IN1"/>
+<pinref part="CX5032GA*8MHZ*CYSTAL" gate="G$1" pin="IN1"/>
 <wire x1="24.08" y1="98.14" x2="24.08" y2="87.98" width="0.1524" layer="91"/>
 <wire x1="27.36" y1="98.141" x2="27.36" y2="98.14" width="0.1524" layer="91"/>
 <wire x1="27.36" y1="98.14" x2="24.08" y2="98.14" width="0.1524" layer="91"/>
@@ -2632,19 +2606,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </drawing>
 <compatibility>
 <note version="8.2" severity="warning">
-Since Version 8.2, EAGLE supports online libraries. The ids
+Since Version 8.2, Eagle supports online libraries. The ids
 of those online libraries will not be understood (or retained)
 with this version.
-</note>
-<note version="8.3" severity="warning">
-Since Version 8.3, EAGLE supports URNs for individual library
-assets (packages, symbols, and devices). The URNs of those assets
-will not be understood (or retained) with this version.
-</note>
-<note version="8.3" severity="warning">
-Since Version 8.3, EAGLE supports the association of 3D packages
-with devices in libraries, schematics, and board files. Those 3D
-packages will not be understood (or retained) with this version.
 </note>
 </compatibility>
 </eagle>
