@@ -52,8 +52,8 @@ GPIO Pxx_decoder(uint8_t Pxx) {
 			default: break;
 		}
 		switch(Pxx % 0x10) {
-			case 0x00: obj.Pin = 
-				GPIO_Pin_0;
+			case 0x00: 
+				obj.Pin = GPIO_Pin_0;
 				obj.GPIO_PinSource = GPIO_PinSource0;
 				break;
 			case 0x01: 
@@ -125,7 +125,7 @@ GPIO initIO(uint8_t Pxx, uint8_t Mode) {
 		obj = Pxx_decoder(Pxx);
 		RCC_AHB1PeriphClockCmd(obj.RCC_CMD, ENABLE);
 		GPIO_InitTypeDef GPIO_InitStructure;
-		GPIO_InitStructure.GPIO_Pin   = obj.Pin;
+		GPIO_InitStructure.GPIO_Pin = obj.Pin;
 		switch(Mode) {
 			case OUTPUT: 
 				GPIO_InitStructure.GPIO_Mode  = OUT; 

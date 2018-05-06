@@ -4,17 +4,22 @@
 #define ADC_DMA_STREAM   DMA2_Stream0 
 #define ADC_SampleTime_xxxCycles ADC_SampleTime_56Cycles  
 #define ADC_TwoSamplingDelay_xxCycles ADC_TwoSamplingDelay_10Cycles
-
+volatile uint16_t ADC_Value[100];
 uint8_t adcs[8];
 uint8_t adcs_index = 0;
 int addADC(uint8_t Pxx, uint8_t ADCchannel) {
+
 		if(adcs_index > 8) return 0;
 		GPIO obj = Pxx_decoder(Pxx);
-		GPIO_InitTypeDef GPIO_InitStructure;    
-		RCC_AHB1PeriphClockCmd(obj.RCC_CMD, ENABLE);  
+	
+		GPIO_InitTypeDef GPIO_InitStructure;  
+
+		RCC_AHB1PeriphClockCmd(obj.RCC_CMD, ENABLE);
+ 
 		GPIO_InitStructure.GPIO_Pin = obj.Pin;
 		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN; 
-		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL; 
+		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	
 		GPIO_Init(obj.GPIOx, &GPIO_InitStructure);
 		adcs[adcs_index++] = ADCchannel;
 		return 1;
@@ -62,11 +67,15 @@ void initADC(ADC_TypeDef * ADCx)
     ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right; 
     ADC_InitStructure.ADC_NbrOfConversion = adcs_index;
     ADC_Init(ADCx, &ADC_InitStructure); 
-		
-		for(A; adcs_index >= 0; adcs_index--) 
-				ADC_RegularChannelConfig(ADCx, adcs[adcs_index], adcs_index, ADC_SampleTime_xxxCycles); 
+		for(int i = 0; i < adcs_index; i++) {
+				ADC_RegularChannelConfig(ADCx, adcs[i], i + 1, ADC_SampleTime_xxxCycles); 
+				
+		}
     ADC_DMARequestAfterLastTransferCmd(ADCx, ENABLE); 
     ADC_DMACmd(ADCx, ENABLE); 
     ADC_Cmd(ADCx, ENABLE); 
     ADC_SoftwareStartConv(ADCx); 
 } 
+int getADCValue(int index){
+	return ADC_Value[index];
+}
