@@ -4,7 +4,6 @@
 #define ADC_DMA_STREAM   DMA2_Stream0 
 #define ADC_SampleTime_xxxCycles ADC_SampleTime_56Cycles  
 #define ADC_TwoSamplingDelay_xxCycles ADC_TwoSamplingDelay_10Cycles
-
 uint8_t adcs[8];
 uint8_t adcs_index = 0;
 int addADC(uint8_t Pxx, uint8_t ADCchannel) {

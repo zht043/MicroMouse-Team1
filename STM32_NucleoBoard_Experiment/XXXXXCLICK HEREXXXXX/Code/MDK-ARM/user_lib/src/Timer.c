@@ -637,3 +637,8 @@ void setPWM(TIM port, uint32_t dutyCircle) {
 		}
 
 }
+
+
+void EnableTIMxInterrupt(TIM_TypeDef * TIMx, uint32_t Frequency, uint32_t period_us) {
+		
+}

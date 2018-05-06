@@ -1237,6 +1237,39 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </deviceset>
 </devicesets>
 </library>
+<library name="supply1" urn="urn:adsk.eagle:library:371">
+<description>&lt;b&gt;Supply Symbols&lt;/b&gt;&lt;p&gt;
+ GND, VCC, 0V, +5V, -5V, etc.&lt;p&gt;
+ Please keep in mind, that these devices are necessary for the
+ automatic wiring of the supply signals.&lt;p&gt;
+ The pin name defined in the symbol is identical to the net which is to be wired automatically.&lt;p&gt;
+ In this library the device names are the same as the pin names of the symbols, therefore the correct signal names appear next to the supply symbols in the schematic.&lt;p&gt;
+ &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+</packages>
+<symbols>
+<symbol name="GND" library_version="1">
+<wire x1="-1.905" y1="0" x2="1.905" y2="0" width="0.254" layer="94"/>
+<text x="-2.54" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="GND" prefix="GND" library_version="1">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="1" symbol="GND" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1303,8 +1336,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="LED2" library="SparkFun-LED" deviceset="LED-BLUE" device="1206" value="BLUE"/>
 <part name="LED_R1" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="1k"/>
 <part name="LED1" library="SparkFun-LED" deviceset="LED-BLUE" device="1206" value="BLUE"/>
-<part name="LED_R4" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="1k"/>
-<part name="LED4" library="SparkFun-LED" deviceset="LED-BLUE" device="1206" value="BLUE"/>
+<part name="RSTR" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="47K"/>
+<part name="RSTC" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="0.1uf"/>
+<part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="BUTTON" library="headers(2mm)" deviceset="1X2" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1367,8 +1402,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="LED2" gate="G$1" x="20.32" y="114.3" rot="R180"/>
 <instance part="LED_R1" gate="G$1" x="10.16" y="99.06" rot="R270"/>
 <instance part="LED1" gate="G$1" x="10.16" y="114.3" rot="R180"/>
-<instance part="LED_R4" gate="G$1" x="33.02" y="99.06" rot="R270"/>
-<instance part="LED4" gate="G$1" x="33.02" y="114.3" rot="R180"/>
+<instance part="RSTR" gate="G$1" x="114.3" y="73.66" rot="R180"/>
+<instance part="RSTC" gate="G$1" x="124.46" y="66.04"/>
+<instance part="GND7" gate="1" x="129.54" y="55.88"/>
+<instance part="BUTTON" gate="G$1" x="139.7" y="50.8" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -1462,9 +1499,14 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="20.32" y="124.46" size="0.8128" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="LED4" gate="G$1" pin="C"/>
-<wire x1="33.02" y1="119.38" x2="33.02" y2="124.46" width="0.1524" layer="91"/>
-<label x="33.02" y="124.46" size="0.8128" layer="95" rot="R90" xref="yes"/>
+<pinref part="GND7" gate="1" pin="GND"/>
+<wire x1="129.54" y1="58.42" x2="129.54" y2="63.5" width="0.1524" layer="91"/>
+<pinref part="RSTC" gate="G$1" pin="2"/>
+<wire x1="129.54" y1="63.5" x2="124.46" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="63.5" x2="139.7" y2="63.5" width="0.1524" layer="91"/>
+<junction x="129.54" y="63.5"/>
+<pinref part="BUTTON" gate="G$1" pin="1"/>
+<wire x1="139.7" y1="63.5" x2="139.7" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="LENCA" class="0">
@@ -1612,6 +1654,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="-119.38" y="-48.26" size="0.8128" layer="95" rot="R90" xref="yes"/>
 <pinref part="U$13" gate="G$1" pin="1"/>
 <wire x1="-119.38" y1="-55.88" x2="-119.38" y2="-48.26" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="106.68" y1="73.66" x2="109.22" y2="73.66" width="0.1524" layer="91"/>
+<label x="106.68" y="73.66" size="0.8128" layer="95" rot="R180" xref="yes"/>
+<pinref part="RSTR" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="EM_RF" class="0">
@@ -1782,6 +1829,23 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="-76.2" y="-50.8" size="0.8128" layer="95" rot="R90" xref="yes"/>
 <pinref part="LM1" gate="G$1" pin="1"/>
 <wire x1="-76.2" y1="-55.88" x2="-76.2" y2="-50.8" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="RSTR" gate="G$1" pin="1"/>
+<wire x1="119.38" y1="73.66" x2="124.46" y2="73.66" width="0.1524" layer="91"/>
+<label x="139.7" y="73.66" size="0.8128" layer="95" xref="yes"/>
+<pinref part="RSTC" gate="G$1" pin="1"/>
+<wire x1="124.46" y1="73.66" x2="134.62" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="73.66" x2="139.7" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="71.12" x2="124.46" y2="73.66" width="0.1524" layer="91"/>
+<junction x="124.46" y="73.66"/>
+<wire x1="144.78" y1="68.58" x2="134.62" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="68.58" x2="134.62" y2="73.66" width="0.1524" layer="91"/>
+<junction x="134.62" y="73.66"/>
+<wire x1="144.78" y1="68.58" x2="144.78" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="55.88" x2="142.24" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="BUTTON" gate="G$1" pin="2"/>
+<wire x1="142.24" y1="55.88" x2="142.24" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="OSC_IN" class="0">
@@ -2096,13 +2160,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="10.16" y1="111.76" x2="10.16" y2="104.14" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$15" class="0">
-<segment>
-<pinref part="LED_R4" gate="G$1" pin="1"/>
-<pinref part="LED4" gate="G$1" pin="A"/>
-<wire x1="33.02" y1="111.76" x2="33.02" y2="104.14" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="LED1" class="0">
 <segment>
 <pinref part="LED_R1" gate="G$1" pin="2"/>
@@ -2122,21 +2179,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="20.32" y="91.44" size="0.8128" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$4" gate="G$1" pin="PC11"/>
-<wire x1="12.7" y1="38.1" x2="12.7" y2="40.64" width="0.1524" layer="91"/>
-<label x="12.7" y="40.64" size="0.8128" layer="95" rot="R90" xref="yes"/>
-</segment>
-</net>
-<net name="LED3" class="0">
-<segment>
-<pinref part="LED_R4" gate="G$1" pin="2"/>
-<wire x1="33.02" y1="93.98" x2="33.02" y2="91.44" width="0.1524" layer="91"/>
-<label x="33.02" y="91.44" size="0.8128" layer="95" rot="R270" xref="yes"/>
-</segment>
-<segment>
-<pinref part="U$4" gate="G$1" pin="PC12"/>
-<wire x1="10.16" y1="38.1" x2="10.16" y2="40.64" width="0.1524" layer="91"/>
-<label x="10.16" y="40.64" size="0.8128" layer="95" rot="R90" xref="yes"/>
+<label x="-43.18" y="12.7" size="0.8128" layer="95" rot="R180" xref="yes"/>
+<pinref part="U$4" gate="G$1" pin="PC15"/>
+<wire x1="-43.18" y1="12.7" x2="-35.56" y2="12.7" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

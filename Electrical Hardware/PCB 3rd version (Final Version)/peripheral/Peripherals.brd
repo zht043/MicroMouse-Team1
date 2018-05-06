@@ -165,6 +165,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <board>
+<fusionsync huburn="a.cGVyc29uYWw6dWUyYTVlYTA1" projecturn="a.cGVyc29uYWw6dWUyYTVlYTA1IzIwMTgwMTE2MTEyNDgyNDc2" f3durn="urn:adsk.wipprod:dm.lineage:3lv6h0swSY6Kby5SKu_6qg" pcbguid="08554f66-d4c8-4cd5-90d6-4536f49f11cb" lastpulledtime="" lastsyncedchangeguid="b5f8d8be-6dcb-6abe-24f9-88f1e41fa54c"/>
 <plain>
 <wire x1="160" y1="0" x2="0" y2="0" width="0.1524" layer="49"/>
 <wire x1="0" y1="0" x2="0" y2="100" width="0.1524" layer="49"/>
@@ -2105,6 +2106,11 @@ design rules under a new name.</description>
 Since Version 8.2, EAGLE supports online libraries. The ids
 of those online libraries will not be understood (or retained)
 with this version.
+</note>
+<note version="8.3" severity="warning">
+Since Version 8.3, EAGLE supports Fusion synchronisation.
+This feature will not be available in this version and saving
+the document will break the link to the Fusion PCB feature.
 </note>
 </compatibility>
 </eagle>
