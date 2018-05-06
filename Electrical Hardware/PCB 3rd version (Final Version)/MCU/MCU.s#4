@@ -1106,6 +1106,137 @@ With round pins</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="SparkFun-LED">
+<description>&lt;h3&gt;SparkFun LEDs&lt;/h3&gt;
+This library contains discrete LEDs for illumination or indication, but no displays.
+&lt;br&gt;
+&lt;br&gt;
+We've spent an enormous amount of time creating and checking these footprints and parts, but it is &lt;b&gt; the end user's responsibility&lt;/b&gt; to ensure correctness and suitablity for a given componet or application. 
+&lt;br&gt;
+&lt;br&gt;If you enjoy using this library, please buy one of our products at &lt;a href=" www.sparkfun.com"&gt;SparkFun.com&lt;/a&gt;.
+&lt;br&gt;
+&lt;br&gt;
+&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
+&lt;br&gt;
+&lt;br&gt;
+You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<packages>
+<package name="LED-0603">
+<description>&lt;B&gt;LED 0603 SMT&lt;/B&gt;&lt;p&gt;
+0603, surface mount.
+&lt;p&gt;Specifications:
+&lt;ul&gt;&lt;li&gt;Pin count: 2&lt;/li&gt;
+&lt;li&gt;Pin pitch:0.075inch &lt;/li&gt;
+&lt;li&gt;Area: 0.06" x 0.03"&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;LED - BLUE&lt;/li&gt;</description>
+<smd name="C" x="0.877" y="0" dx="1" dy="1" layer="1" roundness="30" rot="R270"/>
+<smd name="A" x="-0.877" y="0" dx="1" dy="1" layer="1" roundness="30" rot="R270"/>
+<text x="0" y="0.635" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-0.635" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
+<wire x1="1.5875" y1="0.47625" x2="1.5875" y2="-0.47625" width="0.127" layer="21"/>
+<wire x1="0.15875" y1="0.47625" x2="0.15875" y2="0" width="0.127" layer="51"/>
+<wire x1="0.15875" y1="0" x2="0.15875" y2="-0.47625" width="0.127" layer="51"/>
+<wire x1="0.15875" y1="0" x2="-0.15875" y2="0.3175" width="0.127" layer="51"/>
+<wire x1="0.15875" y1="0" x2="-0.15875" y2="-0.3175" width="0.127" layer="51"/>
+</package>
+<package name="LED-1206">
+<description>&lt;h3&gt;LED 1206 SMT&lt;/h3&gt;
+
+1206, surface mount. 
+
+&lt;p&gt;Specifications:
+&lt;ul&gt;&lt;li&gt;Pin count: 2&lt;/li&gt;
+&lt;li&gt;Pin pitch: &lt;/li&gt;
+&lt;li&gt;Area: 0.125" x 0.06"&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;LED&lt;/li&gt;&lt;/ul&gt;</description>
+<wire x1="2.4" y1="0.6825" x2="2.4" y2="-0.6825" width="0.2032" layer="21"/>
+<smd name="A" x="-1.5" y="0" dx="1.2" dy="1.4" layer="1"/>
+<smd name="C" x="1.5" y="0" dx="1.2" dy="1.4" layer="1"/>
+<text x="0" y="0.9525" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-0.9525" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
+<wire x1="0.65375" y1="0.6825" x2="0.65375" y2="-0.6825" width="0.2032" layer="51"/>
+<wire x1="0.635" y1="0" x2="0.15875" y2="0.47625" width="0.2032" layer="51"/>
+<wire x1="0.635" y1="0" x2="0.15875" y2="-0.47625" width="0.2032" layer="51"/>
+</package>
+</packages>
+<symbols>
+<symbol name="LED">
+<description>&lt;h3&gt;LED&lt;/h3&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+<wire x1="1.27" y1="0" x2="0" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="-2.54" x2="-1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-2.54" x2="0" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="-2.54" x2="-1.27" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="-1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="-2.032" y1="-0.762" x2="-3.429" y2="-2.159" width="0.1524" layer="94"/>
+<wire x1="-1.905" y1="-1.905" x2="-3.302" y2="-3.302" width="0.1524" layer="94"/>
+<text x="-3.429" y="-4.572" size="1.778" layer="95" font="vector" rot="R90">&gt;NAME</text>
+<text x="1.905" y="-4.572" size="1.778" layer="96" font="vector" rot="R90" align="top-left">&gt;VALUE</text>
+<pin name="C" x="0" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
+<pin name="A" x="0" y="2.54" visible="off" length="short" direction="pas" rot="R270"/>
+<polygon width="0.1524" layer="94">
+<vertex x="-3.429" y="-2.159"/>
+<vertex x="-3.048" y="-1.27"/>
+<vertex x="-2.54" y="-1.778"/>
+</polygon>
+<polygon width="0.1524" layer="94">
+<vertex x="-3.302" y="-3.302"/>
+<vertex x="-2.921" y="-2.413"/>
+<vertex x="-2.413" y="-2.921"/>
+</polygon>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="LED-BLUE" prefix="D" uservalue="yes">
+<description>&lt;h3&gt;Blue SMD LED&lt;/h3&gt;
+&lt;p&gt;Used in manufacturing of various products at SparkFun&lt;/p&gt;
+
+
+&lt;p&gt;&lt;b&gt;Packages:&lt;/b&gt;
+&lt;ul&gt;&lt;li&gt;&lt;b&gt;0603&lt;/b&gt; - SMD 0603 package &lt;a href="http://www.digikey.com/product-detail/en/SMLE12BC7TT86/511-1589-2-ND/1641808"&gt;[Product Link]&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;1206&lt;/b&gt; - SMD1206  package &lt;a href="http://www.digikey.com/product-detail/en/lite-on-inc/LTST-C150TBKT/160-1643-1-ND/573584"&gt;[Product Link]&lt;/li&gt;
+&lt;ul&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;SparkFun Products:&lt;/b&gt;
+&lt;ul&gt;&lt;li&gt;&lt;a href=”https://www.sparkfun.com/products/13711”&gt;ESP8266 Thing-Dev Board&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=”https://www.sparkfun.com/products/12757”&gt;RedBoard&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<gates>
+<gate name="G$1" symbol="LED" x="0" y="2.54"/>
+</gates>
+<devices>
+<device name="0603" package="LED-0603">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PROD_ID" value="DIO-08575"/>
+<attribute name="VALUE" value="BLUE"/>
+</technology>
+</technologies>
+</device>
+<device name="1206" package="LED-1206">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PROD_ID" value="DIO-09911"/>
+<attribute name="VALUE" value="BLUE" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1168,6 +1299,12 @@ With round pins</description>
 <part name="CH14" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="22ohm"/>
 <part name="CH15" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="22ohm"/>
 <part name="U$13" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="PINHD-1X10" device=""/>
+<part name="LED_R2" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="1k"/>
+<part name="LED2" library="SparkFun-LED" deviceset="LED-BLUE" device="1206" value="BLUE"/>
+<part name="LED_R1" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="1k"/>
+<part name="LED1" library="SparkFun-LED" deviceset="LED-BLUE" device="1206" value="BLUE"/>
+<part name="LED_R4" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="1k"/>
+<part name="LED4" library="SparkFun-LED" deviceset="LED-BLUE" device="1206" value="BLUE"/>
 </parts>
 <sheets>
 <sheet>
@@ -1226,6 +1363,12 @@ With round pins</description>
 <instance part="CH14" gate="G$1" x="-5.08" y="78.74" rot="R90"/>
 <instance part="CH15" gate="G$1" x="-2.54" y="78.74" rot="R90"/>
 <instance part="U$13" gate="G$1" x="-129.54" y="-58.42" rot="R270"/>
+<instance part="LED_R2" gate="G$1" x="20.32" y="99.06" rot="R270"/>
+<instance part="LED2" gate="G$1" x="20.32" y="114.3" rot="R180"/>
+<instance part="LED_R1" gate="G$1" x="10.16" y="99.06" rot="R270"/>
+<instance part="LED1" gate="G$1" x="10.16" y="114.3" rot="R180"/>
+<instance part="LED_R4" gate="G$1" x="33.02" y="99.06" rot="R270"/>
+<instance part="LED4" gate="G$1" x="33.02" y="114.3" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -1307,6 +1450,21 @@ With round pins</description>
 <pinref part="GND16" gate="1" pin="GND"/>
 <pinref part="B0" gate="G$1" pin="2"/>
 <wire x1="-7.62" y1="55.88" x2="-7.62" y2="53.34" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="LED1" gate="G$1" pin="C"/>
+<wire x1="10.16" y1="119.38" x2="10.16" y2="124.46" width="0.1524" layer="91"/>
+<label x="10.16" y="124.46" size="0.8128" layer="95" rot="R90" xref="yes"/>
+</segment>
+<segment>
+<pinref part="LED2" gate="G$1" pin="C"/>
+<wire x1="20.32" y1="119.38" x2="20.32" y2="124.46" width="0.1524" layer="91"/>
+<label x="20.32" y="124.46" size="0.8128" layer="95" rot="R90" xref="yes"/>
+</segment>
+<segment>
+<pinref part="LED4" gate="G$1" pin="C"/>
+<wire x1="33.02" y1="119.38" x2="33.02" y2="124.46" width="0.1524" layer="91"/>
+<label x="33.02" y="124.46" size="0.8128" layer="95" rot="R90" xref="yes"/>
 </segment>
 </net>
 <net name="LENCA" class="0">
@@ -1462,12 +1620,22 @@ With round pins</description>
 <wire x1="187.96" y1="7.62" x2="190.5" y2="7.62" width="0.1524" layer="91"/>
 <label x="190.5" y="7.62" size="0.8128" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="U$4" gate="G$1" pin="PA12"/>
+<wire x1="38.1" y1="12.7" x2="45.72" y2="12.7" width="0.1524" layer="91"/>
+<label x="45.72" y="12.7" size="0.8128" layer="95" xref="yes"/>
+</segment>
 </net>
 <net name="EM_L" class="0">
 <segment>
 <label x="203.2" y="-38.1" size="0.8128" layer="95" xref="yes"/>
 <pinref part="U$8" gate="G$1" pin="1"/>
 <wire x1="203.2" y1="-38.1" x2="187.96" y2="-38.1" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$4" gate="G$1" pin="PC2"/>
+<wire x1="-35.56" y1="-2.54" x2="-40.64" y2="-2.54" width="0.1524" layer="91"/>
+<label x="-40.64" y="-2.54" size="0.8128" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="EM_LF" class="0">
@@ -1477,9 +1645,9 @@ With round pins</description>
 <label x="190.5" y="-20.32" size="0.8128" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$4" gate="G$1" pin="PC2"/>
-<wire x1="-35.56" y1="-2.54" x2="-40.64" y2="-2.54" width="0.1524" layer="91"/>
-<label x="-40.64" y="-2.54" size="0.8128" layer="95" rot="R180" xref="yes"/>
+<pinref part="U$4" gate="G$1" pin="PB5"/>
+<wire x1="0" y1="38.1" x2="0" y2="43.18" width="0.1524" layer="91"/>
+<label x="0" y="43.18" size="0.8128" layer="95" rot="R90" xref="yes"/>
 </segment>
 </net>
 <net name="RE_RFB" class="0">
@@ -1579,12 +1747,22 @@ With round pins</description>
 <pinref part="U$9" gate="G$1" pin="2"/>
 <wire x1="203.2" y1="-10.16" x2="187.96" y2="-10.16" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="U$4" gate="G$1" pin="PC9"/>
+<wire x1="38.1" y1="0" x2="43.18" y2="0" width="0.1524" layer="91"/>
+<label x="43.18" y="0" size="0.8128" layer="95" xref="yes"/>
+</segment>
 </net>
 <net name="VMTR" class="0">
 <segment>
 <label x="175.26" y="-33.02" size="1.016" layer="95" rot="R90" xref="yes"/>
 <pinref part="U$11" gate="G$1" pin="1"/>
 <wire x1="175.26" y1="-33.02" x2="175.26" y2="-38.1" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$4" gate="G$1" pin="PA2"/>
+<wire x1="-35.56" y1="-17.78" x2="-38.1" y2="-17.78" width="0.1524" layer="91"/>
+<label x="-38.1" y="-17.78" size="0.8128" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="VCAP_2" class="0">
@@ -1902,6 +2080,63 @@ With round pins</description>
 <pinref part="U$4" gate="G$1" pin="PA10"/>
 <pinref part="CH2" gate="G$1" pin="2"/>
 <wire x1="38.1" y1="7.62" x2="68.58" y2="7.62" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$13" class="0">
+<segment>
+<pinref part="LED_R2" gate="G$1" pin="1"/>
+<pinref part="LED2" gate="G$1" pin="A"/>
+<wire x1="20.32" y1="111.76" x2="20.32" y2="104.14" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$14" class="0">
+<segment>
+<pinref part="LED_R1" gate="G$1" pin="1"/>
+<pinref part="LED1" gate="G$1" pin="A"/>
+<wire x1="10.16" y1="111.76" x2="10.16" y2="104.14" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$15" class="0">
+<segment>
+<pinref part="LED_R4" gate="G$1" pin="1"/>
+<pinref part="LED4" gate="G$1" pin="A"/>
+<wire x1="33.02" y1="111.76" x2="33.02" y2="104.14" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="LED1" class="0">
+<segment>
+<pinref part="LED_R1" gate="G$1" pin="2"/>
+<wire x1="10.16" y1="93.98" x2="10.16" y2="91.44" width="0.1524" layer="91"/>
+<label x="10.16" y="91.44" size="0.8128" layer="95" rot="R270" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U$4" gate="G$1" pin="PC10"/>
+<wire x1="15.24" y1="38.1" x2="15.24" y2="40.64" width="0.1524" layer="91"/>
+<label x="15.24" y="40.64" size="0.8128" layer="95" rot="R90" xref="yes"/>
+</segment>
+</net>
+<net name="LED2" class="0">
+<segment>
+<pinref part="LED_R2" gate="G$1" pin="2"/>
+<wire x1="20.32" y1="93.98" x2="20.32" y2="91.44" width="0.1524" layer="91"/>
+<label x="20.32" y="91.44" size="0.8128" layer="95" rot="R270" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U$4" gate="G$1" pin="PC11"/>
+<wire x1="12.7" y1="38.1" x2="12.7" y2="40.64" width="0.1524" layer="91"/>
+<label x="12.7" y="40.64" size="0.8128" layer="95" rot="R90" xref="yes"/>
+</segment>
+</net>
+<net name="LED3" class="0">
+<segment>
+<pinref part="LED_R4" gate="G$1" pin="2"/>
+<wire x1="33.02" y1="93.98" x2="33.02" y2="91.44" width="0.1524" layer="91"/>
+<label x="33.02" y="91.44" size="0.8128" layer="95" rot="R270" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U$4" gate="G$1" pin="PC12"/>
+<wire x1="10.16" y1="38.1" x2="10.16" y2="40.64" width="0.1524" layer="91"/>
+<label x="10.16" y="40.64" size="0.8128" layer="95" rot="R90" xref="yes"/>
 </segment>
 </net>
 </nets>

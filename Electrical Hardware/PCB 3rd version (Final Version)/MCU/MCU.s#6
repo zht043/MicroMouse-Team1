@@ -1792,17 +1792,18 @@ With round pins</description>
 <net name="N$7" class="0">
 <segment>
 <pinref part="U$4" gate="G$1" pin="PA0_AKUP"/>
-<pinref part="CH8" gate="G$1" pin="1"/>
-<wire x1="-35.56" y1="-12.7" x2="-50.8" y2="-12.7" width="0.1524" layer="91"/>
-<wire x1="-50.8" y1="-12.7" x2="-50.8" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="-12.7" x2="-43.18" y2="-12.7" width="0.1524" layer="91"/>
+<pinref part="CH7" gate="G$1" pin="1"/>
+<wire x1="-38.1" y1="-35.56" x2="-43.18" y2="-35.56" width="0.1524" layer="91"/>
+<wire x1="-43.18" y1="-35.56" x2="-43.18" y2="-12.7" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$8" class="0">
 <segment>
 <pinref part="U$4" gate="G$1" pin="PA1"/>
-<pinref part="CH7" gate="G$1" pin="1"/>
-<wire x1="-35.56" y1="-15.24" x2="-38.1" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="-38.1" y1="-15.24" x2="-38.1" y2="-35.56" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="-15.24" x2="-50.8" y2="-15.24" width="0.1524" layer="91"/>
+<pinref part="CH8" gate="G$1" pin="1"/>
+<wire x1="-50.8" y1="-15.24" x2="-50.8" y2="-38.1" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$5" class="0">

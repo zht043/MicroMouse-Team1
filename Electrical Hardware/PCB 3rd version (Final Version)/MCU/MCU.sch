@@ -1319,7 +1319,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="CH6" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="22ohm"/>
 <part name="CH7" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="22ohm"/>
 <part name="CH8" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="22ohm"/>
-<part name="B1" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="1k"/>
+<part name="B1" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="47k"/>
 <part name="CH9" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="22ohm"/>
 <part name="CH10" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="22ohm"/>
 <part name="CH11" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="22ohm"/>

@@ -1270,54 +1270,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </deviceset>
 </devicesets>
 </library>
-<library name="4X4X1.5_SMD_SWITCH">
-<packages>
-<package name="4X4X1.5_SMD_SWITCH">
-<smd name="INB" x="2.75" y="-1.5" dx="1.3" dy="1" layer="1"/>
-<smd name="OUTB" x="2.75" y="1.5" dx="1.3" dy="1" layer="1"/>
-<smd name="OUTA" x="-2.75" y="1.5" dx="1.3" dy="1" layer="1"/>
-<smd name="INA" x="-2.75" y="-1.5" dx="1.3" dy="1" layer="1"/>
-<wire x1="-2.5" y1="2.5" x2="-2.5" y2="-2.5" width="0.1524" layer="21"/>
-<wire x1="-2.5" y1="-2.5" x2="2.5" y2="-2.5" width="0.1524" layer="21"/>
-<wire x1="2.5" y1="-2.5" x2="2.5" y2="2.5" width="0.1524" layer="21"/>
-<wire x1="2.5" y1="2.5" x2="-2.5" y2="2.5" width="0.1524" layer="21"/>
-<text x="-1.27" y="0" size="0.4064" layer="21">SWITCH</text>
-</package>
-</packages>
-<symbols>
-<symbol name="4X4X1.5_SMD_SWITCH">
-<wire x1="-12.7" y1="5.08" x2="-12.7" y2="-5.08" width="0.1524" layer="94"/>
-<wire x1="-12.7" y1="-5.08" x2="12.7" y2="-5.08" width="0.1524" layer="94"/>
-<wire x1="12.7" y1="-5.08" x2="12.7" y2="5.08" width="0.1524" layer="94"/>
-<wire x1="12.7" y1="5.08" x2="-12.7" y2="5.08" width="0.1524" layer="94"/>
-<pin name="OUTA" x="-17.78" y="2.54" length="middle"/>
-<pin name="OUTB" x="17.78" y="2.54" length="middle" rot="R180"/>
-<pin name="INA" x="-17.78" y="-2.54" length="middle"/>
-<pin name="INB" x="17.78" y="-2.54" length="middle" rot="R180"/>
-<text x="-5.08" y="0" size="1.778" layer="94">SWITCH</text>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="4X4X1.5_SMD_SWITCH">
-<gates>
-<gate name="G$1" symbol="4X4X1.5_SMD_SWITCH" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="4X4X1.5_SMD_SWITCH">
-<connects>
-<connect gate="G$1" pin="INA" pad="INA"/>
-<connect gate="G$1" pin="INB" pad="INB"/>
-<connect gate="G$1" pin="OUTA" pad="OUTA"/>
-<connect gate="G$1" pin="OUTB" pad="OUTB"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1387,7 +1339,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="RSTR" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="47K"/>
 <part name="RSTC" library="SparkFun-Capacitors" deviceset="22UF" device="-0805-6.3V-20%" value="0.1uf"/>
 <part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="U$14" library="4X4X1.5_SMD_SWITCH" deviceset="4X4X1.5_SMD_SWITCH" device=""/>
+<part name="BUTTON" library="headers(2mm)" deviceset="1X2" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1453,7 +1405,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="RSTR" gate="G$1" x="114.3" y="73.66" rot="R180"/>
 <instance part="RSTC" gate="G$1" x="124.46" y="66.04"/>
 <instance part="GND7" gate="1" x="129.54" y="55.88"/>
-<instance part="U$14" gate="G$1" x="129.54" y="35.56" rot="R180"/>
+<instance part="BUTTON" gate="G$1" x="139.7" y="50.8" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -1551,16 +1503,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="129.54" y1="58.42" x2="129.54" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="RSTC" gate="G$1" pin="2"/>
 <wire x1="129.54" y1="63.5" x2="124.46" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="129.54" y1="63.5" x2="137.16" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="63.5" x2="139.7" y2="63.5" width="0.1524" layer="91"/>
 <junction x="129.54" y="63.5"/>
-<wire x1="137.16" y1="63.5" x2="137.16" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="137.16" y1="50.8" x2="106.68" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="50.8" x2="106.68" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="U$14" gate="G$1" pin="OUTB"/>
-<wire x1="106.68" y1="33.02" x2="111.76" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="U$14" gate="G$1" pin="OUTA"/>
-<wire x1="147.32" y1="33.02" x2="111.76" y2="33.02" width="0.1524" layer="91"/>
-<junction x="111.76" y="33.02"/>
+<pinref part="BUTTON" gate="G$1" pin="1"/>
+<wire x1="139.7" y1="63.5" x2="139.7" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="LENCA" class="0">
@@ -1893,16 +1839,13 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="134.62" y1="73.66" x2="139.7" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="124.46" y1="71.12" x2="124.46" y2="73.66" width="0.1524" layer="91"/>
 <junction x="124.46" y="73.66"/>
-<pinref part="U$14" gate="G$1" pin="INB"/>
-<wire x1="111.76" y1="38.1" x2="111.76" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="45.72" x2="144.78" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="144.78" y1="45.72" x2="144.78" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="144.78" y1="68.58" x2="134.62" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="134.62" y1="68.58" x2="134.62" y2="73.66" width="0.1524" layer="91"/>
 <junction x="134.62" y="73.66"/>
-<pinref part="U$14" gate="G$1" pin="INA"/>
-<wire x1="147.32" y1="38.1" x2="111.76" y2="38.1" width="0.1524" layer="91"/>
-<junction x="111.76" y="38.1"/>
+<wire x1="144.78" y1="68.58" x2="144.78" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="55.88" x2="142.24" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="BUTTON" gate="G$1" pin="2"/>
+<wire x1="142.24" y1="55.88" x2="142.24" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="OSC_IN" class="0">

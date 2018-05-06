@@ -773,7 +773,7 @@ design rules under a new name.</description>
 <element name="CH8" library="SparkFun-Resistors" package="0805" value="22ohm" x="92" y="50">
 <attribute name="PROD_ID" value="RES-08474" x="92" y="50" size="1.778" layer="27" display="off"/>
 </element>
-<element name="B1" library="SparkFun-Resistors" package="0805" value="1k" x="85.75" y="50.64" rot="R180">
+<element name="B1" library="SparkFun-Resistors" package="0805" value="47k" x="85.75" y="50.64" rot="R180">
 <attribute name="PROD_ID" value="RES-08474" x="85.75" y="50.64" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="CH9" library="SparkFun-Resistors" package="0805" value="22ohm" x="84.94" y="48.57">
