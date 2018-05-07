@@ -294,6 +294,14 @@ void motorTester(void) {
 
 		}
 }
+void TIM3_itTask_cc1(void);
+void TIM3_itTask_cc2(void);
+void TIM3_itTask_cc1(void) {
+}
+void TIM3_itTask_cc2(void) {
+}
+void TIM3_IT_tester() {
+}
 int main(void)
 {
 		//initAlles();
@@ -304,7 +312,8 @@ int main(void)
 		//SPI_Tester();
 		//fuck();
 		//Gyro_Tester();
-		motorTester();
+		//motorTester();
+		TIM3_IT_tester();
 }
 
 

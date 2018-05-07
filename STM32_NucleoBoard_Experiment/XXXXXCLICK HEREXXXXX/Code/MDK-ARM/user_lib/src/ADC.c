@@ -62,7 +62,7 @@ void initADC(ADC_TypeDef * ADCx)
     ADC_InitStructure.ADC_NbrOfConversion = adcs_index;
     ADC_Init(ADCx, &ADC_InitStructure); 
 		
-		for(A; adcs_index >= 0; adcs_index--) 
+		for(; adcs_index >= 0; adcs_index--) 
 				ADC_RegularChannelConfig(ADCx, adcs[adcs_index], adcs_index, ADC_SampleTime_xxxCycles); 
     ADC_DMARequestAfterLastTransferCmd(ADCx, ENABLE); 
     ADC_DMACmd(ADCx, ENABLE); 

@@ -43,3 +43,5 @@ stm32f446xx\stm32f4xx_it.o: ../../../Libraries/STM32F4xx_StdPeriph_Driver/inc/st
 stm32f446xx\stm32f4xx_it.o: ../../../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_cec.h
 stm32f446xx\stm32f4xx_it.o: ../main.h
 stm32f446xx\stm32f4xx_it.o: .\user_lib\inc\SysTime.h
+stm32f446xx\stm32f4xx_it.o: .\user_lib\inc\Timer.h
+stm32f446xx\stm32f4xx_it.o: .\user_lib\inc\GPIO.h

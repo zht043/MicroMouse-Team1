@@ -30,7 +30,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_it.h"
 #include "main.h"
-
+#include "Timer.h"
+#include "stm32f4xx_tim.h"
 /** @addtogroup Template_Project
   * @{
   */
@@ -144,6 +145,30 @@ void SysTick_Handler(void)
 		SysTick_Increment();
 }
 
+
+extern __IO uint16_t CCR1_Val;
+extern __IO uint16_t CCR2_Val;
+extern void TIM3_itTask_cc1(void);
+extern void TIM3_itTask_cc2(void);
+void TIM3_IRQHandler(void)
+{
+  if (TIM_GetITStatus(TIM3, TIM_IT_CC1) != RESET)
+  {
+			TIM_ClearITPendingBit(TIM3, TIM_IT_CC1);
+			TIM3_itTask_cc1();
+			uint32_t capture = TIM_GetCapture1(TIM3);
+			TIM_SetCompare1(TIM3, capture + CCR1_Val);
+  }
+  else if (TIM_GetITStatus(TIM3, TIM_IT_CC2) != RESET)
+  {
+			TIM_ClearITPendingBit(TIM3, TIM_IT_CC2);
+			TIM3_itTask_cc2();
+    /* LED2 toggling with frequency = 109.8 Hz */
+    //STM_EVAL_LEDToggle(LED2);
+			uint32_t capture = TIM_GetCapture2(TIM3);
+			TIM_SetCompare2(TIM3, capture + CCR2_Val);
+  }
+}
 /******************************************************************************/
 /*                 STM32F4xx Peripherals Interrupt Handlers                   */
 /*  Add here the Interrupt Handler for the used peripheral(s) (PPP), for the  */

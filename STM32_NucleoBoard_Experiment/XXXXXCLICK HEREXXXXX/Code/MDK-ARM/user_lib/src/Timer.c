@@ -638,7 +638,38 @@ void setPWM(TIM port, uint32_t dutyCircle) {
 
 }
 
-
-void EnableTIMxInterrupt(TIM_TypeDef * TIMx, uint32_t Frequency, uint32_t period_us) {
-		
+__IO uint16_t CCR1_Val = 0;
+__IO uint16_t CCR2_Val = 0;
+void TIM3_SinglePulseInterrupt(uint32_t Frequency, uint16_t it1, uint16_t it2) {
+		CCR1_Val = it1;
+		CCR2_Val = it2;
+		NVIC_InitTypeDef NVIC_InitStructure;
+		RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
+		NVIC_InitStructure.NVIC_IRQChannel = TIM3_IRQn;
+		NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+		NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+		NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+		NVIC_Init(&NVIC_InitStructure);
+		TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+		TIM_OCInitTypeDef  TIM_OCInitStructure;
+		uint16_t PrescalerValue = (uint16_t) ((SystemCoreClock)/1000/Frequency) - 1;
+		TIM_TimeBaseStructure.TIM_Period = 1000 - 1;
+		TIM_TimeBaseStructure.TIM_Prescaler = 0;
+		TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+		TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+		TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
+		TIM_PrescalerConfig(TIM3, PrescalerValue, TIM_PSCReloadMode_Immediate);
+		TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_Timing;
+		TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+		TIM_OCInitStructure.TIM_Pulse = CCR1_Val;
+		TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+		TIM_OC1Init(TIM3, &TIM_OCInitStructure);
+		TIM_OC1PreloadConfig(TIM3, TIM_OCPreload_Disable);
+		TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+		TIM_OCInitStructure.TIM_Pulse = CCR1_Val;
+		TIM_OC2Init(TIM3, &TIM_OCInitStructure);
+		TIM_OC2PreloadConfig(TIM3, TIM_OCPreload_Disable);
+		TIM_ClearITPendingBit (TIM3, TIM_IT_CC1 | TIM_IT_CC2);
+		TIM_ITConfig(TIM3, TIM_IT_CC1 | TIM_IT_CC2, ENABLE);
+		TIM_Cmd(TIM3, ENABLE);
 }
