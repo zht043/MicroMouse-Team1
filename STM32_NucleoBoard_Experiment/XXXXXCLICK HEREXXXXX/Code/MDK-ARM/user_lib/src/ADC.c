@@ -4,15 +4,16 @@
 #define ADC_DMA_STREAM   DMA2_Stream0 
 #define ADC_SampleTime_xxxCycles ADC_SampleTime_56Cycles  
 #define ADC_TwoSamplingDelay_xxCycles ADC_TwoSamplingDelay_10Cycles
-uint8_t adcs[8];
-uint8_t adcs_index = 0;
+uint8_t adcs[16];
+int8_t adcs_index = 0;
+volatile uint16_t Aval[16];
 int addADC(uint8_t Pxx, uint8_t ADCchannel) {
 		if(adcs_index > 8) return 0;
 		GPIO obj = Pxx_decoder(Pxx);
 		GPIO_InitTypeDef GPIO_InitStructure;    
 		RCC_AHB1PeriphClockCmd(obj.RCC_CMD, ENABLE);  
 		GPIO_InitStructure.GPIO_Pin = obj.Pin;
-		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN; 
+		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN; 
 		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL; 
 		GPIO_Init(obj.GPIOx, &GPIO_InitStructure);
 		adcs[adcs_index++] = ADCchannel;
@@ -32,7 +33,7 @@ void initADC(ADC_TypeDef * ADCx)
 		if(ADCx == ADC2)	DMA_InitStructure.DMA_PeripheralBaseAddr = ((uint32_t)ADC2+0x4c);
 		if(ADCx == ADC3)	DMA_InitStructure.DMA_PeripheralBaseAddr = ((uint32_t)ADC3+0x4c);
 	
-    DMA_InitStructure.DMA_Memory0BaseAddr = (uint32_t)ADC_Value; 
+    DMA_InitStructure.DMA_Memory0BaseAddr = (uint32_t)Aval; 
 	  DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralToMemory; 
     DMA_InitStructure.DMA_BufferSize = adcs_index; 
 	  DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable; 
@@ -61,9 +62,8 @@ void initADC(ADC_TypeDef * ADCx)
     ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right; 
     ADC_InitStructure.ADC_NbrOfConversion = adcs_index;
     ADC_Init(ADCx, &ADC_InitStructure); 
-		
-		for(; adcs_index >= 0; adcs_index--) 
-				ADC_RegularChannelConfig(ADCx, adcs[adcs_index], adcs_index, ADC_SampleTime_xxxCycles); 
+		for(adcs_index--; adcs_index >= 0; adcs_index--) 
+				ADC_RegularChannelConfig(ADCx, adcs[adcs_index], adcs_index+1, ADC_SampleTime_xxxCycles); 
     ADC_DMARequestAfterLastTransferCmd(ADCx, ENABLE); 
     ADC_DMACmd(ADCx, ENABLE); 
     ADC_Cmd(ADCx, ENABLE); 

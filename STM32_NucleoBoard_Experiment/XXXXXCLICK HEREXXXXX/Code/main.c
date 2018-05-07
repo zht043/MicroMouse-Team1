@@ -8,6 +8,7 @@
 #include "Timer.h"
 #include "USART.h"
 #include "SPI.h"
+#include "ADC.h"
 void initAlles() {
 		SysTime_Init();
 }
@@ -269,7 +270,7 @@ void motorTester(void) {
 		RpwmA = initIO_TIM(TIMER1, PA10, Ch3);
 		RpwmB = initIO_TIM(TIMER1, PA11, Ch4);
 		PWM_ON(TIMER1,10000);
-		double m=35.32;
+//		double m=35.32;
 		while(1) {
 				for(double pwr = 0.00f; pwr <= 100.00f; pwr+=0.1) {
 						motor(pwr, pwr);
@@ -302,6 +303,31 @@ void TIM3_itTask_cc2(void) {
 }
 void TIM3_IT_tester() {
 }
+extern volatile uint16_t Aval[16];
+void ADCtester(void) {
+		SysTime_Init();
+		initUSART(USART2, PA2, PA3, 9600);
+		printfForUx(USART2);
+		scanfForUx(USART2);
+		printf("\rThis is a ADC Tester\r\n");
+		for(int i = 0; i < 16; i++) Aval[i] = 0;
+		addADC(PA0, ADC_Channel_0);
+		addADC(PA1, ADC_Channel_1);
+		addADC(PA4, ADC_Channel_4);
+		addADC(PA5, ADC_Channel_5);
+		addADC(PA6, ADC_Channel_6);
+		addADC(PA7, ADC_Channel_7);
+		addADC(PB0, ADC_Channel_8);
+		addADC(PB1, ADC_Channel_9);
+		addADC(PC0, ADC_Channel_10);
+		addADC(PC1, ADC_Channel_11);
+		initADC(ADC1);
+		while(1) {
+			printf("\r");
+			for(int i = 0; i < 10; i++) printf("%d ",Aval[i]);
+			printf("\r\n");
+		}
+}
 int main(void)
 {
 		//initAlles();
@@ -313,7 +339,8 @@ int main(void)
 		//fuck();
 		//Gyro_Tester();
 		//motorTester();
-		TIM3_IT_tester();
+		//TIM3_IT_tester();
+		ADCtester();
 }
 
 

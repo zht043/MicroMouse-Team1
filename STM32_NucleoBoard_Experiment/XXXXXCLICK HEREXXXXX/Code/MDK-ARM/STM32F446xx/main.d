@@ -50,3 +50,4 @@ stm32f446xx\main.o: .\user_lib\inc\Initiation.h
 stm32f446xx\main.o: .\user_lib\inc\Timer.h
 stm32f446xx\main.o: .\user_lib\inc\USART.h
 stm32f446xx\main.o: .\user_lib\inc\SPI.h
+stm32f446xx\main.o: .\user_lib\inc\ADC.h
