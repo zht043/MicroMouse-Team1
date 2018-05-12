@@ -9,6 +9,7 @@
 #include "USART.h"
 #include "SPI.h"
 #include "ADC.h"
+#include "IR.h"
 void initAlles() {
 		SysTime_Init();
 }
@@ -343,7 +344,7 @@ void ADCtester(void) {
 		initUSART(USART2, PA2, PA3, 9600);
 		printfForUx(USART2);
 		scanfForUx(USART2);
-		printf("\rThis is a ADC Tester\r\n");
+		//printf("\rThis is a ADC Tester\r\n");
 		int ch;
 		addADC(PA0, ADC_Channel_0);
 		ch = addADC(PA1, ADC_Channel_1);
@@ -364,11 +365,14 @@ void ADCtester(void) {
 		}*/
 		uint32_t a[100];
 		while(1) {	
-				printf("\r");
+				printf("");
 				ADC_Sampling(a, ch, 10);
 				for(int i = 0; i < 10; i++) printf("%d ",a[i]);
-				printf("\r\n");
+				printf("\n");
 		}
+}
+void IRtester(){
+	
 }
 int main(void)
 {
@@ -381,8 +385,9 @@ int main(void)
 		//SPI_Tester2();
 		//Gyro_Tester();
 		//motorTester();
-		TIM3_IT_tester();
-		//ADCtester();
+		//TIM3_IT_tester();
+		ADCtester();
+		//IRtester();
 }
 
 

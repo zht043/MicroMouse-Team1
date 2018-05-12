@@ -1,13 +1,13 @@
 stm32f446xx\main.o: ../main.c
-stm32f446xx\main.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-stm32f446xx\main.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-stm32f446xx\main.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+stm32f446xx\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+stm32f446xx\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+stm32f446xx\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 stm32f446xx\main.o: ../main.h
 stm32f446xx\main.o: ../../../Libraries/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
-stm32f446xx\main.o: E:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h
-stm32f446xx\main.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-stm32f446xx\main.o: E:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h
-stm32f446xx\main.o: E:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h
+stm32f446xx\main.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h
+stm32f446xx\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+stm32f446xx\main.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h
+stm32f446xx\main.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h
 stm32f446xx\main.o: ../../../Libraries/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 stm32f446xx\main.o: ../stm32f4xx_conf.h
 stm32f446xx\main.o: ../../../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_adc.h
@@ -51,3 +51,4 @@ stm32f446xx\main.o: .\user_lib\inc\Timer.h
 stm32f446xx\main.o: .\user_lib\inc\USART.h
 stm32f446xx\main.o: .\user_lib\inc\SPI.h
 stm32f446xx\main.o: .\user_lib\inc\ADC.h
+stm32f446xx\main.o: .\user_lib\inc\IR.h
