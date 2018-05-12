@@ -66,7 +66,8 @@ void initUSART(USART_TypeDef* USARTx, uint8_t TX_Pxx, uint8_t RX_Pxx, uint32_t U
     NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
-		USART_ITConfig(USARTx, USART_IT_RXNE, ENABLE);*/		
+		USART_ITConfig(USARTx, USART_IT_RXNE, ENABLE);*/	
+		
 	  USART_Cmd(USARTx, ENABLE); 
 }
 USART_TypeDef* prtUSARTx;

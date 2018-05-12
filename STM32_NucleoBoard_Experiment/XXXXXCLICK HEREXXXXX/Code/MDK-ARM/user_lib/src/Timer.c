@@ -638,7 +638,125 @@ void setPWM(TIM port, uint32_t dutyCircle) {
 
 }
 
-
-void EnableTIMxInterrupt(TIM_TypeDef * TIMx, uint32_t Frequency, uint32_t period_us) {
+#define T3Freq 6000000
+__IO uint16_t CCR1_Val = 0;  
+__IO uint16_t CCR2_Val = 0;
+__IO uint16_t CCR3_Val = 0;  
+__IO uint16_t CCR4_Val = 0; 
+uint16_t usToCCR(uint16_t us, uint32_t Freq) {
+		return (uint16_t)(Freq / 1000000) * us;
+}
+void TIM3_IR_IT(void) {
+		NVIC_InitTypeDef NVIC_InitStructure;
+		RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
+		NVIC_InitStructure.NVIC_IRQChannel = TIM3_IRQn;
+		NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+		NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+		NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+		NVIC_Init(&NVIC_InitStructure);
+		TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+		TIM_OCInitTypeDef  TIM_OCInitStructure;
+		uint16_t PrescalerValue = (uint16_t) ((SystemCoreClock / 2) / T3Freq) - 1;
+		TIM_TimeBaseStructure.TIM_Period = 65535;
+		TIM_TimeBaseStructure.TIM_Prescaler = 0;
+		TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+		TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+		TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
+		TIM_PrescalerConfig(TIM3, PrescalerValue, TIM_PSCReloadMode_Immediate);	
+		TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_Timing;
+		TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+	
+		TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+		TIM_OCInitStructure.TIM_Pulse = CCR1_Val;	
+		TIM_OC1Init(TIM3, &TIM_OCInitStructure);
+		TIM_OC1PreloadConfig(TIM3, TIM_OCPreload_Disable);
 		
+		/*
+   	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+		TIM_OCInitStructure.TIM_Pulse = CCR2_Val;
+		TIM_OC2Init(TIM3, &TIM_OCInitStructure);
+		TIM_OC2PreloadConfig(TIM3, TIM_OCPreload_Disable);
+		
+		*/
+		
+		/*
+		TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+  TIM_OCInitStructure.TIM_Pulse = CCR3_Val;
+
+  TIM_OC3Init(TIM3, &TIM_OCInitStructure);
+
+  TIM_OC3PreloadConfig(TIM3, TIM_OCPreload_Disable);
+	
+  TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+  TIM_OCInitStructure.TIM_Pulse = CCR4_Val;
+
+  TIM_OC4Init(TIM3, &TIM_OCInitStructure);
+
+  TIM_OC4PreloadConfig(TIM3, TIM_OCPreload_Disable);*/
+		
+		//TIM_ClearITPendingBit (TIM3, TIM_IT_CC1 | TIM_IT_CC2);
+		//TIM_ITConfig(TIM3, TIM_IT_CC1 | TIM_IT_CC2, ENABLE);
+		TIM_ClearITPendingBit (TIM3, TIM_IT_CC1);
+		TIM_ITConfig(TIM3, TIM_IT_CC1, ENABLE);
+		TIM_Cmd(TIM3, ENABLE);
+}
+
+void initEncoder(void) {
+		GPIO_InitTypeDef GPIO_InitStructure;
+		RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
+		RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);	
+		RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
+		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+		GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;
+		GPIO_Init(GPIOA, &GPIO_InitStructure);
+		GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;                           
+		GPIO_Init(GPIOB, &GPIO_InitStructure);	
+		GPIO_PinAFConfig(GPIOA, GPIO_PinSource15, GPIO_AF_TIM2);
+		GPIO_PinAFConfig(GPIOB, GPIO_PinSource3, GPIO_AF_TIM2);
+		TIM_SetAutoreload (TIM2, 0xffffffff);
+		TIM_EncoderInterfaceConfig(TIM2, TIM_EncoderMode_TI12, TIM_ICPolarity_Rising, TIM_ICPolarity_Falling);
+		TIM_Cmd(TIM2, ENABLE);
+
+		RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5, ENABLE);
+		RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);	
+		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+		GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;  
+		GPIO_Init(GPIOA, &GPIO_InitStructure);	
+		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+		GPIO_PinAFConfig(GPIOA, GPIO_PinSource0, GPIO_AF_TIM5);
+		GPIO_PinAFConfig(GPIOA, GPIO_PinSource1, GPIO_AF_TIM5);
+		TIM_SetAutoreload (TIM5, 0xffffffff);
+		TIM_EncoderInterfaceConfig(TIM5, TIM_EncoderMode_TI12, TIM_ICPolarity_Rising, TIM_ICPolarity_Falling);
+		TIM_Cmd(TIM5, ENABLE);
+}
+int64_t   REnc_mem = 0,  LEnc_mem = 0;
+void ResetREnc() {
+		TIM2->CNT = 0;
+		REnc_mem = 0;
+}
+void ResetLEnc() {
+		TIM5->CNT = 0;
+		LEnc_mem = 0;
+}
+void EncoderInit(void) {
+		ResetLEnc();
+		ResetREnc();
+}
+int32_t REnc(void) 
+{
+		if(abs((int)((int32_t)(TIM2->CNT))) >= 400000000) {
+				REnc_mem += TIM2->CNT;
+				ResetREnc();
+		}
+	  return TIM2->CNT + REnc_mem;
+}
+int32_t LEnc(void) 
+{
+		if(abs((int)((int32_t)(TIM5->CNT))) >= 400000000) {
+				LEnc_mem += TIM5->CNT;
+				ResetLEnc();
+		}
+	  return TIM5->CNT + LEnc_mem;
 }

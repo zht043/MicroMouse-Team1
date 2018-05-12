@@ -9,6 +9,10 @@
 #include "USART.h"
 #include "SPI.h"
 #include "ADC.h"
+<<<<<<< HEAD
+=======
+#include "IR.h"
+>>>>>>> 05d1b953cbc62c1c173e7f8b30dfeea875945d89
 void initAlles() {
 		SysTime_Init();
 }
@@ -116,7 +120,7 @@ void SPI_Tester(void) {
 		
 	}
 }
-void fuck(void) {
+void SPI_Tester2(void) {
 	SysTime_Init();
 	initUSART(USART2, PA2, PA3, 9600);
 	printfForUx(USART2);
@@ -270,7 +274,7 @@ void motorTester(void) {
 		RpwmA = initIO_TIM(TIMER1, PA10, Ch3);
 		RpwmB = initIO_TIM(TIMER1, PA11, Ch4);
 		PWM_ON(TIMER1,10000);
-		double m=35.32;
+//		double m=35.32;
 		while(1) {
 				for(double pwr = 0.00f; pwr <= 100.00f; pwr+=0.1) {
 						motor(pwr, pwr);
@@ -295,6 +299,7 @@ void motorTester(void) {
 
 		}
 }
+<<<<<<< HEAD
 extern volatile uint16_t ADC_Value[1];
 void ADCtester(void) {
 		SysTime_Init();
@@ -325,6 +330,86 @@ void ADCtester(void) {
 		}
 }	
 
+=======
+
+extern __IO uint16_t CCR1_Val;
+extern __IO uint16_t CCR2_Val;
+GPIO itcc1;
+GPIO itcc2;
+void TIM3_itTask_cc1(void);
+void TIM3_itTask_cc2(void);
+int cc1Flag = 0;
+void TIM3_itTask_cc1(void) {
+		if(cc1Flag == 0) {
+			digitalWrite(itcc1, HIGH);
+			cc1Flag = 1;
+			CCR1_Val*=2;
+		}
+		else {
+			digitalWrite(itcc1, LOW);
+			cc1Flag = 0;
+			CCR1_Val/=2;
+		}
+}
+void TIM3_itTask_cc2(void) {		
+		//digitalWrite(itcc2, HIGH);
+		//digitalWrite(itcc1, LOW);
+}
+void TIM3_IT_tester() {
+		SysTime_Init();
+		initUSART(USART2, PA2, PA3, 9600);
+		printfForUx(USART2);
+		scanfForUx(USART2);
+		
+		itcc1 = initIO(PA5, OUTPUT);
+		itcc2 = initIO(PA6, OUTPUT);
+		CCR1_Val = usToCCR(1000, 6000000);
+		TIM3_IR_IT();
+		/*while(1) {
+				digitalWrite(itcc2, HIGH);
+				delay(2);
+				digitalWrite(itcc2, LOW);
+				delay(2);
+		}	*/		
+		while(1) printf("\rFuck\r\n");
+}
+extern volatile uint16_t Aval[16];
+void ADCtester(void) {
+		SysTime_Init();
+		initUSART(USART2, PA2, PA3, 9600);
+		printfForUx(USART2);
+		scanfForUx(USART2);
+		//printf("\rThis is a ADC Tester\r\n");
+		int ch;
+		addADC(PA0, ADC_Channel_0);
+		ch = addADC(PA1, ADC_Channel_1);
+		addADC(PA4, ADC_Channel_4);
+		addADC(PA5, ADC_Channel_5);
+		addADC(PA6, ADC_Channel_6);
+		addADC(PA7, ADC_Channel_7);
+		addADC(PB0, ADC_Channel_8);
+		addADC(PB1, ADC_Channel_9);
+		addADC(PC0, ADC_Channel_10);
+		addADC(PC1, ADC_Channel_11);
+		initADC(ADC1);
+		/*
+		while(1) {
+				printf("\r");
+				for(int i = 0; i < 16; i++) printf("%d ",Aval[i]);
+				printf("\r\n");
+		}*/
+		uint32_t a[100];
+		while(1) {	
+				printf("");
+				ADC_Sampling(a, ch, 10);
+				for(int i = 0; i < 10; i++) printf("%d ",a[i]);
+				printf("\n");
+		}
+}
+void IRtester(){
+	
+}
+>>>>>>> 05d1b953cbc62c1c173e7f8b30dfeea875945d89
 int main(void)
 {
 		//initAlles();
@@ -333,10 +418,16 @@ int main(void)
 		//PWM_Tester();
 		//USART_Tester();
 		//SPI_Tester();
-		//fuck();
+		//SPI_Tester2();
 		//Gyro_Tester();
 		//motorTester();
+<<<<<<< HEAD
 	ADCtester();
+=======
+		//TIM3_IT_tester();
+		ADCtester();
+		//IRtester();
+>>>>>>> 05d1b953cbc62c1c173e7f8b30dfeea875945d89
 }
 
 
