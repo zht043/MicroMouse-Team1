@@ -152,9 +152,3 @@ void initFloodfill() {
     CENTERX4 = hr-1;
     CENTERY4 = cr-1;
 }
-
-
-int main() {
-    initFloodfill();
-    updatePosition(0,0,0,0);
-}

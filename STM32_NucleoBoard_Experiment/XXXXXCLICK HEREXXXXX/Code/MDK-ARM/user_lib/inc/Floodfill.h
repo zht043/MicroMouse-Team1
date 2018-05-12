@@ -15,6 +15,8 @@ void updatePostition(int r1, int c1, int r2, int c2);
 bool floodfill(void);
 
 Coord* direction = newCoord(0,0);
+int xx[] = {0,1,0,-1};
+int yy[] = {1,0,-1,0};
 int visit[100][100];
 int dist[100][100];
 int bestRouteX[100][100];
