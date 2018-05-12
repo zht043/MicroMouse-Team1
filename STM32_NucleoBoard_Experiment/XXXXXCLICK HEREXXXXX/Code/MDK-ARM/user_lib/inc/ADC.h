@@ -5,4 +5,5 @@
 #include "stm32f4xx_dma.h"
 int addADC(uint8_t Pxx, uint8_t ADCchannel);
 void initADC(ADC_TypeDef * ADCx); 
+void ADC_Sampling(uint32_t *Sarr, uint8_t ch, uint32_t n);
 #endif 

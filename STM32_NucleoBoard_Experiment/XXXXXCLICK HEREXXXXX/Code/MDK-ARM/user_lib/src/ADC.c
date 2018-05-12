@@ -1,14 +1,15 @@
 #include "ADC.h" 
 #define ADC_DMA_CLK      RCC_AHB1Periph_DMA2 
 #define ADC_DMA_CHANNEL  DMA_Channel_0 
-#define ADC_DMA_STREAM   DMA2_Stream0 
+#define ADC_DMA_STREAM   DMA2_Stream0
+#define DMA_FLAG_TCIFx   DMA_FLAG_TCIF0
 #define ADC_SampleTime_xxxCycles ADC_SampleTime_56Cycles  
 #define ADC_TwoSamplingDelay_xxCycles ADC_TwoSamplingDelay_10Cycles
 uint8_t adcs[16];
 int8_t adcs_index = 0;
-volatile uint16_t Aval[16];
+volatile uint16_t Aval[16] = {0};
 int addADC(uint8_t Pxx, uint8_t ADCchannel) {
-		if(adcs_index > 8) return 0;
+		if(adcs_index > 8) return -1;
 		GPIO obj = Pxx_decoder(Pxx);
 		GPIO_InitTypeDef GPIO_InitStructure;    
 		RCC_AHB1PeriphClockCmd(obj.RCC_CMD, ENABLE);  
@@ -17,7 +18,7 @@ int addADC(uint8_t Pxx, uint8_t ADCchannel) {
 		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL; 
 		GPIO_Init(obj.GPIOx, &GPIO_InitStructure);
 		adcs[adcs_index++] = ADCchannel;
-		return 1;
+		return adcs_index;
 }
 void initADC(ADC_TypeDef * ADCx)  
 {  
@@ -50,7 +51,7 @@ void initADC(ADC_TypeDef * ADCx)
     DMA_Cmd(ADC_DMA_STREAM, ENABLE); 
 		
     ADC_CommonInitStructure.ADC_Mode = ADC_Mode_Independent; 
-    ADC_CommonInitStructure.ADC_Prescaler = ADC_Prescaler_Div4; 
+    ADC_CommonInitStructure.ADC_Prescaler = ADC_Prescaler_Div2; //upupupupupupup
     ADC_CommonInitStructure.ADC_DMAAccessMode=ADC_DMAAccessMode_Disabled; 
     ADC_CommonInitStructure.ADC_TwoSamplingDelay = ADC_TwoSamplingDelay_xxCycles;
     ADC_CommonInit(&ADC_CommonInitStructure); 
@@ -69,3 +70,9 @@ void initADC(ADC_TypeDef * ADCx)
     ADC_Cmd(ADCx, ENABLE); 
     ADC_SoftwareStartConv(ADCx); 
 } 
+void ADC_Sampling(uint32_t *Sarr, uint8_t ch, uint32_t n) {
+		for(int Si = 0; Si < n; Si++) {
+				while(DMA_GetFlagStatus(ADC_DMA_STREAM, DMA_FLAG_TCIFx) != SET);
+				Sarr[Si] = Aval[ch - 1];
+		}
+}

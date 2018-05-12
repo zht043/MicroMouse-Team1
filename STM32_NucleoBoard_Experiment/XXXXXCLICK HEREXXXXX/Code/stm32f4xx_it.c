@@ -152,22 +152,23 @@ extern void TIM3_itTask_cc1(void);
 extern void TIM3_itTask_cc2(void);
 void TIM3_IRQHandler(void)
 {
+	
   if (TIM_GetITStatus(TIM3, TIM_IT_CC1) != RESET)
-  {
-			TIM_ClearITPendingBit(TIM3, TIM_IT_CC1);
+  {		
 			TIM3_itTask_cc1();
 			uint32_t capture = TIM_GetCapture1(TIM3);
 			TIM_SetCompare1(TIM3, capture + CCR1_Val);
-  }
+			TIM_ClearITPendingBit(TIM3, TIM_IT_CC1);
+	}
+	
+	/*
   else if (TIM_GetITStatus(TIM3, TIM_IT_CC2) != RESET)
   {
 			TIM_ClearITPendingBit(TIM3, TIM_IT_CC2);
 			TIM3_itTask_cc2();
-    /* LED2 toggling with frequency = 109.8 Hz */
-    //STM_EVAL_LEDToggle(LED2);
 			uint32_t capture = TIM_GetCapture2(TIM3);
 			TIM_SetCompare2(TIM3, capture + CCR2_Val);
-  }
+  }*/
 }
 /******************************************************************************/
 /*                 STM32F4xx Peripherals Interrupt Handlers                   */
