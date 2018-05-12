@@ -8,6 +8,7 @@
 #include "Timer.h"
 #include "USART.h"
 #include "SPI.h"
+#include "ADC.h"
 void initAlles() {
 		SysTime_Init();
 }
@@ -294,6 +295,36 @@ void motorTester(void) {
 
 		}
 }
+extern volatile uint16_t ADC_Value[1];
+void ADCtester(void) {
+		SysTime_Init();
+		initUSART(USART2, PA2, PA3, 9600);
+	  printfForUx(USART2);
+		printf("\rEL PSY CONGROO <<<<<>>>>> Ich Liebe dich~\r\n");
+	
+		//addADC(PA0, ADC_Channel_0); // ADCchannel
+	  //printf("Channel 0 added!\r\n");
+		addADC(PA1, ADC_Channel_1); // ADCchannel
+		printf("Channel 1 added!\r\n");
+
+		//addADC(PA4, ADC_Channel_4); // ADCchannel
+
+		//printf("Channel 4 added!\r\n");
+
+		//addADC(PA5, ADC_Channel_5);
+		//printf("Channel 5 added!\r\n");
+
+		initADC(ADC1); 
+		//ADC_Value[0];
+			
+		while(1){
+			
+			printf("\r Values - %d \r\n", ADC_Value[0]);
+			
+			delay(50);
+		}
+}	
+
 int main(void)
 {
 		//initAlles();
@@ -304,7 +335,8 @@ int main(void)
 		//SPI_Tester();
 		//fuck();
 		//Gyro_Tester();
-		motorTester();
+		//motorTester();
+	ADCtester();
 }
 
 

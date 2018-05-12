@@ -2,10 +2,12 @@ stm32f446xx\timer.o: user_lib\src\Timer.c
 stm32f446xx\timer.o: .\user_lib\inc\Timer.h
 stm32f446xx\timer.o: .\user_lib\inc\GPIO.h
 stm32f446xx\timer.o: ../../../Libraries/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
-stm32f446xx\timer.o: E:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h
-stm32f446xx\timer.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-stm32f446xx\timer.o: E:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h
-stm32f446xx\timer.o: E:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h
+stm32f446xx\timer.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\core_cm4.h
+stm32f446xx\timer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+stm32f446xx\timer.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cmsis_version.h
+stm32f446xx\timer.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cmsis_compiler.h
+stm32f446xx\timer.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\cmsis_armcc.h
+stm32f446xx\timer.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include\mpu_armv7.h
 stm32f446xx\timer.o: ../../../Libraries/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 stm32f446xx\timer.o: ../stm32f4xx_conf.h
 stm32f446xx\timer.o: ../../../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_adc.h
