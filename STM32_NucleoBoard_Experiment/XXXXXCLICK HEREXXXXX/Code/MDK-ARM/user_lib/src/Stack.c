@@ -13,7 +13,6 @@ Stack* newStack(int capacity){
 	stack->capacity = capacity;
 	return stack;
 }
-
 int isEmpty(int store[], Stack* stack)
 {
     return stack->top == -1;

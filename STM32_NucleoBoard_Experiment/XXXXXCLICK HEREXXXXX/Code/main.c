@@ -9,6 +9,8 @@
 #include "USART.h"
 #include "SPI.h"
 #include "ADC.h"
+#include "Stack.h"
+#include "Floodfill.h"
 void initAlles() {
 		SysTime_Init();
 }
@@ -323,6 +325,88 @@ void ADCtester(void) {
 			delay(50);
 		}
 }	
+static void Stack_Tester(void){
+	SystemInit();
+	initUSART(USART2, PA2, PA3, 9600);
+	printfForUx(USART2);
+	scanfForUx(USART2);
+	printf("\rEL PSY CONGROO <<<<<>>>>> Ich Liebe dich~\r\n");
+	Stack* stack = newStack(MAX);
+	static int store[MAX];
+	if(isEmpty(store, stack)){
+		printf("\rStack is Empty\r\n");
+	}
+	for(int i = 1;i <= MAX;i++){
+ 		push(store, stack, i);
+	}
+	printf("\rSize of StackNode is %d\r\n", sizeof(stack));
+	printf("\rStack is pushed \r\n");
+	while(!isEmpty(store, stack)){
+		printf("\rStack has %d \r\n", peek(store, stack));
+		pop(store, stack);
+	}
+	if(isEmpty(store, stack)){
+		printf("\rStack is Empty\r\n");
+	}
+}
+void floodfillTester(){
+  while(!isEmpty(store, Qx)){
+    int x = peek(store, Qx);
+    int y = peek(store, Qy);
+    printf("X = %d, Y = %d", x, y);
+    int parentx = parentX[x][y];
+    int parenty = parentY[x][y];
+    if(isCenter(x, y)) {
+        dist[x][y] = 0;
+        visit[x][y] = 1;
+        updatePosition(x, y, parentX[x][y], parentY[x][y]);
+        pop(store, Qx);
+        pop(store, Qy);
+        break;
+    }
+    visit[x][y] = 1;
+    if(parentx != -1 && parenty != -1){
+        if(dist[parentx][parenty] != -1){
+            bestRouteX[x][y] = parentx;
+            bestRouteY[x][y] =  parenty;
+            dist[x][y] = dist[parentx][parenty]+1;
+        }
+    }
+    for(int i = 0 ; i < 4 ; i++){
+        int nxtX = x+xx[i];
+        int nxtY = y+yy[i];
+        //if(!grid.coordFree(new Coord(nxtX, nxtY)))
+        //              continue;
+        if(visit[nxtX][nxtY] == 0){
+            push(store, Qx, nxtX);
+            push(store, Qy, nxtY);
+            parentX[nxtX][nxtY] = x;
+            parentY[nxtX][nxtY] = y;
+            printf("nxtX = %d, nxtY = %d",  nxtX , nxtY);
+            updatePosition(x, y, nxtX, nxtY);
+            break;
+        }
+        // Even if we have visited our neighbour, it could be the case that he has the shortest path!
+        if(dist[nxtX][nxtY] != -1){ // Can our neighbour reach center?
+            if(dist[x][y] == -1){ // Can we reach center?
+                bestRouteX[x][y] = nxtX;
+                bestRouteY[x][y] = nxtY;
+                dist[x][y] = dist[nxtX][nxtY]+1;
+            }
+            else{
+                if(dist[nxtX][nxtY]+1 < dist[x][y]){ // Can our neighbour reach the center faster?
+                    bestRouteX[x][y] = nxtX;
+                    bestRouteY[x][y] = nxtY;
+                    dist[x][y] = dist[nxtX][nxtY]+1;
+                }
+            }
+        }
+    }
+    pop(store, Qx);
+    pop(store, Qy);
+    updatePosition(x, y, parentx, parenty);
+	}
+}
 int main(void)
 {
 		//initAlles();
@@ -334,7 +418,9 @@ int main(void)
 		//fuck();
 		//Gyro_Tester();
 		//motorTester();
-		ADCtester();
+		//ADCtester();
+	  //Stack_Tester();
+	  floodfillTester();
 }
 
 
@@ -359,6 +445,7 @@ int main(void)
 
 
 #ifdef  USE_FULL_ASSERT
+#define USE_FULL_ASSERT
 
 /**
   * @brief  Reports the name of the source file and the source line number

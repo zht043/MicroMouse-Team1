@@ -7,14 +7,15 @@
 #include "misc.h"
 #include "Stack.h"
 #include "Coord.h"
+#include <limits.h>
 
-typedef enum {false, true} bool;
+
 void initFloodfill(void);
 int isCenter(int x, int y);
-void updatePostition(int r1, int c1, int r2, int c2);
+void updatePosition(int r1, int c1, int r2, int c2);
 bool floodfill(void);
 
-Coord* direction = newCoord(0,0);
+Coord* direction;
 int xx[] = {0,1,0,-1};
 int yy[] = {1,0,-1,0};
 int visit[100][100];
@@ -23,9 +24,12 @@ int bestRouteX[100][100];
 int bestRouteY[100][100];
 int parentX[100][100];
 int parentY[100][100];
-Stack* Qx = newStack();
-Stack* Qy = newStack();
+Stack* Qx;
+Stack* Qy;
 
+static int store[MAX];
+int row = 16;
+int col = 16;
 int CENTERX1;
 int CENTERY1;
 int CENTERX2;

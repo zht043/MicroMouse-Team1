@@ -50,6 +50,9 @@
 "stm32f446xx\timer.o"
 "stm32f446xx\usart.o"
 "stm32f446xx\adc.o"
+"stm32f446xx\coord.o"
+"stm32f446xx\floodfill.o"
+"stm32f446xx\stack.o"
 --library_type=microlib --strict --scatter "STM32F446xx\STM32F446xx.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

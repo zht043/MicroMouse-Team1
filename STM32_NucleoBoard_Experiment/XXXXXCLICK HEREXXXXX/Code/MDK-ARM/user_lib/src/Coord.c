@@ -6,6 +6,6 @@
 Coord* newCoord(int x, int y){
 	Coord* coord = (Coord*) malloc(sizeof(Coord));;
 	coord -> row = x;
-    coord -> col = y;
+  coord -> col = y;
 	return coord;
 }

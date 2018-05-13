@@ -51,3 +51,7 @@ stm32f446xx\main.o: .\user_lib\inc\Timer.h
 stm32f446xx\main.o: .\user_lib\inc\USART.h
 stm32f446xx\main.o: .\user_lib\inc\SPI.h
 stm32f446xx\main.o: .\user_lib\inc\ADC.h
+stm32f446xx\main.o: .\user_lib\inc\Stack.h
+stm32f446xx\main.o: .\user_lib\inc\Floodfill.h
+stm32f446xx\main.o: .\user_lib\inc\Coord.h
+stm32f446xx\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
