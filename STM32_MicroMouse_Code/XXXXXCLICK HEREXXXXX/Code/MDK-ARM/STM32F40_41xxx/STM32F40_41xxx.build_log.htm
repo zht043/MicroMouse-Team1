@@ -22,15 +22,18 @@ Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
 F:\Hongtao Zhang\Documents\GitHub\MicroMouse-Team1\STM32_MicroMouse_Code\XXXXXCLICK HEREXXXXX\Code\MDK-ARM\MicroMouse.uvprojx
-Project File Date:  04/15/2018
+Project File Date:  05/13/2018
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'E:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'STM32F40_41xxx'
 compiling main.c...
+../main.c(189): warning:  #111-D: statement is unreachable
+  	RCC_AHB1PeriphClockCmd (RCC_AHB1Periph_GPIOB, ENABLE);
+../main.c: 1 warning, 0 errors
 linking...
-Program Size: Code=2680 RO-data=424 RW-data=56 ZI-data=1024  
-"STM32F40_41xxx\STM32F40_41xxx.axf" - 0 Error(s), 0 Warning(s).
+Program Size: Code=2740 RO-data=424 RW-data=56 ZI-data=1024  
+"STM32F40_41xxx\STM32F40_41xxx.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -41,14 +44,14 @@ Package Vendor: ARM
    * Component: CORE Version: 5.0.1
 
 Package Vendor: Keil
-                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.11.0.pack
-                Keil.STM32F4xx_DFP.2.11.0
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.12.0.pack
+                Keil.STM32F4xx_DFP.2.12.0
                 STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_STM32F40_41xxx
   E:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include
-  E:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+  E:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
 

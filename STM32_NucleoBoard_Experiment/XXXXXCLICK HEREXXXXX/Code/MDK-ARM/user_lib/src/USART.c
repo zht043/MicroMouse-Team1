@@ -7,8 +7,20 @@ USART USART_decoder(USART_TypeDef* USARTx) {
 				U.USARTx_AF = GPIO_AF_USART1;
 		}
 		if(USARTx == USART2) {
-			  RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
+				RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
 				U.USARTx_AF = GPIO_AF_USART2;
+		}
+		if(USARTx == USART3) {
+				RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART3, ENABLE);
+				U.USARTx_AF = GPIO_AF_USART3;
+		}
+		if(USARTx == UART4) {
+				RCC_APB1PeriphClockCmd(RCC_APB1Periph_UART4, ENABLE);
+				U.USARTx_AF = GPIO_AF_UART4;
+		}
+		if(USARTx == UART5) {
+				RCC_APB1PeriphClockCmd(RCC_APB1Periph_UART5, ENABLE);
+				U.USARTx_AF = GPIO_AF_UART5;
 		}
 		return U;
 }
@@ -54,7 +66,8 @@ void initUSART(USART_TypeDef* USARTx, uint8_t TX_Pxx, uint8_t RX_Pxx, uint32_t U
     NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
-		USART_ITConfig(USARTx, USART_IT_RXNE, ENABLE);*/		
+		USART_ITConfig(USARTx, USART_IT_RXNE, ENABLE);*/	
+		
 	  USART_Cmd(USARTx, ENABLE); 
 }
 USART_TypeDef* prtUSARTx;
