@@ -151,8 +151,8 @@ void UPtestor(void) {
 		
 		char str[100];
 		printf("\rEnter \"Start\" to begin\r\n");
-		//readLine(str);
-		//while(strcmp(str, "start")) readLine(str);
+		readLine(str);
+		while(strcmp(str, "start")) readLine(str);
 		int T = 100;
 		while(1) {
 			digitalWrite(LED1, HIGH);
@@ -228,8 +228,8 @@ void UPtestor(void) {
 
 int main(void)
 {
-		//UPtestor();
-		DownTester();
+		UPtestor();
+		//DownTester();
 }
 
 
