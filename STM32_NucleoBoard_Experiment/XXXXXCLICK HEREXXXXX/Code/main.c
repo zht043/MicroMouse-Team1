@@ -303,7 +303,7 @@ GPIO itcc2;
 void TIM3_itTask_cc1(void);
 void TIM3_itTask_cc2(void);
 int cc1Flag = 0;
-/*void TIM3_itTask_cc1(void) {
+void TIM3_itTask_cc1(void) {
 		if(cc1Flag == 0) {
 			digitalWrite(itcc1, HIGH);
 			cc1Flag = 1;
@@ -314,7 +314,7 @@ int cc1Flag = 0;
 			cc1Flag = 0;
 			CCR1_Val/=2;
 		}
-}*/
+}
 void TIM3_itTask_cc2(void) {		
 		//digitalWrite(itcc2, HIGH);
 		//digitalWrite(itcc1, LOW);
@@ -370,48 +370,6 @@ void ADCtester(void) {
 				printf("\r\n");
 		}
 }
-void Encoder_Tester(void) {
-		SysTime_Init();
-		initUSART(USART2, PA2, PA3, 9600);
-		printfForUx(USART2);
-		scanfForUx(USART2);
-		printf("\rThis is a Encoder Tester\r\n");
-		
-		initEncoder();
-		while(1) printf("\r%d %d\r\n", LEnc(), REnc() );
-}
-
-//IR Tester
-GPIO EM;
-uint8_t RE;
-volatile uint16_t RE_Val;
-void TIM3_itTask_cc1(void) {
-		if(cc1Flag == 0) {
-			digitalWrite(EM, HIGH);
-			cc1Flag = 1;
-		}
-		else {
-			RE_Val = analogRead(RE);
-			digitalWrite(EM, LOW);
-			cc1Flag = 0;
-		}
-}
-void IR_Tester(void) {
-		SysTime_Init();
-		initUSART(USART2, PA2, PA3, 9600);
-		printfForUx(USART2);
-		scanfForUx(USART2);
-		printf("\rThis is a Single IR Tester\r\n");
-		
-		EM = initIO(PA8, OUTPUT);
-		CCR1_Val = usToCCR(10, 6000000);
-		TIM3_IR_IT();
-		
-		addADC(PA0, ADC_Channel_0);
-		RE = addADC(PA1, ADC_Channel_1);
-		initADC(ADC1);
-		while(1) printf("\r%d\r\n", RE_Val);
-}
 int main(void)
 {
 		//initAlles();
@@ -423,10 +381,8 @@ int main(void)
 		//SPI_Tester2();
 		//Gyro_Tester();
 		//motorTester();
-		//TIM3_IT_tester();
+		TIM3_IT_tester();
 		//ADCtester();
-		//Encoder_Tester();
-		IR_Tester();
 }
 
 

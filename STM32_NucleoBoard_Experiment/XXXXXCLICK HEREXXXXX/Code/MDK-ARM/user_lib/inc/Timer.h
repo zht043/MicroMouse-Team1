@@ -29,17 +29,7 @@ uint16_t usToCCR(uint16_t us, uint32_t Freq);
 
 TIM initIO_TIM(uint8_t TIMERx, uint8_t Pxx, uint16_t ch);
 
-void initEncoder(void);
 
-void ResetREnc(void);
-
-void ResetLEnc(void);
-
-void ResetEnc(void);
-
-int32_t REnc(void);
-
-int32_t LEnc(void);
 
 
 
