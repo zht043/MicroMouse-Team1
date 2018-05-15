@@ -730,17 +730,18 @@ void initEncoder(void) {
 		TIM_SetAutoreload (TIM5, 0xffffffff);
 		TIM_EncoderInterfaceConfig(TIM5, TIM_EncoderMode_TI12, TIM_ICPolarity_Rising, TIM_ICPolarity_Falling);
 		TIM_Cmd(TIM5, ENABLE);
+		ResetEnc();
 }
 int64_t   REnc_mem = 0,  LEnc_mem = 0;
-void ResetREnc() {
+void ResetREnc(void) {
 		TIM2->CNT = 0;
 		REnc_mem = 0;
 }
-void ResetLEnc() {
+void ResetLEnc(void) {
 		TIM5->CNT = 0;
 		LEnc_mem = 0;
 }
-void EncoderInit(void) {
+void ResetEnc(void) {
 		ResetLEnc();
 		ResetREnc();
 }

@@ -6,4 +6,5 @@
 int addADC(uint8_t Pxx, uint8_t ADCchannel);
 void initADC(ADC_TypeDef * ADCx); 
 void ADC_Sampling(uint32_t *Sarr, uint8_t ch, uint32_t n);
+uint16_t analogRead(uint8_t ch);
 #endif 
