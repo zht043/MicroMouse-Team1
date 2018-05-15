@@ -22,16 +22,25 @@ Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
 F:\Hongtao Zhang\Documents\GitHub\MicroMouse-Team1\STM32_NucleoBoard_Experiment\XXXXXCLICK HEREXXXXX\Code\MDK-ARM\NucleoF446.uvprojx
-Project File Date:  05/07/2018
+Project File Date:  05/14/2018
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'E:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'STM32F446xx'
-compiling ADC.c...
+compiling stm32f4xx_it.c...
+compiling Timer.c...
+user_lib\src\Timer.c(750): warning:  #223-D: function "abs" declared implicitly
+  		if(abs((int)((int32_t)(TIM2->CNT))) >= 400000000) {
+user_lib\src\Timer.c(758): warning:  #223-D: function "abs" declared implicitly
+  		if(abs((int)((int32_t)(TIM5->CNT))) >= 400000000) {
+user_lib\src\Timer.c(763): warning:  #1-D: last line of file ends without a newline
+  }
+user_lib\src\Timer.c: 3 warnings, 0 errors
 compiling main.c...
+compiling ADC.c...
 linking...
 Program Size: Code=4924 RO-data=484 RW-data=112 ZI-data=1136  
-"STM32F446xx\STM32F446xx.axf" - 0 Error(s), 0 Warning(s).
+"STM32F446xx\STM32F446xx.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -54,7 +63,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.1
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:06
 </pre>
 </body>
 </html>
