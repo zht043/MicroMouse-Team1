@@ -42,12 +42,12 @@
 "stm32f40_41xxx\stm32f4xx_hash_sha1.o"
 "stm32f40_41xxx\startup_stm32f40_41xxx.o"
 "stm32f40_41xxx\gpio.o"
-"stm32f40_41xxx\initiation.o"
 "stm32f40_41xxx\spi.o"
 "stm32f40_41xxx\systime.o"
 "stm32f40_41xxx\timer.o"
 "stm32f40_41xxx\usart.o"
 "stm32f40_41xxx\adc.o"
+"stm32f40_41xxx\nucleotesterarchives.o"
 --library_type=microlib --strict --scatter "STM32F40_41xxx\STM32F40_41xxx.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

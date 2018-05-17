@@ -1285,11 +1285,6 @@
               <FilePath>.\user_lib\inc\GPIO.h</FilePath>
             </File>
             <File>
-              <FileName>Initiation.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\user_lib\inc\Initiation.h</FilePath>
-            </File>
-            <File>
               <FileName>SPI.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\SPI.h</FilePath>
@@ -1325,11 +1320,6 @@
               <FilePath>.\user_lib\src\GPIO.c</FilePath>
             </File>
             <File>
-              <FileName>Initiation.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\user_lib\src\Initiation.c</FilePath>
-            </File>
-            <File>
               <FileName>SPI.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\SPI.c</FilePath>
@@ -1353,6 +1343,36 @@
               <FileName>ADC.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\ADC.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mm_inc</GroupName>
+          <Files>
+            <File>
+              <FileName>NucleoTesterArchives.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\NucleoTesterArchives.h</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\Motor.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mm_src</GroupName>
+          <Files>
+            <File>
+              <FileName>NucleoTesterArchives.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\NucleoTesterArchives.c</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\Motor.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2643,11 +2663,6 @@
               <FilePath>.\user_lib\inc\GPIO.h</FilePath>
             </File>
             <File>
-              <FileName>Initiation.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\user_lib\inc\Initiation.h</FilePath>
-            </File>
-            <File>
               <FileName>SPI.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\SPI.h</FilePath>
@@ -2683,11 +2698,6 @@
               <FilePath>.\user_lib\src\GPIO.c</FilePath>
             </File>
             <File>
-              <FileName>Initiation.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\user_lib\src\Initiation.c</FilePath>
-            </File>
-            <File>
               <FileName>SPI.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\SPI.c</FilePath>
@@ -2711,6 +2721,36 @@
               <FileName>ADC.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\ADC.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mm_inc</GroupName>
+          <Files>
+            <File>
+              <FileName>NucleoTesterArchives.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\NucleoTesterArchives.h</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\Motor.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mm_src</GroupName>
+          <Files>
+            <File>
+              <FileName>NucleoTesterArchives.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\NucleoTesterArchives.c</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\Motor.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -3049,7 +3089,7 @@
               <MiscControls>--C99</MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F40_41xxx,USE_STM324xG_EVAL</Define>
               <Undefine></Undefine>
-              <IncludePath>../;../../../Libraries/CMSIS/Device/ST/STM32F4xx/Include;../../../Libraries/STM32F4xx_StdPeriph_Driver/inc;../../../Utilities/STM32_EVAL/Common;../../../Utilities/STM32_EVAL/STM3240_41_G_EVAL;.\user_lib\inc</IncludePath>
+              <IncludePath>../;../../../Libraries/CMSIS/Device/ST/STM32F4xx/Include;../../../Libraries/STM32F4xx_StdPeriph_Driver/inc;../../../Utilities/STM32_EVAL/Common;../../../Utilities/STM32_EVAL/STM3240_41_G_EVAL;.\user_lib\inc;.\mm_lib\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -4001,11 +4041,6 @@
               <FilePath>.\user_lib\inc\GPIO.h</FilePath>
             </File>
             <File>
-              <FileName>Initiation.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\user_lib\inc\Initiation.h</FilePath>
-            </File>
-            <File>
               <FileName>SPI.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\SPI.h</FilePath>
@@ -4041,11 +4076,6 @@
               <FilePath>.\user_lib\src\GPIO.c</FilePath>
             </File>
             <File>
-              <FileName>Initiation.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\user_lib\src\Initiation.c</FilePath>
-            </File>
-            <File>
               <FileName>SPI.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\SPI.c</FilePath>
@@ -4069,6 +4099,36 @@
               <FileName>ADC.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\ADC.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mm_inc</GroupName>
+          <Files>
+            <File>
+              <FileName>NucleoTesterArchives.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\NucleoTesterArchives.h</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\Motor.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mm_src</GroupName>
+          <Files>
+            <File>
+              <FileName>NucleoTesterArchives.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\NucleoTesterArchives.c</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\Motor.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -5406,11 +5466,6 @@
               <FilePath>.\user_lib\inc\GPIO.h</FilePath>
             </File>
             <File>
-              <FileName>Initiation.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\user_lib\inc\Initiation.h</FilePath>
-            </File>
-            <File>
               <FileName>SPI.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\SPI.h</FilePath>
@@ -5446,11 +5501,6 @@
               <FilePath>.\user_lib\src\GPIO.c</FilePath>
             </File>
             <File>
-              <FileName>Initiation.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\user_lib\src\Initiation.c</FilePath>
-            </File>
-            <File>
               <FileName>SPI.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\SPI.c</FilePath>
@@ -5474,6 +5524,36 @@
               <FileName>ADC.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\ADC.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mm_inc</GroupName>
+          <Files>
+            <File>
+              <FileName>NucleoTesterArchives.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\NucleoTesterArchives.h</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\Motor.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mm_src</GroupName>
+          <Files>
+            <File>
+              <FileName>NucleoTesterArchives.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\NucleoTesterArchives.c</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\Motor.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -6764,11 +6844,6 @@
               <FilePath>.\user_lib\inc\GPIO.h</FilePath>
             </File>
             <File>
-              <FileName>Initiation.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\user_lib\inc\Initiation.h</FilePath>
-            </File>
-            <File>
               <FileName>SPI.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\SPI.h</FilePath>
@@ -6804,11 +6879,6 @@
               <FilePath>.\user_lib\src\GPIO.c</FilePath>
             </File>
             <File>
-              <FileName>Initiation.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\user_lib\src\Initiation.c</FilePath>
-            </File>
-            <File>
               <FileName>SPI.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\SPI.c</FilePath>
@@ -6832,6 +6902,36 @@
               <FileName>ADC.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\ADC.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mm_inc</GroupName>
+          <Files>
+            <File>
+              <FileName>NucleoTesterArchives.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\NucleoTesterArchives.h</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\Motor.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mm_src</GroupName>
+          <Files>
+            <File>
+              <FileName>NucleoTesterArchives.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\NucleoTesterArchives.c</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\Motor.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -8022,11 +8122,6 @@
               <FilePath>.\user_lib\inc\GPIO.h</FilePath>
             </File>
             <File>
-              <FileName>Initiation.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\user_lib\inc\Initiation.h</FilePath>
-            </File>
-            <File>
               <FileName>SPI.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\SPI.h</FilePath>
@@ -8062,11 +8157,6 @@
               <FilePath>.\user_lib\src\GPIO.c</FilePath>
             </File>
             <File>
-              <FileName>Initiation.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\user_lib\src\Initiation.c</FilePath>
-            </File>
-            <File>
               <FileName>SPI.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\SPI.c</FilePath>
@@ -8090,6 +8180,36 @@
               <FileName>ADC.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\ADC.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mm_inc</GroupName>
+          <Files>
+            <File>
+              <FileName>NucleoTesterArchives.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\NucleoTesterArchives.h</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\Motor.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mm_src</GroupName>
+          <Files>
+            <File>
+              <FileName>NucleoTesterArchives.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\NucleoTesterArchives.c</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\Motor.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -9279,11 +9399,6 @@
               <FilePath>.\user_lib\inc\GPIO.h</FilePath>
             </File>
             <File>
-              <FileName>Initiation.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\user_lib\inc\Initiation.h</FilePath>
-            </File>
-            <File>
               <FileName>SPI.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\SPI.h</FilePath>
@@ -9319,11 +9434,6 @@
               <FilePath>.\user_lib\src\GPIO.c</FilePath>
             </File>
             <File>
-              <FileName>Initiation.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\user_lib\src\Initiation.c</FilePath>
-            </File>
-            <File>
               <FileName>SPI.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\SPI.c</FilePath>
@@ -9347,6 +9457,36 @@
               <FileName>ADC.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\ADC.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mm_inc</GroupName>
+          <Files>
+            <File>
+              <FileName>NucleoTesterArchives.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\NucleoTesterArchives.h</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\Motor.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mm_src</GroupName>
+          <Files>
+            <File>
+              <FileName>NucleoTesterArchives.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\NucleoTesterArchives.c</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\Motor.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -10484,11 +10624,6 @@
               <FilePath>.\user_lib\inc\GPIO.h</FilePath>
             </File>
             <File>
-              <FileName>Initiation.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\user_lib\inc\Initiation.h</FilePath>
-            </File>
-            <File>
               <FileName>SPI.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\SPI.h</FilePath>
@@ -10524,11 +10659,6 @@
               <FilePath>.\user_lib\src\GPIO.c</FilePath>
             </File>
             <File>
-              <FileName>Initiation.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\user_lib\src\Initiation.c</FilePath>
-            </File>
-            <File>
               <FileName>SPI.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\SPI.c</FilePath>
@@ -10552,6 +10682,36 @@
               <FileName>ADC.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\ADC.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mm_inc</GroupName>
+          <Files>
+            <File>
+              <FileName>NucleoTesterArchives.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\NucleoTesterArchives.h</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\Motor.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mm_src</GroupName>
+          <Files>
+            <File>
+              <FileName>NucleoTesterArchives.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\NucleoTesterArchives.c</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\Motor.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -11641,11 +11801,6 @@
               <FilePath>.\user_lib\inc\GPIO.h</FilePath>
             </File>
             <File>
-              <FileName>Initiation.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\user_lib\inc\Initiation.h</FilePath>
-            </File>
-            <File>
               <FileName>SPI.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\SPI.h</FilePath>
@@ -11681,11 +11836,6 @@
               <FilePath>.\user_lib\src\GPIO.c</FilePath>
             </File>
             <File>
-              <FileName>Initiation.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\user_lib\src\Initiation.c</FilePath>
-            </File>
-            <File>
               <FileName>SPI.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\SPI.c</FilePath>
@@ -11709,6 +11859,36 @@
               <FileName>ADC.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\ADC.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mm_inc</GroupName>
+          <Files>
+            <File>
+              <FileName>NucleoTesterArchives.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\NucleoTesterArchives.h</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\Motor.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mm_src</GroupName>
+          <Files>
+            <File>
+              <FileName>NucleoTesterArchives.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\NucleoTesterArchives.c</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\Motor.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -12799,11 +12979,6 @@
               <FilePath>.\user_lib\inc\GPIO.h</FilePath>
             </File>
             <File>
-              <FileName>Initiation.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\user_lib\inc\Initiation.h</FilePath>
-            </File>
-            <File>
               <FileName>SPI.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\user_lib\inc\SPI.h</FilePath>
@@ -12839,11 +13014,6 @@
               <FilePath>.\user_lib\src\GPIO.c</FilePath>
             </File>
             <File>
-              <FileName>Initiation.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\user_lib\src\Initiation.c</FilePath>
-            </File>
-            <File>
               <FileName>SPI.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\SPI.c</FilePath>
@@ -12867,6 +13037,36 @@
               <FileName>ADC.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user_lib\src\ADC.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mm_inc</GroupName>
+          <Files>
+            <File>
+              <FileName>NucleoTesterArchives.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\NucleoTesterArchives.h</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\Motor.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mm_src</GroupName>
+          <Files>
+            <File>
+              <FileName>NucleoTesterArchives.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\NucleoTesterArchives.c</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\Motor.c</FilePath>
             </File>
           </Files>
         </Group>

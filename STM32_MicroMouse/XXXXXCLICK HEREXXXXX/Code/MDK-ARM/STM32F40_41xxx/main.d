@@ -39,7 +39,6 @@ stm32f40_41xxx\main.o: ../../../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4
 stm32f40_41xxx\main.o: ../../../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_fsmc.h
 stm32f40_41xxx\main.o: .\user_lib\inc\SysTime.h
 stm32f40_41xxx\main.o: .\user_lib\inc\GPIO.h
-stm32f40_41xxx\main.o: .\user_lib\inc\Initiation.h
 stm32f40_41xxx\main.o: .\user_lib\inc\Timer.h
 stm32f40_41xxx\main.o: .\user_lib\inc\USART.h
 stm32f40_41xxx\main.o: .\user_lib\inc\SPI.h
