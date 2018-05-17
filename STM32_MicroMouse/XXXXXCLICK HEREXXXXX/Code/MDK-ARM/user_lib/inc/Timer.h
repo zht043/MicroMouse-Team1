@@ -23,9 +23,9 @@ void PWM_ON(uint8_t TIMERx, uint32_t Frequency);
 
 void setPWM(TIM port, uint32_t dutyCircle);
 
-void TIM3_IR_IT(void);
+void TIM3_initIT(void);
 
-uint16_t usToCCR(uint16_t us, uint32_t Freq);
+uint16_t usToCCR(uint16_t us);
 
 TIM initIO_TIM(uint8_t TIMERx, uint8_t Pxx, uint16_t ch);
 

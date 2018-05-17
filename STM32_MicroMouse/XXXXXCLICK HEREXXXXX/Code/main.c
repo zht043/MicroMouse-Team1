@@ -17,6 +17,11 @@ int main(void)
 
 
 
+ADC_Sampling()
+
+
+
+
 
 
 

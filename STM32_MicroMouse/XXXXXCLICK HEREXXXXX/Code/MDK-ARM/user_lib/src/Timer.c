@@ -643,10 +643,10 @@ __IO uint16_t CCR1_Val = 0;
 __IO uint16_t CCR2_Val = 0;
 __IO uint16_t CCR3_Val = 0;  
 __IO uint16_t CCR4_Val = 0; 
-uint16_t usToCCR(uint16_t us, uint32_t Freq) {
-		return (uint16_t)(Freq / 1000000) * us;
+uint16_t usToCCR(uint16_t us) {
+		return (uint16_t)(T3Freq / 1000000) * us;
 }
-void TIM3_IR_IT(void) {
+void TIM3_initIT(void) {
 		NVIC_InitTypeDef NVIC_InitStructure;
 		RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
 		NVIC_InitStructure.NVIC_IRQChannel = TIM3_IRQn;
