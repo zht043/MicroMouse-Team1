@@ -3,9 +3,9 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: ¦ÌVision V5.24.2.0
+IDE-Version: µVision V5.24.2.0
 Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Mu He, UCSD, LIC=----
+License Information: Lola Liu,  , LIC=----
  
 Tool Versions:
 Toolchain:       MDK-Lite  Version: 5.24.1
@@ -21,39 +21,58 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.1.0
 Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
-C:\Users\apple\Documents\GitHub\MicroMouse-Team1\STM32_NucleoBoard_Experiment\XXXXXCLICK HEREXXXXX\Code\MDK-ARM\NucleoF446.uvprojx
-Project File Date:  05/12/2018
+\\Mac\Home\Desktop\IEEE MicroMouse\MicroMouse-Team1\STM32_NucleoBoard_Experiment\XXXXXCLICK HEREXXXXX\Code\MDK-ARM\NucleoF446.uvprojx
+Project File Date:  05/19/2018
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'STM32F446xx'
-compiling main.c...
+compiling Gyro.c...
+.\user_lib\inc\Gyro.h(100): warning:  #1-D: last line of file ends without a newline
+  #endif 
+user_lib\src\Gyro.c(48): warning:  #223-D: function "printf" declared implicitly
+          printf("ERROR! mpu6500_ADDR IS %x\n", mpu6500_Read_Byte(MPU_DEVICE_ID_REG));  
+user_lib\src\Gyro.c(56): warning:  #177-D: variable "accx_original"  was declared but never referenced
+          short accx_original=0, accy_original=0, accz_original=0;  
+user_lib\src\Gyro.c(56): warning:  #177-D: variable "accy_original"  was declared but never referenced
+          short accx_original=0, accy_original=0, accz_original=0;  
+user_lib\src\Gyro.c(56): warning:  #177-D: variable "accz_original"  was declared but never referenced
+          short accx_original=0, accy_original=0, accz_original=0;  
+user_lib\src\Gyro.c(57): warning:  #550-D: variable "ACC_DATA"  was set but never used
+          uint16_t ACC_DATA[7];  
+user_lib\src\Gyro.c(82): warning:  #111-D: statement is unreachable
+      return 0;  
+user_lib\src\Gyro.c(11): warning:  #177-D: variable "t"  was declared but never referenced
+      uint8_t res, t=5;  
+user_lib\src\Gyro.c(172): warning:  #1-D: last line of file ends without a newline
+  }  
+user_lib\src\Gyro.c: 9 warnings, 0 errors
 linking...
 Program Size: Code=4252 RO-data=484 RW-data=112 ZI-data=1112  
-"STM32F446xx\STM32F446xx.axf" - 0 Error(s), 0 Warning(s).
+"STM32F446xx\STM32F446xx.axf" - 0 Error(s), 9 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
-                http://www.keil.com/pack/ARM.CMSIS.5.0.1.pack
-                ARM.CMSIS.5.0.1
+                http://www.keil.com/pack/ARM.CMSIS.5.3.0.pack
+                ARM.CMSIS.5.3.0
                 CMSIS (Cortex Microcontroller Software Interface Standard)
-   * Component: CORE Version: 5.0.1
+   * Component: CORE Version: 5.1.1
 
 Package Vendor: Keil
-                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.11.0.pack
-                Keil.STM32F4xx_DFP.2.11.0
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.12.0.pack
+                Keil.STM32F4xx_DFP.2.12.0
                 STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_STM32F446xx
-  C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include
-  C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include
+  C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE:5.0.1
-Build Time Elapsed:  00:00:05
+   * Component: ARM::CMSIS:CORE:5.1.1
+Build Time Elapsed:  00:00:04
 </pre>
 </body>
 </html>
