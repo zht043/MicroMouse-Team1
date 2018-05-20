@@ -4,7 +4,7 @@
  *      *** Do not modify ! ***
  *
  * Project: 'NucleoF446' 
- * Target:  'STM32F411xE' 
+ * Target:  'STM32F401xx' 
  */
 
 #ifndef RTE_COMPONENTS_H

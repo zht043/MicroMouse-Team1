@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX 20000
+#define MAX 10000
 typedef enum {false, true} bool;
 
 typedef struct Stack{
