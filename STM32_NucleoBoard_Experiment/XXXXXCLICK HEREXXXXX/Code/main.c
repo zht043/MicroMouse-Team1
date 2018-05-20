@@ -10,6 +10,8 @@
 #include "SPI.h"
 #include "ADC.h"
 #include "IR.h"
+#include "Gyro.h"
+
 void initAlles() {
 		SysTime_Init();
 }
@@ -339,12 +341,13 @@ void TIM3_IT_tester() {
 		while(1) printf("\rFuck\r\n");
 }
 extern volatile uint16_t Aval[16];
+
 void ADCtester(void) {
 		SysTime_Init();
 		initUSART(USART2, PA2, PA3, 9600);
 		printfForUx(USART2);
 		scanfForUx(USART2);
-		//printf("\rThis is a ADC Tester\r\n");
+		printf("\rThis is a ADC Tester\r\n");
 		int ch;
 		addADC(PA0, ADC_Channel_0);
 		ch = addADC(PA1, ADC_Channel_1);
@@ -374,7 +377,22 @@ void ADCtester(void) {
 void IRtester(){
 	
 }
-int main(void)
+
+void GyroTester()
+{
+	SysTime_Init();
+	initUSART(USART2, PA2, PA3, 9600);
+	printfForUx(USART2);
+	scanfForUx(USART2);
+	int i = MPU6500_Init();
+	printf("test %d", i);
+
+	
+}
+	
+	
+	
+	int main(void)
 {
 		//initAlles();
 	  //GPIO_Tester();
@@ -386,8 +404,10 @@ int main(void)
 		//Gyro_Tester();
 		//motorTester();
 		//TIM3_IT_tester();
-		ADCtester();
+		//ADCtester();
 		//IRtester();
+
+	  GyroTester();
 }
 
 

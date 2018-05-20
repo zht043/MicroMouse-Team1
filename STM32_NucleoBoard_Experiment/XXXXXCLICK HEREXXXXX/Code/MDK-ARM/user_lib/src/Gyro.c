@@ -2,7 +2,7 @@
    
 void mpu6500_Init(void)   
 {  
-    SPI1_init();
+    SPI2_init();
 }  
 
 
@@ -14,24 +14,28 @@ uint8_t MPU6500_Init(void)
       
     mpu6500_Write_Byte(MPU_PWR_MGMT1_REG,0X80); 
   //  delay_ms(100); //see «register map»page 42 - delay 100ms  
-    mpu6500_Write_Byte(MPU_SIGPATH_RST_REG,0X07);   //reset GYR+ACC+TEMP  
+    //mpu6500_Write_Byte(MPU_SIGPATH_RST_REG,0X07);   //reset GYR+ACC+TEMP  
    // delay_ms(100); //page 42 - delay 100ms  
-    mpu6500_Write_Byte(MPU_USER_CTRL_REG, 0x11); //SET spi mode+Reset all gyro digital signal path, accel digital signal path, and temp  
+   // mpu6500_Write_Byte(MPU_USER_CTRL_REG, 0x11); //SET spi mode+Reset all gyro digital signal path, accel digital signal path, and temp  
    // delay_ms(1000);  
       
-    res=mpu6500_Read_Byte(MPU_DEVICE_ID_REG);  
+    /*res=mpu6500_Read_Byte(MPU_DEVICE_ID_REG);  
     if(res == 0x70) 
     {  
  
           
-        MPU_Set_Gyro_Fsr(0);               
+        MPU_Set_Gyro_Fsr(0);
+
      //   delay_ms(10);  
-        MPU_Set_Accel_Fsr(0);                   
+        MPU_Set_Accel_Fsr(0); 
+		
        // delay_ms(10);  
-        mpu6500_Write_Byte(MPU_CFG_REG,0X03);   //gyr Fs=1khz,bandwidth=41hz  
+        mpu6500_Write_Byte(MPU_CFG_REG,0X03);   
+
        // delay_ms(10);   
         mpu6500_Write_Byte(MPU_ACCEL_CFG2_REG,0X03);    //Acc Fs=1khz, bandtidth=41hz  
-       // delay_ms(10);  
+    
+			// delay_ms(10);  
         //mpu6500_Write_Byte(MPU_INTBP_CFG_REG,0XA0);   //INT???????,????  
        // delay_ms(10);  
         //mpu6500_Write_Byte(MPU_INT_EN_REG,0X01);  //raw data inter open  
@@ -75,12 +79,37 @@ uint8_t MPU6500_Init(void)
             ACC_DATA[4]=((uint16_t)raw_datas[10]<<8)|raw_datas[11];  
             ACC_DATA[5]=((uint16_t)raw_datas[12]<<8)|raw_datas[13];  
             ACC_DATA[6]=((uint16_t)raw_datas[6]<<8)|raw_datas[7]; //????  
-   
             
         }  
-    }  
+    }  */
     return 0;  
 }  
+
+/*uint8_t MPU6500_Init(void)  
+{  
+    MPU6500_Init();                 
+printf("success1 mpu6500_ADDR IS %x\n", mpu6500_Read_Byte(MPU_DEVICE_ID_REG));	//MPU6500 IO??SPI???  
+      
+    if(mpu6500_Read_Byte(MPU_DEVICE_ID_REG) == 0x70)          //?????6500???  
+    {         
+        mpu6500_Write_Byte(MPU_PWR_MGMT1_REG,0X80);         //????,??MPU6500  
+    
+        mpu6500_Write_Byte(MPU_SIGPATH_RST_REG,0X07);//??????????????  
+        //Delay_Ms(100);  
+        mpu6500_Write_Byte(MPU_PWR_MGMT1_REG,0X01);         //?????  
+        mpu6500_Write_Byte(MPU_PWR_MGMT2_REG,0X00);         //??????????  
+        mpu6500_Write_Byte(MPU_CFG_REG ,0X02);                     //????? 0x02 92hz (3.9ms delay) fs=1khz  
+        mpu6500_Write_Byte(MPU_SAMPLE_RATE_REG,0X00);             //???1000/(1+0)=1000HZ  
+        mpu6500_Write_Byte(MPU_GYRO_CFG_REG ,0X18);        //??????? 0X18 ??2000?  
+        mpu6500_Write_Byte(MPU_ACCEL_CFG_REG,0x10);       //???????? 0X00 ??8g  
+        mpu6500_Write_Byte(MPU_ACCEL_CFG2_REG,0x00);      //??????1khz ???460hz (1.94ms delay)  
+        return 0;  
+    }  
+    else {		
+			printf("ERROR! mpu6500_ADDR IS %x\n", mpu6500_Read_Byte(MPU_DEVICE_ID_REG));
+			return 1;  
+		}
+} */ 
 
 
 void MPU_Set_Gyro_Fsr(uint8_t fsr)  
@@ -95,10 +124,7 @@ void MPU_Set_Accel_Fsr(uint8_t fsr)
 {  
     mpu6500_Write_Byte(MPU_ACCEL_CFG_REG, fsr<<3);//?????????????    
 }  
-//??MPU6050????????  
-//lpf:????????(Hz)  
-//???:0,????  
-//    ??,????   
+  
 void MPU_Set_LPF(uint16_t lpf)  
 {  
     uint8_t data=0;  
@@ -115,7 +141,7 @@ void MPU_Set_LPF(uint16_t lpf)
 void MPU_Set_Rate(uint16_t rate)  
 {  
     uint8_t data;  
-    if(rate>1000)rate=1000; //??1khz???  
+    if(rate>1000)rate=1000; 
     if(rate<4)rate=4;  
     data=1000/rate-1; //???????  
     mpu6500_Write_Byte(MPU_SAMPLE_RATE_REG,data);   
@@ -132,16 +158,14 @@ void mpu6500_Read_Len(uint8_t reg, uint8_t len,uint8_t *buf)
 
        // SPI3_ReadWriteByte(reg|0x80);//r ????1  
        // *buf=SPI3_ReadWriteByte(0x00);  
-	      SPI_SendByte(reg|0x80, SPI1);
-			  *buf = SPI_ReadByte(SPI1);  
+	      SPI_SendByte(reg|0x80, SPI2);
+			  *buf = SPI_ReadByte(SPI2);  
 
         len--;  
         buf++;  
         reg++;  
- 
-      //  delay_us(5); //???????????????????????????--yulong  
-    }     
 
+    }     
 }  
   
   
@@ -150,8 +174,9 @@ void mpu6500_Read_Len(uint8_t reg, uint8_t len,uint8_t *buf)
 void mpu6500_Write_Byte(uint8_t reg,uint8_t data)                  
 {   
    
-	  SPI_SendByte(reg, SPI1);
-	  SPI_SendByte( data, SPI1);
+	  SPI_SendByte(reg, SPI2);
+	printf("%d",reg);
+	  SPI_SendByte( data, SPI2);
    // SPI3_ReadWriteByte(reg); //w ????0  
     //SPI3_ReadWriteByte(data);  
 
@@ -161,9 +186,9 @@ void mpu6500_Write_Byte(uint8_t reg,uint8_t data)
 uint8_t mpu6500_Read_Byte(uint8_t reg)  
 {  
     uint8_t tmp=0;  
-	  SPI_SendByte(reg|0x80,SPI1 );
+	  SPI_SendByte(reg|0x80,SPI2 );
 	
-	  tmp=SPI_ReadByte(SPI1);
+	  tmp=SPI_ReadByte(SPI2);
   
     //SPI3_ReadWriteByte(reg|0x80);//r ????1  
     //tmp=SPI3_ReadWriteByte(0xff);  

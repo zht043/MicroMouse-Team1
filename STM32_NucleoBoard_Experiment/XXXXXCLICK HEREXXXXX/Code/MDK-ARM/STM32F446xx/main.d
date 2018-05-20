@@ -54,3 +54,4 @@ stm32f446xx\main.o: .\user_lib\inc\USART.h
 stm32f446xx\main.o: .\user_lib\inc\SPI.h
 stm32f446xx\main.o: .\user_lib\inc\ADC.h
 stm32f446xx\main.o: .\user_lib\inc\IR.h
+stm32f446xx\main.o: .\user_lib\inc\Gyro.h

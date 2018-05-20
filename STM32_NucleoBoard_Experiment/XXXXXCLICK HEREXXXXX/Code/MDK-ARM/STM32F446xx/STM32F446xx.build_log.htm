@@ -27,29 +27,25 @@ Project File Date:  05/19/2018
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'STM32F446xx'
+compiling main.c...
+.\user_lib\inc\Gyro.h(100): warning:  #1-D: last line of file ends without a newline
+  #endif 
+../main.c: 1 warning, 0 errors
 compiling Gyro.c...
 .\user_lib\inc\Gyro.h(100): warning:  #1-D: last line of file ends without a newline
   #endif 
-user_lib\src\Gyro.c(48): warning:  #223-D: function "printf" declared implicitly
-          printf("ERROR! mpu6500_ADDR IS %x\n", mpu6500_Read_Byte(MPU_DEVICE_ID_REG));  
-user_lib\src\Gyro.c(56): warning:  #177-D: variable "accx_original"  was declared but never referenced
-          short accx_original=0, accy_original=0, accz_original=0;  
-user_lib\src\Gyro.c(56): warning:  #177-D: variable "accy_original"  was declared but never referenced
-          short accx_original=0, accy_original=0, accz_original=0;  
-user_lib\src\Gyro.c(56): warning:  #177-D: variable "accz_original"  was declared but never referenced
-          short accx_original=0, accy_original=0, accz_original=0;  
-user_lib\src\Gyro.c(57): warning:  #550-D: variable "ACC_DATA"  was set but never used
-          uint16_t ACC_DATA[7];  
-user_lib\src\Gyro.c(82): warning:  #111-D: statement is unreachable
-      return 0;  
+user_lib\src\Gyro.c(11): warning:  #177-D: variable "res"  was declared but never referenced
+      uint8_t res, t=5;  
 user_lib\src\Gyro.c(11): warning:  #177-D: variable "t"  was declared but never referenced
       uint8_t res, t=5;  
-user_lib\src\Gyro.c(172): warning:  #1-D: last line of file ends without a newline
+user_lib\src\Gyro.c(178): warning:  #223-D: function "printf" declared implicitly
+        printf("%d",reg);
+user_lib\src\Gyro.c(197): warning:  #1-D: last line of file ends without a newline
   }  
-user_lib\src\Gyro.c: 9 warnings, 0 errors
+user_lib\src\Gyro.c: 5 warnings, 0 errors
 linking...
-Program Size: Code=4252 RO-data=484 RW-data=112 ZI-data=1112  
-"STM32F446xx\STM32F446xx.axf" - 0 Error(s), 9 Warning(s).
+Program Size: Code=3592 RO-data=484 RW-data=108 ZI-data=1068  
+"STM32F446xx\STM32F446xx.axf" - 0 Error(s), 6 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -72,7 +68,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.1.1
-Build Time Elapsed:  00:00:04
+Build Time Elapsed:  00:00:06
 </pre>
 </body>
 </html>

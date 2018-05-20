@@ -19,10 +19,10 @@
 #define MPU_ACCEL_CFG_REG       0X1C
 #define MPU_ACCEL_CFG2_REG       0X1D//?????????
 #define MPU_PWR_MGMT1_REG       0X6B    //???????1
+#define MPU_PWR_MGMT2_REG       0X6C 
 #define MPU_SIGPATH_RST_REG     0X68 
 #define MPU_USER_CTRL_REG       0X6A
 #define MPU_DEVICE_ID_REG       0X75  
-#define MPU_PWR_MGMT2_REG       0X6C 
 #define MPU_INT_STA_REG         0X3A 
 #define MPU_ACCEL_XOUTH_REG     0X3B    //????,X??8????
 #define MPU_ACCEL_XOUTL_REG     0X3C    //????,X??8????
