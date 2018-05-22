@@ -28,3 +28,11 @@ void delay(uint32_t Time) {
 		uint32_t T_init = millis(); 
 		while(millis() - T_init < Time); 
 }
+
+#define OneMillSecInterr 1000
+void SysTime_Init(void) {
+		SysTick_Init(OneMillSecInterr);
+
+}
+
+

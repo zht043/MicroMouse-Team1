@@ -412,6 +412,27 @@ void IR_Tester(void) {
 		initADC(ADC1);
 		while(1) printf("\r%d\r\n", RE_Val);
 }
+void IR_Tester2(void) {
+		SysTime_Init();
+		initUSART(USART2, PA2, PA3, 9600);
+		printfForUx(USART2);
+		scanfForUx(USART2);
+		printf("\rThis is a Single IR Tester\r\n");
+		
+		EM = initIO(PA1, OUTPUT);
+		addADC(PA0, ADC_Channel_0);
+		RE = addADC(PA0, ADC_Channel_0);
+		initADC(ADC1);
+		while(1) {
+				digitalWrite(EM, HIGH);
+				delay_us(10);
+				RE_Val = analogRead(RE);
+				digitalWrite(EM, LOW);
+				delay_us(30);
+				printf("\r%d\r\n", RE_Val);
+				
+		}
+}
 int main(void)
 {
 		//initAlles();
@@ -426,7 +447,7 @@ int main(void)
 		//TIM3_IT_tester();
 		//ADCtester();
 		//Encoder_Tester();
-		IR_Tester();
+		IR_Tester2();
 }
 
 

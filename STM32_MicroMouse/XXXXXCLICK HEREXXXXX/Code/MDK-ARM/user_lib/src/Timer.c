@@ -745,7 +745,7 @@ void ResetEnc(void) {
 		ResetLEnc();
 		ResetREnc();
 }
-int32_t REnc(void) 
+int32_t LEnc(void) 
 {
 		if(abs((int)((int32_t)(TIM2->CNT))) >= 400000000) {
 				REnc_mem += TIM2->CNT;
@@ -753,7 +753,7 @@ int32_t REnc(void)
 		}
 	  return TIM2->CNT + REnc_mem;
 }
-int32_t LEnc(void) 
+int32_t REnc(void) 
 {
 		if(abs((int)((int32_t)(TIM5->CNT))) >= 400000000) {
 				LEnc_mem += TIM5->CNT;

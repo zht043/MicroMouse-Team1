@@ -1,18 +1,10 @@
 #include "NucleoTesterArchives.h"
+/*
 void GPIO_Tester(void) {
 		GPIO LED1 = initIO(PA9,OUTPUT);
 		GPIO LED2 = initIO(PA10,OUTPUT);
 		digitalWrite(LED1, HIGH);
 		digitalWrite(LED2, HIGH);
-		/*SysTime_Init();
-	  GPIO LED0 = initIO(PA0,OUTPUT);
-		GPIO Button0 = initIO(PA1, INPUT);
-	  while(1) {
-				if(!digitalRead(Button0))  
-						digitalWrite(LED0, HIGH);
-				else 
-						digitalWrite(LED0, LOW);
-		}*/
 }
 
 void SysClock_Tester() {
@@ -103,6 +95,8 @@ void SPI_Tester(void) {
 		
 	}
 }
+*/
+/*
 void SPI_Tester2(void) {
 	SysTime_Init();
 	initUSART(USART2, PA2, PA3, 9600);
@@ -126,11 +120,11 @@ void SPI_Tester2(void) {
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
-	/*
-	GPIO_InitStructure.GPIO_Pin = FLASH_CS_PIN;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-	GPIO_Init(FLASH_CS_GPIO_PORT, &GPIO_InitStructure);*/
-	//SPI_FLASH_CS_HIGH(); 
+//	
+//	GPIO_InitStructure.GPIO_Pin = FLASH_CS_PIN;
+//	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+//	GPIO_Init(FLASH_CS_GPIO_PORT, &GPIO_InitStructure);
+// 	//SPI_FLASH_CS_HIGH(); 
 	SPI_InitTypeDef  SPI_InitStructure;
 	SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
 	SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
@@ -173,11 +167,11 @@ void Gyro_Tester(void) {
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
-	/*
-	GPIO_InitStructure.GPIO_Pin = FLASH_CS_PIN;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-	GPIO_Init(FLASH_CS_GPIO_PORT, &GPIO_InitStructure);*/
-	//SPI_FLASH_CS_HIGH(); 
+//
+//	GPIO_InitStructure.GPIO_Pin = FLASH_CS_PIN;
+//	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+//	GPIO_Init(FLASH_CS_GPIO_PORT, &GPIO_InitStructure);
+//	//SPI_FLASH_CS_HIGH(); 
 	GPIO CS = initIO(PA4, OUTPUT);
 	digitalWrite(CS, HIGH);
 	
@@ -290,7 +284,7 @@ GPIO itcc2;
 void TIM3_itTask_cc1(void);
 void TIM3_itTask_cc2(void);
 int cc1Flag = 0;
-/*void TIM3_itTask_cc1(void) {
+void TIM3_itTask_cc1(void) {
 		if(cc1Flag == 0) {
 			digitalWrite(itcc1, HIGH);
 			cc1Flag = 1;
@@ -301,7 +295,7 @@ int cc1Flag = 0;
 			cc1Flag = 0;
 			CCR1_Val/=2;
 		}
-}*/
+}
 void TIM3_itTask_cc2(void) {		
 		//digitalWrite(itcc2, HIGH);
 		//digitalWrite(itcc1, LOW);
@@ -316,12 +310,12 @@ void TIM3_IT_tester() {
 		itcc2 = initIO(PA6, OUTPUT);
 		CCR1_Val = usToCCR(1000);
 		TIM3_initIT();
-		/*while(1) {
+		while(1) {
 				digitalWrite(itcc2, HIGH);
 				delay(2);
 				digitalWrite(itcc2, LOW);
 				delay(2);
-		}	*/		
+		}	
 		while(1) printf("\rFuck\r\n");
 }
 extern volatile uint16_t Aval[16];
@@ -343,12 +337,13 @@ void ADCtester(void) {
 		addADC(PC0, ADC_Channel_10);
 		addADC(PC1, ADC_Channel_11);
 		initADC(ADC1);
-		/*
+		//
 		while(1) {
 				printf("\r");
 				for(int i = 0; i < 16; i++) printf("%d ",Aval[i]);
 				printf("\r\n");
-		}*/
+		}
+		//
 		uint32_t a[100];
 		while(1) {	
 				printf("\r");
@@ -398,5 +393,5 @@ void IR_Tester(void) {
 		initADC(ADC1);
 		while(1) printf("\r%d\r\n", RE_Val);
 }
-
+*/
 

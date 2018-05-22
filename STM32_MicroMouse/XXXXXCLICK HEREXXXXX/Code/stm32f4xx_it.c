@@ -170,7 +170,7 @@ void TIM3_IRQHandler(void)
 			TIM_SetCompare2(TIM3, capture + CCR2_Val);
   }*/
 }
-/******************************************************************************/
+/*******************************************************************************/
 /*                 STM32F4xx Peripherals Interrupt Handlers                   */
 /*  Add here the Interrupt Handler for the used peripheral(s) (PPP), for the  */
 /*  available peripheral interrupt handler's name please refer to the startup */

@@ -70,7 +70,7 @@ void initADC(ADC_TypeDef * ADCx)
     ADC_Cmd(ADCx, ENABLE); 
     ADC_SoftwareStartConv(ADCx); 
 } 
-void ADC_Sampling(uint32_t *Sarr, uint8_t ch, uint32_t n) {
+void ADC_Sampling(uint16_t Sarr[], uint8_t ch, uint32_t n) {
 		for(int Si = 0; Si < n; Si++) {
 				while(DMA_GetFlagStatus(ADC_DMA_STREAM, DMA_FLAG_TCIFx) != SET);
 				Sarr[Si] = Aval[ch - 1];
@@ -80,3 +80,4 @@ uint16_t analogRead(uint8_t ch) {
 		while(DMA_GetFlagStatus(ADC_DMA_STREAM, DMA_FLAG_TCIFx) != SET);
 		return Aval[ch - 1];
 }
+

@@ -1359,6 +1359,16 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\Motor.h</FilePath>
             </File>
+            <File>
+              <FileName>Led.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\Led.h</FilePath>
+            </File>
+            <File>
+              <FileName>IR.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\IR.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1373,6 +1383,16 @@
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\Motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>Led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\Led.c</FilePath>
+            </File>
+            <File>
+              <FileName>IR.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\IR.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2737,6 +2757,16 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\Motor.h</FilePath>
             </File>
+            <File>
+              <FileName>Led.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\Led.h</FilePath>
+            </File>
+            <File>
+              <FileName>IR.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\IR.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2751,6 +2781,16 @@
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\Motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>Led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\Led.c</FilePath>
+            </File>
+            <File>
+              <FileName>IR.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\IR.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -4115,6 +4155,16 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\Motor.h</FilePath>
             </File>
+            <File>
+              <FileName>Led.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\Led.h</FilePath>
+            </File>
+            <File>
+              <FileName>IR.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\IR.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4129,6 +4179,16 @@
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\Motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>Led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\Led.c</FilePath>
+            </File>
+            <File>
+              <FileName>IR.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\IR.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -5540,6 +5600,16 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\Motor.h</FilePath>
             </File>
+            <File>
+              <FileName>Led.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\Led.h</FilePath>
+            </File>
+            <File>
+              <FileName>IR.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\IR.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -5554,6 +5624,16 @@
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\Motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>Led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\Led.c</FilePath>
+            </File>
+            <File>
+              <FileName>IR.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\IR.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -6918,6 +6998,16 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\Motor.h</FilePath>
             </File>
+            <File>
+              <FileName>Led.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\Led.h</FilePath>
+            </File>
+            <File>
+              <FileName>IR.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\IR.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -6932,6 +7022,16 @@
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\Motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>Led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\Led.c</FilePath>
+            </File>
+            <File>
+              <FileName>IR.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\IR.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -8196,6 +8296,16 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\Motor.h</FilePath>
             </File>
+            <File>
+              <FileName>Led.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\Led.h</FilePath>
+            </File>
+            <File>
+              <FileName>IR.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\IR.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -8210,6 +8320,16 @@
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\Motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>Led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\Led.c</FilePath>
+            </File>
+            <File>
+              <FileName>IR.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\IR.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -9473,6 +9593,16 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\Motor.h</FilePath>
             </File>
+            <File>
+              <FileName>Led.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\Led.h</FilePath>
+            </File>
+            <File>
+              <FileName>IR.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\IR.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -9487,6 +9617,16 @@
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\Motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>Led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\Led.c</FilePath>
+            </File>
+            <File>
+              <FileName>IR.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\IR.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -10698,6 +10838,16 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\Motor.h</FilePath>
             </File>
+            <File>
+              <FileName>Led.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\Led.h</FilePath>
+            </File>
+            <File>
+              <FileName>IR.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\IR.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -10712,6 +10862,16 @@
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\Motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>Led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\Led.c</FilePath>
+            </File>
+            <File>
+              <FileName>IR.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\IR.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -11875,6 +12035,16 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\Motor.h</FilePath>
             </File>
+            <File>
+              <FileName>Led.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\Led.h</FilePath>
+            </File>
+            <File>
+              <FileName>IR.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\IR.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -11889,6 +12059,16 @@
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\Motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>Led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\Led.c</FilePath>
+            </File>
+            <File>
+              <FileName>IR.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\IR.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -13053,6 +13233,16 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\Motor.h</FilePath>
             </File>
+            <File>
+              <FileName>Led.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\Led.h</FilePath>
+            </File>
+            <File>
+              <FileName>IR.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\IR.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -13067,6 +13257,16 @@
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\Motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>Led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\Led.c</FilePath>
+            </File>
+            <File>
+              <FileName>IR.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\IR.c</FilePath>
             </File>
           </Files>
         </Group>

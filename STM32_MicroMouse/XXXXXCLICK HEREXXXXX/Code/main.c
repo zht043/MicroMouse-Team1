@@ -8,16 +8,33 @@
 #include "USART.h"
 #include "SPI.h"
 #include "ADC.h"
+///////////////////////////////
 #include "Motor.h"
+#include "Led.h"
+#include "IR.h"
+///////////////////////////////
 int main(void)
 {
+		SysTime_Init();
+		initLED();
+		blinkLED(10);
+	
+		initUSART(USART1, PB6, PB7, 9600);
+		printfForUx(USART1);
+		scanfForUx(USART1);
+		printf("\rHellow World! El Psy Congroo!!!\r\n");
 		
+		initIR();
+		//initMotor();
+		///motorTester();
+	/*
+		initMotor();
+		initEncoder();
+		while(1) {	
+				printf("\r%d %d\r\n", LEnc(), REnc());
+		}*/
 }
 
-
-
-
-ADC_Sampling()
 
 
 
