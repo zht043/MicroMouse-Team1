@@ -1698,27 +1698,27 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="CEM1" library="SparkFun-Capacitors" deviceset="0.33UF/330NF" device="-0805-50V-10%" value="4.7µF"/>
 <part name="CEM2" library="SparkFun-Capacitors" deviceset="0.33UF/330NF" device="-0805-50V-10%" value="0.1µF"/>
 <part name="R_EM" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="5ohm"/>
-<part name="RRE1" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="~500ohm"/>
+<part name="RRE1" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="1.8k"/>
 <part name="U$5" library="MCH3474" deviceset="MCH3474" device=""/>
 <part name="R_EM1" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="10k"/>
-<part name="RRE2" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="~500ohm"/>
+<part name="RRE2" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="1.8k"/>
 <part name="CEM3" library="SparkFun-Capacitors" deviceset="0.33UF/330NF" device="-0805-50V-10%" value="4.7µF"/>
 <part name="CEM4" library="SparkFun-Capacitors" deviceset="0.33UF/330NF" device="-0805-50V-10%" value="0.1µF"/>
 <part name="R_EM2" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="5ohm"/>
-<part name="RRE3" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="~500ohm"/>
+<part name="RRE3" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="1.8k"/>
 <part name="U$6" library="MCH3474" deviceset="MCH3474" device=""/>
 <part name="R_EM3" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="10k"/>
-<part name="RRE4" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="~500ohm"/>
+<part name="RRE4" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="1.8k"/>
 <part name="CEM5" library="SparkFun-Capacitors" deviceset="0.33UF/330NF" device="-0805-50V-10%" value="4.7µF"/>
 <part name="CEM6" library="SparkFun-Capacitors" deviceset="0.33UF/330NF" device="-0805-50V-10%" value="0.1µF"/>
 <part name="R_EM4" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="5ohm"/>
-<part name="RRE5" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="~600ohm"/>
+<part name="RRE5" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="1.8k"/>
 <part name="U$4" library="MCH3474" deviceset="MCH3474" device=""/>
 <part name="R_EM5" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="10k"/>
 <part name="CEM7" library="SparkFun-Capacitors" deviceset="0.33UF/330NF" device="-0805-50V-10%" value="4.7µF"/>
 <part name="CEM8" library="SparkFun-Capacitors" deviceset="0.33UF/330NF" device="-0805-50V-10%" value="0.1µF"/>
 <part name="R_EM6" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="5ohm"/>
-<part name="RRE6" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="~600ohm"/>
+<part name="RRE6" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="1.8k"/>
 <part name="U$7" library="MCH3474" deviceset="MCH3474" device=""/>
 <part name="R_EM7" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="10k"/>
 <part name="CC" library="SparkFun-Capacitors" deviceset="0.33UF/330NF" device="-0805-50V-10%" value="0.1uF"/>
@@ -1749,7 +1749,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="CC6" library="SparkFun-Capacitors" deviceset="0.33UF/330NF" device="-0805-50V-10%" value="0.1uF"/>
 <part name="CC7" library="SparkFun-Capacitors" deviceset="0.33UF/330NF" device="-0805-50V-10%" value="0.1uF"/>
 <part name="CC8" library="SparkFun-Capacitors" deviceset="0.33UF/330NF" device="-0805-50V-10%" value="0.1uF"/>
-<part name="LED_R1" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="3k"/>
+<part name="LED_R1" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="1k"/>
 <part name="LED1" library="SparkFun-LED" deviceset="LED-BLUE" device="1206" value="BLUE"/>
 <part name="CEM9" library="SparkFun-Capacitors" deviceset="0.33UF/330NF" device="-0805-50V-10%" value="0.1µF"/>
 <part name="CEM10" library="SparkFun-Capacitors" deviceset="0.33UF/330NF" device="-0805-50V-10%" value="0.1µF"/>
@@ -1762,7 +1762,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="U$11" library="headers(2mm)" deviceset="1X1" device=""/>
 <part name="U$12" library="headers(2mm)" deviceset="1X1" device=""/>
 <part name="AGND1" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="0.75OHM" device="-0805-1/4W-1%" value="0"/>
-<part name="LED_R2" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="3k"/>
+<part name="LED_R2" library="SparkFun-Resistors" deviceset="0.75OHM" device="-0805-1/4W-1%" value="1k"/>
 <part name="LED2" library="SparkFun-LED" deviceset="LED-BLUE" device="1206" value="BLUE"/>
 </parts>
 <sheets>

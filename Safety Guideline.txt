@@ -1,0 +1,7 @@
+* Never touch the MCU(CPU/MicroController) chip with your hands.
+* Avoid touching any metal part on the PCBs in general, this doesn't incur as much damage as above point. 
+* If any part of the PCBs get warm or hot, unplug the battery immediately.
+* If battery gets hot, unplug it immediately and run away and cry.
+* Don't unplug any pins or wires while the system is powered on, ALWAYS unplug the battery first 
+* Bluetooth: re-emphasize above point, never hot plug/unplug it(Hot plugging/unplugging is defined as performing plugging or unplugging pins operation while system is powered, on example of it would be what you usually do with your usb devices, you usually just left your computer on while unplugging usb cable, which is not a good practice, but your computer is specifically designed to handle that case, while our hardware does NOT!!!!)
+   
