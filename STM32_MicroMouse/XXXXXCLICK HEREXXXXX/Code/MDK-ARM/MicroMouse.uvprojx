@@ -1350,11 +1350,6 @@
           <GroupName>mm_inc</GroupName>
           <Files>
             <File>
-              <FileName>NucleoTesterArchives.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\mm_lib\inc\NucleoTesterArchives.h</FilePath>
-            </File>
-            <File>
               <FileName>Motor.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\Motor.h</FilePath>
@@ -1374,16 +1369,16 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\StartGesture.h</FilePath>
             </File>
+            <File>
+              <FileName>HelperMethods.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\HelperMethods.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>mm_src</GroupName>
           <Files>
-            <File>
-              <FileName>NucleoTesterArchives.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\mm_lib\src\NucleoTesterArchives.c</FilePath>
-            </File>
             <File>
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
@@ -1403,6 +1398,11 @@
               <FileName>StartGesture.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\StartGesture.c</FilePath>
+            </File>
+            <File>
+              <FileName>HelperMethods.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\HelperMethods.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2758,11 +2758,6 @@
           <GroupName>mm_inc</GroupName>
           <Files>
             <File>
-              <FileName>NucleoTesterArchives.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\mm_lib\inc\NucleoTesterArchives.h</FilePath>
-            </File>
-            <File>
               <FileName>Motor.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\Motor.h</FilePath>
@@ -2782,16 +2777,16 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\StartGesture.h</FilePath>
             </File>
+            <File>
+              <FileName>HelperMethods.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\HelperMethods.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>mm_src</GroupName>
           <Files>
-            <File>
-              <FileName>NucleoTesterArchives.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\mm_lib\src\NucleoTesterArchives.c</FilePath>
-            </File>
             <File>
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
@@ -2811,6 +2806,11 @@
               <FileName>StartGesture.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\StartGesture.c</FilePath>
+            </File>
+            <File>
+              <FileName>HelperMethods.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\HelperMethods.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -4166,11 +4166,6 @@
           <GroupName>mm_inc</GroupName>
           <Files>
             <File>
-              <FileName>NucleoTesterArchives.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\mm_lib\inc\NucleoTesterArchives.h</FilePath>
-            </File>
-            <File>
               <FileName>Motor.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\Motor.h</FilePath>
@@ -4190,16 +4185,16 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\StartGesture.h</FilePath>
             </File>
+            <File>
+              <FileName>HelperMethods.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\HelperMethods.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>mm_src</GroupName>
           <Files>
-            <File>
-              <FileName>NucleoTesterArchives.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\mm_lib\src\NucleoTesterArchives.c</FilePath>
-            </File>
             <File>
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
@@ -4219,6 +4214,11 @@
               <FileName>StartGesture.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\StartGesture.c</FilePath>
+            </File>
+            <File>
+              <FileName>HelperMethods.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\HelperMethods.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -5621,11 +5621,6 @@
           <GroupName>mm_inc</GroupName>
           <Files>
             <File>
-              <FileName>NucleoTesterArchives.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\mm_lib\inc\NucleoTesterArchives.h</FilePath>
-            </File>
-            <File>
               <FileName>Motor.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\Motor.h</FilePath>
@@ -5645,16 +5640,16 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\StartGesture.h</FilePath>
             </File>
+            <File>
+              <FileName>HelperMethods.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\HelperMethods.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>mm_src</GroupName>
           <Files>
-            <File>
-              <FileName>NucleoTesterArchives.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\mm_lib\src\NucleoTesterArchives.c</FilePath>
-            </File>
             <File>
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
@@ -5674,6 +5669,11 @@
               <FileName>StartGesture.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\StartGesture.c</FilePath>
+            </File>
+            <File>
+              <FileName>HelperMethods.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\HelperMethods.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -7029,11 +7029,6 @@
           <GroupName>mm_inc</GroupName>
           <Files>
             <File>
-              <FileName>NucleoTesterArchives.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\mm_lib\inc\NucleoTesterArchives.h</FilePath>
-            </File>
-            <File>
               <FileName>Motor.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\Motor.h</FilePath>
@@ -7053,16 +7048,16 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\StartGesture.h</FilePath>
             </File>
+            <File>
+              <FileName>HelperMethods.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\HelperMethods.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>mm_src</GroupName>
           <Files>
-            <File>
-              <FileName>NucleoTesterArchives.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\mm_lib\src\NucleoTesterArchives.c</FilePath>
-            </File>
             <File>
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
@@ -7082,6 +7077,11 @@
               <FileName>StartGesture.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\StartGesture.c</FilePath>
+            </File>
+            <File>
+              <FileName>HelperMethods.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\HelperMethods.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -8337,11 +8337,6 @@
           <GroupName>mm_inc</GroupName>
           <Files>
             <File>
-              <FileName>NucleoTesterArchives.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\mm_lib\inc\NucleoTesterArchives.h</FilePath>
-            </File>
-            <File>
               <FileName>Motor.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\Motor.h</FilePath>
@@ -8361,16 +8356,16 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\StartGesture.h</FilePath>
             </File>
+            <File>
+              <FileName>HelperMethods.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\HelperMethods.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>mm_src</GroupName>
           <Files>
-            <File>
-              <FileName>NucleoTesterArchives.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\mm_lib\src\NucleoTesterArchives.c</FilePath>
-            </File>
             <File>
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
@@ -8390,6 +8385,11 @@
               <FileName>StartGesture.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\StartGesture.c</FilePath>
+            </File>
+            <File>
+              <FileName>HelperMethods.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\HelperMethods.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -9644,11 +9644,6 @@
           <GroupName>mm_inc</GroupName>
           <Files>
             <File>
-              <FileName>NucleoTesterArchives.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\mm_lib\inc\NucleoTesterArchives.h</FilePath>
-            </File>
-            <File>
               <FileName>Motor.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\Motor.h</FilePath>
@@ -9668,16 +9663,16 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\StartGesture.h</FilePath>
             </File>
+            <File>
+              <FileName>HelperMethods.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\HelperMethods.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>mm_src</GroupName>
           <Files>
-            <File>
-              <FileName>NucleoTesterArchives.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\mm_lib\src\NucleoTesterArchives.c</FilePath>
-            </File>
             <File>
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
@@ -9697,6 +9692,11 @@
               <FileName>StartGesture.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\StartGesture.c</FilePath>
+            </File>
+            <File>
+              <FileName>HelperMethods.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\HelperMethods.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -10899,11 +10899,6 @@
           <GroupName>mm_inc</GroupName>
           <Files>
             <File>
-              <FileName>NucleoTesterArchives.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\mm_lib\inc\NucleoTesterArchives.h</FilePath>
-            </File>
-            <File>
               <FileName>Motor.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\Motor.h</FilePath>
@@ -10923,16 +10918,16 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\StartGesture.h</FilePath>
             </File>
+            <File>
+              <FileName>HelperMethods.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\HelperMethods.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>mm_src</GroupName>
           <Files>
-            <File>
-              <FileName>NucleoTesterArchives.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\mm_lib\src\NucleoTesterArchives.c</FilePath>
-            </File>
             <File>
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
@@ -10952,6 +10947,11 @@
               <FileName>StartGesture.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\StartGesture.c</FilePath>
+            </File>
+            <File>
+              <FileName>HelperMethods.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\HelperMethods.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -12106,11 +12106,6 @@
           <GroupName>mm_inc</GroupName>
           <Files>
             <File>
-              <FileName>NucleoTesterArchives.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\mm_lib\inc\NucleoTesterArchives.h</FilePath>
-            </File>
-            <File>
               <FileName>Motor.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\Motor.h</FilePath>
@@ -12130,16 +12125,16 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\StartGesture.h</FilePath>
             </File>
+            <File>
+              <FileName>HelperMethods.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\HelperMethods.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>mm_src</GroupName>
           <Files>
-            <File>
-              <FileName>NucleoTesterArchives.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\mm_lib\src\NucleoTesterArchives.c</FilePath>
-            </File>
             <File>
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
@@ -12159,6 +12154,11 @@
               <FileName>StartGesture.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\StartGesture.c</FilePath>
+            </File>
+            <File>
+              <FileName>HelperMethods.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\HelperMethods.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -13314,11 +13314,6 @@
           <GroupName>mm_inc</GroupName>
           <Files>
             <File>
-              <FileName>NucleoTesterArchives.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\mm_lib\inc\NucleoTesterArchives.h</FilePath>
-            </File>
-            <File>
               <FileName>Motor.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\Motor.h</FilePath>
@@ -13338,16 +13333,16 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\StartGesture.h</FilePath>
             </File>
+            <File>
+              <FileName>HelperMethods.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\HelperMethods.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>mm_src</GroupName>
           <Files>
-            <File>
-              <FileName>NucleoTesterArchives.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\mm_lib\src\NucleoTesterArchives.c</FilePath>
-            </File>
             <File>
               <FileName>Motor.c</FileName>
               <FileType>1</FileType>
@@ -13367,6 +13362,11 @@
               <FileName>StartGesture.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\StartGesture.c</FilePath>
+            </File>
+            <File>
+              <FileName>HelperMethods.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\HelperMethods.c</FilePath>
             </File>
           </Files>
         </Group>

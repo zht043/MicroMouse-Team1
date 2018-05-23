@@ -43,6 +43,7 @@ stm32f40_41xxx\main.o: .\user_lib\inc\Timer.h
 stm32f40_41xxx\main.o: .\user_lib\inc\USART.h
 stm32f40_41xxx\main.o: .\user_lib\inc\SPI.h
 stm32f40_41xxx\main.o: .\user_lib\inc\ADC.h
+stm32f40_41xxx\main.o: .\mm_lib\inc\HelperMethods.h
 stm32f40_41xxx\main.o: .\mm_lib\inc\Motor.h
 stm32f40_41xxx\main.o: .\mm_lib\inc\Led.h
 stm32f40_41xxx\main.o: .\mm_lib\inc\IR.h

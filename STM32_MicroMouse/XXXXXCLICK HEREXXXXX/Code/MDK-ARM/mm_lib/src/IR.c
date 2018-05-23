@@ -19,10 +19,11 @@ void initIR(void) {
 	
     L_receiver = addADC(PC3, ADC_Channel_13);
     R_receiver = addADC(PB1, ADC_Channel_9);
-    LF0_receiver = addADC(PC0, ADC_Channel_10);
-    LF1_receiver = addADC(PC1, ADC_Channel_11);
-    RF0_receiver = addADC(PB0, ADC_Channel_8);
-    RF1_receiver = addADC(PC5, ADC_Channel_15);
+		
+    LF0_receiver = addADC(PC1, ADC_Channel_10);
+    LF1_receiver = addADC(PC0, ADC_Channel_11);
+    RF1_receiver = addADC(PB0, ADC_Channel_8);
+    RF0_receiver = addADC(PC5, ADC_Channel_15);
 	
 		initADC(ADC1);
     CCR1_Val = usToCCR(10);
@@ -49,11 +50,6 @@ void IR_Tester(void) {
 			printf("\r%d %d %d %d %d %d\r\n", IR_values[0], IR_values[1], IR_values[2], IR_values[3], IR_values[4], IR_values[5]);
 			delay(1);
 		}
-		/*		digitalWrite(L_emitter, HIGH);
-				delay_us(10);
-				digitalWrite(L_emitter, LOW);
-				delay_us(10);
-		}*/
 }
 
 /**
@@ -122,8 +118,8 @@ void TIM3_itTask_cc1(void) {
 
         case 5:
             // read both front right receivers
-						IR_values[3] = analogRead(RF0_receiver);
-						IR_values[4] = analogRead(RF1_receiver);
+						IR_values[3] = analogRead(RF1_receiver);
+						IR_values[4] = analogRead(RF0_receiver);
             // set the pin to low
             IR_pulse(RF_emitter);
             break;

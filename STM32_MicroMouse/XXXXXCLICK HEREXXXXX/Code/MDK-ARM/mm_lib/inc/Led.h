@@ -10,4 +10,7 @@ void L_LED_OFF(void);
 void R_LED_ON(void);
 void R_LED_OFF(void);
 void blinkLED(uint8_t numBlinks);
+void blinkLED_Both(uint8_t numBlinks);
+void blinkLED_Left(uint8_t numBlinks);
+void blinkLED_Right(uint8_t numBlinks);
 #endif 

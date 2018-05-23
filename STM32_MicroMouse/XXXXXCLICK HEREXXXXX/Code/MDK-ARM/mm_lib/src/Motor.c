@@ -10,6 +10,7 @@ void initMotor(void) {
 		RpwmA = initIO_TIM(TIMER1, PA10, Ch3);
 		RpwmB = initIO_TIM(TIMER1, PA11, Ch4);
 		PWM_ON(TIMER1,10000);
+		stop();
 }
 void motor(double Lpwr, double Rpwr) {
 		Rpwr	*= -1.00f;
@@ -57,7 +58,7 @@ void curve(double v, double w) {
 		//motor((v/Radius-w)/LwDp,(v/Radius+w)/RwDp);
 		motor((v-w),(v+w));
 }
-void halt() {
+void stop(void) {
 		motor(0,0);
 }
 

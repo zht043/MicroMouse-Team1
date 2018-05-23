@@ -47,11 +47,11 @@
 "stm32f40_41xxx\timer.o"
 "stm32f40_41xxx\usart.o"
 "stm32f40_41xxx\adc.o"
-"stm32f40_41xxx\nucleotesterarchives.o"
 "stm32f40_41xxx\motor.o"
 "stm32f40_41xxx\led.o"
 "stm32f40_41xxx\ir.o"
 "stm32f40_41xxx\startgesture.o"
+"stm32f40_41xxx\helpermethods.o"
 --library_type=microlib --strict --scatter "STM32F40_41xxx\STM32F40_41xxx.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
