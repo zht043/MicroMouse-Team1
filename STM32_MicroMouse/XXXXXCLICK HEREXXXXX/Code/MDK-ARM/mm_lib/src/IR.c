@@ -39,7 +39,7 @@ void IR_pulse(GPIO EM) {
         cc1Flag = 1;
     } else {
         digitalWrite(EM, LOW);
-				CCR1_Val = usToCCR(3 * Impulse_period);
+				CCR1_Val = usToCCR(4 * Impulse_period);
         cc1Flag = 0;
     }
 }

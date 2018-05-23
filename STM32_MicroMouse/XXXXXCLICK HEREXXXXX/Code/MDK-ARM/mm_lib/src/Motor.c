@@ -12,6 +12,7 @@ void initMotor(void) {
 		PWM_ON(TIMER1,10000);
 }
 void motor(double Lpwr, double Rpwr) {
+		Rpwr	*= -1.00f;
 		if(LpwrMem != Lpwr) {
 				if(Lpwr > 0.00f) {
 						if(Lpwr > 100.00f) Lpwr = 100.00f;

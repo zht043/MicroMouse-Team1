@@ -8,7 +8,8 @@
 void initMotor(void);
 void motor(double Lpwr, double Rpwr);
 void motorTester(void);
-
+void halt(void);
+void curve(double v, double w);
 
 #endif 
 

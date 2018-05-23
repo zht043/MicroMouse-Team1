@@ -46,3 +46,4 @@ stm32f40_41xxx\main.o: .\user_lib\inc\ADC.h
 stm32f40_41xxx\main.o: .\mm_lib\inc\Motor.h
 stm32f40_41xxx\main.o: .\mm_lib\inc\Led.h
 stm32f40_41xxx\main.o: .\mm_lib\inc\IR.h
+stm32f40_41xxx\main.o: .\mm_lib\inc\StartGesture.h

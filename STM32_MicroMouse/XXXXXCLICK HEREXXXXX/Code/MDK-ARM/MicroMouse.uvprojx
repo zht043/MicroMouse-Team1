@@ -1369,6 +1369,11 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\IR.h</FilePath>
             </File>
+            <File>
+              <FileName>StartGesture.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\StartGesture.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1393,6 +1398,11 @@
               <FileName>IR.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\IR.c</FilePath>
+            </File>
+            <File>
+              <FileName>StartGesture.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\StartGesture.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2767,6 +2777,11 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\IR.h</FilePath>
             </File>
+            <File>
+              <FileName>StartGesture.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\StartGesture.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2791,6 +2806,11 @@
               <FileName>IR.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\IR.c</FilePath>
+            </File>
+            <File>
+              <FileName>StartGesture.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\StartGesture.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -4165,6 +4185,11 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\IR.h</FilePath>
             </File>
+            <File>
+              <FileName>StartGesture.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\StartGesture.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4189,6 +4214,11 @@
               <FileName>IR.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\IR.c</FilePath>
+            </File>
+            <File>
+              <FileName>StartGesture.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\StartGesture.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -5610,6 +5640,11 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\IR.h</FilePath>
             </File>
+            <File>
+              <FileName>StartGesture.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\StartGesture.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -5634,6 +5669,11 @@
               <FileName>IR.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\IR.c</FilePath>
+            </File>
+            <File>
+              <FileName>StartGesture.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\StartGesture.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -7008,6 +7048,11 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\IR.h</FilePath>
             </File>
+            <File>
+              <FileName>StartGesture.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\StartGesture.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -7032,6 +7077,11 @@
               <FileName>IR.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\IR.c</FilePath>
+            </File>
+            <File>
+              <FileName>StartGesture.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\StartGesture.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -8306,6 +8356,11 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\IR.h</FilePath>
             </File>
+            <File>
+              <FileName>StartGesture.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\StartGesture.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -8330,6 +8385,11 @@
               <FileName>IR.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\IR.c</FilePath>
+            </File>
+            <File>
+              <FileName>StartGesture.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\StartGesture.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -9603,6 +9663,11 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\IR.h</FilePath>
             </File>
+            <File>
+              <FileName>StartGesture.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\StartGesture.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -9627,6 +9692,11 @@
               <FileName>IR.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\IR.c</FilePath>
+            </File>
+            <File>
+              <FileName>StartGesture.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\StartGesture.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -10848,6 +10918,11 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\IR.h</FilePath>
             </File>
+            <File>
+              <FileName>StartGesture.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\StartGesture.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -10872,6 +10947,11 @@
               <FileName>IR.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\IR.c</FilePath>
+            </File>
+            <File>
+              <FileName>StartGesture.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\StartGesture.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -12045,6 +12125,11 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\IR.h</FilePath>
             </File>
+            <File>
+              <FileName>StartGesture.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\StartGesture.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -12069,6 +12154,11 @@
               <FileName>IR.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\IR.c</FilePath>
+            </File>
+            <File>
+              <FileName>StartGesture.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\StartGesture.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -13243,6 +13333,11 @@
               <FileType>5</FileType>
               <FilePath>.\mm_lib\inc\IR.h</FilePath>
             </File>
+            <File>
+              <FileName>StartGesture.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mm_lib\inc\StartGesture.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -13267,6 +13362,11 @@
               <FileName>IR.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\mm_lib\src\IR.c</FilePath>
+            </File>
+            <File>
+              <FileName>StartGesture.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mm_lib\src\StartGesture.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -1,5 +1,5 @@
 #include "Timer.h"
-
+#include <stdlib.h>
 #include "stm32f4xx_tim.h"
 
 
@@ -759,5 +759,6 @@ int32_t REnc(void)
 				LEnc_mem += TIM5->CNT;
 				ResetLEnc();
 		}
-	  return TIM5->CNT + LEnc_mem;
+	  return (TIM5->CNT + LEnc_mem) * (-1);
 }
+
