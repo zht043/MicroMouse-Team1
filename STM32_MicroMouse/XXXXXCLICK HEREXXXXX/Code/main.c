@@ -15,7 +15,7 @@
 #include "Led.h"
 #include "IR.h"
 #include "StartGesture.h"
-
+#include "PID.h"
 /////////////////////////////// var & const & macros
 extern __IO uint16_t IR_values[6];
 /////////////////////////////// func declarations 
@@ -54,7 +54,9 @@ int main(void)
 
 //ProgramA : Search Run
 void ProgramA_main() {
-    
+		motor(30,30);
+		delay(500);
+		motor(0,0);
 }
 
 
@@ -67,8 +69,9 @@ void ProgramB_main() {
 //ProgramC : Calibration
 void ProgramC_main() {
 		char str[20];
+		printf("\rXXXXXXXXXXX\r\n");
 		readLine(str);
-		if(strcmp(str, "IR")) {
+		if(!strcmp(str, "IR")) {
 				while(1) { 	
 						printf("\rL[%4d] ** LFA[%4d] LFB[%4d]   #######   RFB[%4d] RFA[%4d] ** R[%4d]\r\n", 
 										IRv_L, 
@@ -80,9 +83,9 @@ void ProgramC_main() {
 						delay(1);
 				}
 		}
-		if(strcmp(str, "ENC")) {
+		if(!strcmp(str, "ENC")) {
 				while(1) {
-						printf("\rLENC[%9d]   ###########   RENC[%9d]\r", LEnc(), REnc());
+						printf("\rLENC[%9d]   ###########   RENC[%9d]\r\n", LEnc(), REnc());
 						delay(1);
 				}
 		}

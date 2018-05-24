@@ -51,8 +51,8 @@ uint8_t startGesture(void) {
 		uint8_t continueFlag = 0; //Flag for restarting this gesture session
 		uint8_t Program; //determines which program to start with
 		while(!SG_finished) {
-				blinkLED(5);
-				while(GestureState() != None) GestureLED(); 
+				blinkLED(12);
+				while(GestureState() == None) GestureLED();
 
 				if(GestureState() == Left) {
 						//restart session if staying in left state for too long
@@ -265,16 +265,19 @@ uint8_t startGesture(void) {
 				}
 				if(GestureState() == Both) {
 						t0 = millis();
-						while(GestureState() == Both) GestureLED();
-						if(millis() - t0 < 3 * tBuff) continue;
+						while(GestureState() == Both) {
+								if(millis() - t0 > 2 * tBuff) break;
+								GestureLED();
+						}
+						if(millis() - t0 < 2 * tBuff) continue;
 						Program = ProgramC;
 						SG_finished = 1;
 				}					
 		}
 		
-		if(Program == ProgramA) blinkLED_Left(6);
-		if(Program == ProgramB) blinkLED_Right(6);
-		if(Program == ProgramC) blinkLED_Both(6);
+		if(Program == ProgramA) blinkLED_Left(12);
+		if(Program == ProgramB) blinkLED_Right(12);
+		if(Program == ProgramC) blinkLED_Both(12);
 		return Program;
 }
 
