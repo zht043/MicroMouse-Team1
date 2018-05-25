@@ -38,6 +38,7 @@ void initPeriphs(void) {
 		initIR();
 		initMotor();
 		initEncoder();
+		ResetEnc();
 }
 int main(void)
 {
@@ -51,11 +52,11 @@ int main(void)
 		}
 }
 
-
 //ProgramA : Search Run
 void ProgramA_main() {
-		motor(30,30);
-		delay(500);
+		//motor(30,30);
+		//delay(500);
+		gS_Tester();
 		motor(0,0);
 }
 
@@ -70,6 +71,7 @@ void ProgramB_main() {
 void ProgramC_main() {
 		char str[20];
 		printf("\rXXXXXXXXXXX\r\n");
+	while(1) {
 		readLine(str);
 		if(!strcmp(str, "IR")) {
 				while(1) { 	
@@ -89,6 +91,24 @@ void ProgramC_main() {
 						delay(1);
 				}
 		}
+		if(!strcmp(str,	"AC")) {
+				while(1) {
+						//printf("\r%d\r\n", LEnc() - REnc());
+						printf("\r%lf\r\n", convertToAngle(LEnc() - REnc()));
+						delay(1);
+				}
+		}
+		if(!strcmp(str, "LC")) {
+				while(1) {
+						//printf("\r%d\r\n", LEnc() - REnc());
+						printf("\r%lf\r\n", convertToCM((double)(LEnc() + REnc())));
+						delay(1);
+				}
+		}
+		if(!strcmp(str, "VT")) {
+				LspeedTester();
+		}
+	}
 }
 
 

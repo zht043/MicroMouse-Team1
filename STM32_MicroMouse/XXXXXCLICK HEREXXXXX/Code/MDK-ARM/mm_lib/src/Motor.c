@@ -13,6 +13,7 @@ void initMotor(void) {
 		stop();
 }
 void motor(double Lpwr, double Rpwr) {
+		Rpwr *= 0.980f;
 		Rpwr	*= -1.00f;
 		if(LpwrMem != Lpwr) {
 				if(Lpwr > 0.00f) {
@@ -56,7 +57,7 @@ ans =
 */
 void curve(double v, double w) {
 		//motor((v/Radius-w)/LwDp,(v/Radius+w)/RwDp);
-		motor((v-w),(v+w));
+		motor((v+w),(v-w));
 }
 void stop(void) {
 		motor(0,0);

@@ -266,10 +266,10 @@ uint8_t startGesture(void) {
 				if(GestureState() == Both) {
 						t0 = millis();
 						while(GestureState() == Both) {
-								if(millis() - t0 > 2 * tBuff) break;
+								if(millis() - t0 > tBuff) break;
 								GestureLED();
 						}
-						if(millis() - t0 < 2 * tBuff) continue;
+						if(millis() - t0 < tBuff) continue;
 						Program = ProgramC;
 						SG_finished = 1;
 				}					

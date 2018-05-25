@@ -15,6 +15,16 @@
 #define IRv_RFA IR_values[4]
 #define IRv_R   IR_values[5]
 
+
+#define IR_L   0
+#define IR_LFA 1
+#define IR_LFB 2
+#define IR_RFB 3
+#define IR_RFA 4
+#define IR_R   5
+#define IR_LF  6
+#define IR_RF  7
+
 void initIR(void);
 void IR_Tester(void);
 uint16_t parse_ADC_Sample(uint16_t Sarr[], uint32_t n);
