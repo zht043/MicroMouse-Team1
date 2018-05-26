@@ -8,19 +8,13 @@ typedef struct {
 		double Kp,Ki,Kd;
 		double prevErr;
 		double integrator;
+		double pTerm, iTerm, dTerm;
 		uint8_t isFirstIteration;
 		uint32_t Period;
-		uint32_t sT_t0;
+		uint32_t prevT;
 }PID_Ctr;
 
 
-uint8_t softTimer(PID_Ctr* ctr, uint32_t period_us) {
-		if( micros() - ctr->sT_t0 > period_us ) {
-				ctr->sT_t0 = micros();
-				return 1;
-		}
-		return 0;
-}
 
 void initPID(PID_Ctr* ctr, double Kp, double Ki, double Kd, uint32_t Period_us) {
 		ctr->Kp = Kp;
@@ -32,27 +26,41 @@ void initPID(PID_Ctr* ctr, double Kp, double Ki, double Kd, uint32_t Period_us) 
 }
 
 double us_to_sec(uint32_t us) {
-		return (double)us / 1000000;
+		return (double)us / 1000000.000f;
 }
 
-double pTerm, iTerm, dTerm;
+
 
 double PID(PID_Ctr* ctr, double currErr) {
 		if(ctr->isFirstIteration) {
 				ctr->isFirstIteration = 0;
+				ctr->prevErr = currErr;
+				ctr->prevT = micros();
 				return ctr->Kp * currErr;
 		}
 		//P
-		pTerm = ctr->Kp * currErr;
-		if(!softTimer(ctr, ctr->Period)) return (-1.000f) * (pTerm + iTerm + dTerm);
+		ctr->pTerm = ctr->Kp * currErr;
+		
+		//time management
+		uint32_t dT = micros() - ctr->prevT;
+		if(dT < ctr->Period) return (-1.000f) * (ctr->pTerm + ctr->iTerm + ctr->dTerm);
+		if(dT > 3 * ctr->Period) {
+				ctr->prevT = micros();
+				ctr->prevErr = currErr;
+				return (-1.000f) * (ctr->pTerm + ctr->iTerm + ctr->dTerm);
+		}
 		
 		//I
-		ctr->integrator += currErr * us_to_sec(ctr->Period);
-		iTerm = ctr->Ki * ctr->integrator;
+		ctr->integrator += currErr * us_to_sec(dT);
+		ctr->iTerm = ctr->Ki * ctr->integrator;
+		
 		//D
-		dTerm = ctr->Kd * (currErr - ctr->prevErr) / us_to_sec(ctr->Period)  / 10000; // 10000 is just a dimentional scaling factor 
+		ctr->dTerm = ctr->Kd * (currErr - ctr->prevErr) / us_to_sec(dT); 
+		
+		
+		ctr->prevT = micros();
 		ctr->prevErr = currErr;
-		return (-1.000f) * (pTerm + iTerm + dTerm);
+		return (-1.000f) * (ctr->pTerm + ctr->iTerm + ctr->dTerm);
 }
 
 
@@ -72,17 +80,20 @@ double convertToCM(double cnt) {
 
 //Test Me
 #define EncSamplingPeriod 100
-uint32_t prevT_vL = 0;
-uint32_t prevLEnc = 0;
+int32_t prevT_vL = 0;
+int32_t prevLEnc = 0;
 double vL = 0.000f;
 double Lspeed(void) {
-		if(prevT_vL == 0) 
-			return 0.000f;
+		//first iter
+		if(prevT_vL == 0) {
+				prevT_vL = micros();
+				prevLEnc = LEnc();
+				return 0.000f;
+		}
 		
 		uint32_t dT = micros() - prevT_vL;
 		
-		if(dT < EncSamplingPeriod) 
-			return vL;
+		if(dT < EncSamplingPeriod) return vL;
 		
 		if(dT > 3 * EncSamplingPeriod) {
 				prevT_vL = micros();
@@ -90,50 +101,69 @@ double Lspeed(void) {
 				return 0.000f;
 		}
 		
-		vL = convertToCM((double)(LEnc() - prevLEnc)) / (double)dT;
+		vL = convertToCM((double)(LEnc() - prevLEnc)) / us_to_sec(dT) ;
 		prevLEnc = LEnc();
 		prevT_vL = micros();
 		return vL;
 }
 
-uint32_t prevT_vR = 0;
-uint32_t prevREnc = 0;
+int32_t prevT_vR = 0;
+int32_t prevREnc = 0;
 double vR = 0.000f;
 double Rspeed(void) {
-		if(prevT_vR == 0) return 0.000f;
-		uint32_t dT = micros() - prevT_vR;
-		if(dT < EncSamplingPeriod) return vR;
-		if(dT > 3 * EncSamplingPeriod) {
+		if(prevT_vR == 0) {
 				prevT_vR = micros();
-				prevREnc = REnc();
+				prevLEnc = REnc();
 				return 0.000f;
 		}
-		vR = convertToCM(REnc() - prevREnc) / (double)dT;
+		
+		uint32_t dT = micros() - prevT_vR;
+		
+		if(dT < EncSamplingPeriod) return vR;
+		
+		if(dT > 3 * EncSamplingPeriod) {
+				prevT_vR = micros();
+				prevLEnc = REnc();
+				return 0.000f;
+		}
+		
+		vR = convertToCM((double)(REnc() - prevREnc)) / us_to_sec(dT);
 		prevREnc = REnc();
 		prevT_vR = micros();
 		return vR;
 }
+
+
 void LspeedTester(void) {
 		while(1) {
 				uint32_t t0 = millis();
-				while(millis() - t0 < 10) motor(convertToCM(REnc()) * 10.00f, 0);
+				while(millis() - t0 < 10) {
+						motor(convertToCM(REnc()) * 10.00f, 0);
+						Lspeed();
+				}
 				printf("\r%lf\r\n", Lspeed());
 		}
 }	
 
 void RspeedTester(void) {
 		while(1) {
-				motor(0, convertToCM(LEnc()) * 10.00f);
+				uint32_t t0 = millis();
+				while(millis() - t0 < 10) {
+						motor(0, convertToCM(LEnc()) * 10.00f);
+						Rspeed();
+				}
 				printf("\r%lf\r\n", Rspeed());
 		}
 }	
 
 
 
+
+
 // ------ IR Helper Methods ------ //	
 extern __IO uint16_t IR_values[6];
-#define LF_th 1700	
-#define RF_th 1700	
+#define LF_th 1850	
+#define RF_th 1850	
 #define L_th 600
 #define R_th 600		
 double IR_ErrGen(void) {
@@ -148,40 +178,42 @@ double IR_ErrGen(void) {
 // ------ Straight ------ //
 uint32_t gS_t0;
 uint8_t End_Straight_Condition(void) {
-		if(millis() - gS_t0 < 700) return 0;
+		if(millis() - gS_t0 < 800) return 0;
 		return 1;
 }
 uint32_t spt_cnt = 0;
 void Straight_Parallel_Task(void) {
 		spt_cnt ++;
 }
+extern double tP, tI, tD;
+
 void goStraight(double speed) {
 		ResetEnc();
 		
 		PID_Ctr Angular_Disp;
-		initPID(&Angular_Disp, 20.000f, 5.000f, 0.000f, 1);
+		initPID(&Angular_Disp, tP, tI, tD, 1);
+		//initPID(&Angular_Disp, 13.000f, 0.000f, 3.300f, 1);
 		
-	/*
 		PID_Ctr Linear_Vel;
-		initPID(&Linear_Vel, 5.000f, 0.000f, 0.000f, 10);  //fix period and pval
-		*/
-	/*
-		PID_Ctr Angular_Disp_Inc;
-		initPID(&Angular_Disp_Inc, 5.000f, 0.000f, 0.000f, 10);
-		*/
-		double v = 50.000f, w, w_inc = 0.000f;
+		initPID(&Linear_Vel, 3.000f, 0.000f, 0.000f, 100);  
+		
+	
+		//PID_Ctr Angular_Disp_Inc;
+		//initPID(&Angular_Disp_Inc, 15.000f, 0.000f, 0.000f, 1);
+		
+		double v, w, w_inc = 0.000f;
 		double AD_Exp = 0.000f, LV_Exp = speed;
 		while(!End_Straight_Condition()) {
 				w = PID(&Angular_Disp, convertToAngle(LEnc() - REnc()) - AD_Exp );  // Error = Actual val - Expected val
-				//v = PID(&Linear_Vel, (Lspeed() + Rspeed()) / 2.000f - LV_Exp);
-				//w_inc = PID(&Angular_Disp_Inc, IR_ErrGen());
-				curve(v, (w + w_inc));
+				//v = PID(&Linear_Vel, ((Lspeed() + Rspeed()) / 2.000f) * 0.46728f - LV_Exp);  // LorRspeed max is 214, 100/214 = 0.46
+				w_inc = IR_ErrGen() * (-25.000f); //PID(&Angular_Disp_Inc, IR_ErrGen());
+				curve(speed, (w + w_inc));
 				Straight_Parallel_Task();
 		}
 }
-void gS_Tester(void) {
+void gS_Tester(double speed) {
 		gS_t0 = millis();
-		goStraight(50);
+		goStraight(speed);
 		stop();
 }
 

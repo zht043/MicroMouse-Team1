@@ -8,7 +8,7 @@
 #include "Motor.h"
 
 double convertToAngle(double diff);
-void gS_Tester(void) ;
+void gS_Tester(double speed) ;
 double convertToCM(double cnt);
 void LspeedTester(void);
 void RspeedTester(void);

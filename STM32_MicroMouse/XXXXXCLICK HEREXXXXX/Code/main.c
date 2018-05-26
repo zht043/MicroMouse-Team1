@@ -56,7 +56,7 @@ int main(void)
 void ProgramA_main() {
 		//motor(30,30);
 		//delay(500);
-		gS_Tester();
+		gS_Tester(35);
 		motor(0,0);
 }
 
@@ -66,6 +66,8 @@ void ProgramB_main() {
 		//Not there yet, blink to show warnings
 		while(1) blinkLED(1);
 }
+
+double tP, tI, tD;
 
 //ProgramC : Calibration
 void ProgramC_main() {
@@ -105,8 +107,36 @@ void ProgramC_main() {
 						delay(1);
 				}
 		}
-		if(!strcmp(str, "VT")) {
+		if(!strcmp(str, "VTL")) {
 				LspeedTester();
+		}
+		if(!strcmp(str, "VTR")) {
+				RspeedTester();
+		}
+		if(!strcmp(str, "GS")) {
+				while(1) {
+						printf("\rEnter speed Plz\r\n");
+						readLine(str);
+						double speed = strtof(str, NULL);
+						printf("\r%lf\r\n", speed);
+						
+						printf("\rEnter P I D values seprated by a space Plz\r\n");
+						readLine(str);
+						// tP, tI, tD
+						char * token;
+						token = strtok(str, " ");
+						tP = atof(token);
+					printf("\r Input: %s\r\n", str);
+						token = strtok(NULL, " ");
+						tI = atof(token);				
+						token = strtok(NULL, " ");
+						tD = atof(token);
+					printf("\rP : %lf I : %lf D : %lf\r\n", tP, tI, tD); 
+						
+						gS_Tester(speed);
+						stop();
+					
+				}
 		}
 	}
 }
