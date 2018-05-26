@@ -1,5 +1,7 @@
 #include "Floodfill.h"
-static int store[MAX];
+static int storex[MAX];
+static int storey[MAX];
+
 bool grid[16][16];
 //Coord* direction;
 int xx[] = {0,1,0,-1};
@@ -28,12 +30,12 @@ enum dirArr direction;
 
 
 bool floodfill(){
-	  if(isEmpty(store, Qx)){
+	  if(isEmpty(storex, Qx)){
 		  return false;
   	}
 
-    int x = peek(store, Qx);
-    int y = peek(store, Qy);
+    int x = peek(storex, Qx);
+    int y = peek(storey, Qy);
     printf("\rX = %d, Y = %d\r\n", x, y);
     int parentx = parentX[x][y];
     int parenty = parentY[x][y];
@@ -41,16 +43,16 @@ bool floodfill(){
         dist[x][y] = 0;
         visit[x][y] = true;
         updatePosition(x, y, parentX[x][y], parentY[x][y]);
-        pop(store, Qx);
-        pop(store, Qy);
+        pop(storex, Qx);
+        pop(storey, Qy);
 			
-				for (int i = 0; i < 16; i++) {
+		/*		for (int i = 0; i < 16; i++) {
 					for (int j = 0; j < 16; j++){
 						
 						printf("%d", bestRouteX[i][j]);
 					}
 					printf("\n");
-				}
+				}*/
 	 printf("Check point 1\n");
         return true;
     }
@@ -67,16 +69,19 @@ bool floodfill(){
     for(int i = 0 ; i < 4 ; i++){
         int nxtX = x+xx[i];
         int nxtY = y+yy[i];
-        if(grid[nxtX][nxtY]){
+			  printf("\rnxtX = %d, nxtY = %d\n\r",  nxtX , nxtY);
+
+				// grid[i][j] abstractly represents if the nextx, nexty
+			  // is reachable for current x, current y
+        if(!withinBounds(nxtX, nxtY) || grid[nxtX][nxtY] ){
            continue;
 		    }
 				
         if(visit[nxtX][nxtY] == false){
-            push(store, Qx, nxtX);
-            push(store, Qy, nxtY);
+            push(storex, Qx, nxtX);
+            push(storey, Qy, nxtY);
             parentX[nxtX][nxtY] = x;
             parentY[nxtX][nxtY] = y;
-            printf("\rnxtX = %d, nxtY = %d\n\r",  nxtX , nxtY);
             updatePosition(x, y, nxtX, nxtY);
             return true;
         }
@@ -99,11 +104,17 @@ bool floodfill(){
             }
         }
     }
-    pop(store, Qx);
-    pop(store, Qy);
+    pop(storex, Qx);
+    pop(storey, Qy);
     updatePosition(x, y, parentx, parenty);
 		return true;
 }
+
+bool withinBounds(int x, int y) {
+	if(x < 0 || x >= 16 || y < 0 || y >= 16) return false;
+	return true;
+}
+
 bool isCenter(int x, int y){
     if(x == CENTERX1 && y == CENTERY1){
         return true;
@@ -156,12 +167,17 @@ void initFloodfill() {
 			      grid[i][j] = false;
         }
     }
+	
+		for(int i = 0 ; i < 15 ; i++) grid[i][1] = true, grid[14][i+1] = true;
+		grid[14][15] = false;
+		
+		
     Qx = newStack(10000);
     Qy = newStack(10000);
 	//direction = newCoord(0,0);
 		direction = MIDDLE;
-    push(store, Qx, 0);
-    push(store, Qy, 0);
+    push(storex, Qx, 0);
+    push(storey, Qy, 0);
     int hr = row/2;
     int cr = col/2;
 
@@ -177,15 +193,17 @@ void initFloodfill() {
 }
 
 void driver(Stack * stack){
+/*
 	for(int i = 0; i < 8; i ++){
 		floodfill();
-	}
+	}*/
+		while(floodfill());
 		//STOP
 		int bestX = 0;
 		int bestY = 0;
 
-		printf("\rBest dist = %d\r\n", grid[0][0]);
-	  return;
+		printf("\rBest dist = %d\r\n", dist[0][0]);
+	//  return;
 		while(!isCenter(bestX,bestY)){
 			int nxtX, nxtY;
 			nxtX = bestRouteX[bestX][bestY];
@@ -193,8 +211,8 @@ void driver(Stack * stack){
 
 			bestX = nxtX;
 			bestY = nxtY;
-			push(store, stack, bestX);
-			push(store, stack, bestY);
+			push(storex, stack, bestX);
+			push(storey, stack, bestY);
 		  printf("\rBestX = %d , BestY = %d \r\n",  bestX , bestY);
 		}
 }

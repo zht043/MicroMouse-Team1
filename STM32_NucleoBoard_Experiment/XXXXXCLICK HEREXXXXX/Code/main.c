@@ -367,14 +367,6 @@ void floodfillTester(){
 	
 	driver(result);
 	
-	while(!isEmpty(store, result)){
-		int bestX, bestY;
-		bestX = peek(store, result);
-		bestY = peek(store, result);
-		printf("Best route: %d, %d", bestX, bestY);
-		pop(store, result);
-		pop(store, result);
-	}
 }
 int main(void)
 {
