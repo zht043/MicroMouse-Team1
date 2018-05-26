@@ -384,7 +384,6 @@ int main(void)
 		//PWM_Tester();
 		//USART_Tester();
 		//SPI_Tester();
-		//fuck();
 		//Gyro_Tester();
 		//motorTester();
 		//ADCtester();

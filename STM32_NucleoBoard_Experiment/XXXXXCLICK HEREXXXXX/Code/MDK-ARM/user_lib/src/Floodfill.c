@@ -1,7 +1,7 @@
 #include "Floodfill.h"
 static int store[MAX];
 bool grid[16][16];
-Coord* direction;
+//Coord* direction;
 int xx[] = {0,1,0,-1};
 int yy[] = {1,0,-1,0};
 bool visit[16][16];
@@ -22,11 +22,16 @@ int CENTERX3;
 int CENTERY3;
 int CENTERX4;
 int CENTERY4;
+
+enum dirArr {MIDDLE, NORTH, SOUTH, EAST, WEST};
+enum dirArr direction;
+
+
 bool floodfill(){
 	  if(isEmpty(store, Qx)){
 		  return false;
   	}
-		
+
     int x = peek(store, Qx);
     int y = peek(store, Qy);
     printf("\rX = %d, Y = %d\r\n", x, y);
@@ -38,7 +43,15 @@ bool floodfill(){
         updatePosition(x, y, parentX[x][y], parentY[x][y]);
         pop(store, Qx);
         pop(store, Qy);
-			  printf("Check point 1\n");
+			
+				for (int i = 0; i < 16; i++) {
+					for (int j = 0; j < 16; j++){
+						
+						printf("%d", bestRouteX[i][j]);
+					}
+					printf("\n");
+				}
+	 printf("Check point 1\n");
         return true;
     }
     visit[x][y] = true;
@@ -56,7 +69,8 @@ bool floodfill(){
         int nxtY = y+yy[i];
         if(grid[nxtX][nxtY]){
            continue;
-				}
+		    }
+				
         if(visit[nxtX][nxtY] == false){
             push(store, Qx, nxtX);
             push(store, Qy, nxtY);
@@ -66,6 +80,7 @@ bool floodfill(){
             updatePosition(x, y, nxtX, nxtY);
             return true;
         }
+				
         // Even if we have visited our neighbour, it could be the case that he has the shortest path!
         if(dist[nxtX][nxtY] != -1){ // Can our neighbour reach center?
             if(dist[x][y] == -1){ // Can we reach center?
@@ -104,20 +119,29 @@ bool isCenter(int x, int y){
 		}
     return false;
 }
+
+
 void updatePosition(int r1, int c1, int r2, int c2){
+		
     if(r1+1 == r2){
         // south
-        direction = newCoord(1,0);
+        //direction = newCoord(1,0);
+			  direction = SOUTH;
     } else if(r2+1 == r1) {
         // north
-        direction = newCoord(-1,0);
+        //direction = newCoord(-1,0);
+			  direction = NORTH;
     } else if(c1+1 == c2){
         // east
-        direction = newCoord(0,1);
+        //direction = newCoord(0,1);
+				direction = EAST;
     } else{
         // west
-        direction = newCoord(0,-1);
+        //direction = newCoord(0,-1);
+			  direction = WEST;
     }
+	
+	
 }
 
 void initFloodfill() {
@@ -129,17 +153,18 @@ void initFloodfill() {
             parentY[i][j] = -1;
             bestRouteX[i][j] = -1;
             bestRouteY[i][j] = -1;
-					  grid[i][j] = false;
+			      grid[i][j] = false;
         }
     }
     Qx = newStack(10000);
     Qy = newStack(10000);
-		direction = newCoord(0,0);
+	//direction = newCoord(0,0);
+		direction = MIDDLE;
     push(store, Qx, 0);
     push(store, Qy, 0);
     int hr = row/2;
     int cr = col/2;
-		
+
     CENTERX1 = hr;
     CENTERY1 = cr;
     CENTERX2 = hr;
@@ -148,24 +173,24 @@ void initFloodfill() {
     CENTERY3 = cr;
     CENTERX4 = hr-1;
     CENTERY4 = cr-1;
-		
+
 }
 
 void driver(Stack * stack){
-	for(int i = 0; i < 16; i ++){
+	for(int i = 0; i < 8; i ++){
 		floodfill();
 	}
 		//STOP
 		int bestX = 0;
 		int bestY = 0;
-		
-		//printf("\rBest dist = %d\r\n", dist[0][0]);
+
+		printf("\rBest dist = %d\r\n", grid[0][0]);
 	  return;
 		while(!isCenter(bestX,bestY)){
 			int nxtX, nxtY;
 			nxtX = bestRouteX[bestX][bestY];
 			nxtY = bestRouteY[bestX][bestY];
-			
+
 			bestX = nxtX;
 			bestY = nxtY;
 			push(store, stack, bestX);
