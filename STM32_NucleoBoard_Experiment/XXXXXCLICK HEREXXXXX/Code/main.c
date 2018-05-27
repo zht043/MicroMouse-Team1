@@ -4,6 +4,7 @@
 #include "main.h"
 #include "SysTime.h"
 #include "GPIO.h"
+#include "Flash.h"
 #include "Initiation.h"
 #include "Timer.h"
 #include "USART.h"
@@ -120,7 +121,7 @@ void SPI_Tester(void) {
 		
 	}
 }
-void fuck(void) {
+void tmpTester(void) {
 	SysTime_Init();
 	initUSART(USART2, PA2, PA3, 9600);
 	printfForUx(USART2);
@@ -351,7 +352,29 @@ static void Stack_Tester(void){
 		printf("\rStack is Empty\r\n");
 	}
 }
-void floodfillTester(){
+
+void boardTester(void) {
+	while (1) {
+		SysTime_Init();
+		initUSART(USART2, PA2, PA3, 9600);
+	  printfForUx(USART2);
+		printf("\rEL PSY CONGROO <<<<<>>>>> Ich Liebe dich~\r\n");
+		
+		addADC(PC0, ADC_Channel_10);
+		initADC(ADC1);
+		
+		
+		GPIO EM = initIO(PA1, OUTPUT);
+		while(1) {
+				digitalWrite(EM, HIGH);
+				delay_us(50);
+				digitalWrite(EM, LOW);
+				delay_us(950);
+				printf("\r%d\r\n",getADCValue(0));
+		}
+	}		
+}
+void floodfillTester(void){
   initFloodfill();
 	SystemInit();
 	initUSART(USART2, PA2, PA3, 9600);
@@ -365,9 +388,93 @@ void floodfillTester(){
 		Occupy(1, i);
 	}*/
 	
-	driver(result);
-	
+	driver(store, result);
 }
+
+void flashTester1() {
+	
+	SystemInit();
+	flashStartWriting();
+	flashWriteToSector(12);
+	flashWriteToSector(1);
+	flashWriteToSector(12);
+	flashWriteToSector(21);
+	flashWriteToSector(42424242);
+	flashFinishWriting();	
+}
+
+void flashTester2() {
+
+	initUSART(USART2, PA2, PA3, 9600);
+	printfForUx(USART2);
+
+	printf("Hello world\n\r");
+	flashStartReading();
+	uint32_t pr;
+	while( (pr = flashReadFromSector()) != 42424242 ) {
+		printf("Val = %ud\n\r", pr);
+	}
+}
+
+void flashTester() {
+	SystemInit();
+	//flashTester1();
+	flashTester2();
+}
+
+void floodfillAndFlashTester1() {
+	initUSART(USART2, PA2, PA3, 9600);
+	printfForUx(USART2);
+	
+	printf("Hello world\n\r");
+
+	Stack* st = newStack(MAX);
+	int dir[MAX];
+	
+	printf("Hello world again\n\r");
+
+  initFloodfill();
+	driver(dir, st);
+	
+	flashStartWriting();
+	flashWriteToSector(42424242);
+	for(int i = 0 ; i <= st->top ; i++) {
+		printf("Printing to sector, the value %u\n\r", dir[i]); 
+		flashWriteToSector(dir[i]);
+	}
+	flashWriteToSector(42424242);
+	flashFinishWriting();	
+}
+
+void floodfillAndFlashTester2() {
+
+	initUSART(USART2, PA2, PA3, 9600);
+	printfForUx(USART2);
+
+	printf("Hello world\n\r");
+	flashStartReading();
+	uint32_t pr;
+	while( (pr = flashReadFromSector()) != 42424242 ) {
+		printf("Val = %ud\n\r", pr);
+	}
+	flashStartWriting();
+	flashWriteToSector(666);
+	flashFinishWriting();
+}
+
+void floodfillAndFlashTester() {
+	SystemInit();
+	flashStartReading();
+	uint32_t pr;
+	pr = flashReadFromSector();
+	if(pr != 42424242)
+		floodfillAndFlashTester1();
+	else
+		floodfillAndFlashTester2();
+}
+
+
+
 int main(void)
 {
 		//initAlles();
@@ -380,7 +487,10 @@ int main(void)
 		//motorTester();
 		//ADCtester();
 	  //Stack_Tester();
-	  floodfillTester();
+	 // floodfillTester();
+		//flashTester();
+		//floodfillAndFlashTester();
+	   boardTester();
 }
 
 

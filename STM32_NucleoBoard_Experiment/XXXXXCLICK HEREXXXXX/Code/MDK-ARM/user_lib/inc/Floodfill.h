@@ -13,9 +13,8 @@ void initFloodfill(void);
 bool isCenter(int x, int y);
 void updatePosition(int r1, int c1, int r2, int c2);
 bool floodfill(void);
-void driver(Stack * stack);
+int driver(int dir[], Stack * stack);
 bool Occupy(int row, int col);
 bool withinBounds(int x, int y);
-
 
 #endif

@@ -1,6 +1,6 @@
 #include "Floodfill.h"
-static int storex[MAX];
-static int storey[MAX];
+int storex[MAX];
+int storey[MAX];
 
 bool grid[16][16];
 //Coord* direction;
@@ -25,18 +25,27 @@ int CENTERY3;
 int CENTERX4;
 int CENTERY4;
 
-enum dirArr {MIDDLE, NORTH, SOUTH, EAST, WEST};
+enum dirArr {MIDDLE, NORTH, EAST, SOUTH, WEST};
 enum dirArr direction;
 
+int output;
 
 bool floodfill(){
+
+		printf("Hello from the floodfill function!\n\r");
+	
 	  if(isEmpty(storex, Qx)){
 		  return false;
   	}
+		
+		printf("Hello from the other side!\n\r");
 
     int x = peek(storex, Qx);
+		
+		printf("Can you hear me?\n\r");
     int y = peek(storey, Qy);
-    printf("\rX = %d, Y = %d\r\n", x, y);
+		printf("Why?\n\r");
+    printf("X = %d, Y = %d\r\n", x, y);
     int parentx = parentX[x][y];
     int parenty = parentY[x][y];
     if(isCenter(x, y)) {
@@ -73,9 +82,90 @@ bool floodfill(){
 
 				// grid[i][j] abstractly represents if the nextx, nexty
 			  // is reachable for current x, current y
-        if(!withinBounds(nxtX, nxtY) || grid[nxtX][nxtY] ){
+        if(!withinBounds(nxtX, nxtY) /*|| grid[nxtX][nxtY]*/ ){
            continue;
 		    }
+				
+				// Check if we can call from cur to next
+				// EAST, SOUTH, WEST, NORTH
+				
+				 if(x+1 == nxtX){
+					// south
+					//direction = newCoord(1,0);
+					if(direction == NORTH) {
+						// Check U turn but we know its golden!
+					}
+					else if(direction == EAST) {
+						// Check if we can Turn right 90
+						if(!canMoveRight()) continue;
+					}
+					else if(direction == WEST) {
+						// Check Turn left 90
+						if(!canMoveLeft()) continue;
+					}
+					else {
+						// Check forward
+						if(!canMoveForward()) continue;
+					}
+				} 
+				else if(nxtX+1 == x) {
+					// north
+					//direction = newCoord(-1,0);
+					if(direction == SOUTH) {
+					// Check U turn but we know its golden!
+					}
+					else if(direction == EAST) {
+						// Check Turn left 90
+						if(!canMoveLeft()) continue;
+					}
+					else if(direction == WEST) {
+						// Check Turn right 90
+						if(!canMoveRight()) continue;
+					}
+					else {
+						// Check forward
+						if(!canMoveForward()) continue;
+					}
+				} 
+				else if(y+1 == nxtY){
+					// east
+					//direction = newCoord(0,1);
+					if(direction == WEST) {
+						// Check U turn but we know its golden
+					}
+					else if(direction == NORTH) {
+						// Check Turn right 90
+						if(!canMoveRight()) continue;
+					}
+					else if(direction == SOUTH) {
+						// Check Turn left 90
+						if(!canMoveLeft());
+					}
+					else {
+						// Check move forward
+						if(!canMoveForward()) continue;
+					}
+				} 
+				else{
+					// west
+					//direction = newCoord(0,-1);
+					if(direction == EAST) {
+						// Call U turn
+					}
+					else if(direction == NORTH) {
+						// Call Turn left 90
+						if(!canMoveLeft()) continue;
+					}
+					else if(direction == SOUTH) {
+						// Call Turn right 90
+						if(!canMoveRight()) continue;
+					}
+					else {
+						// Check if move forward
+						if(!canMoveForward()) continue;
+					}
+				}
+				
 				
         if(visit[nxtX][nxtY] == false){
             push(storex, Qx, nxtX);
@@ -137,22 +227,102 @@ void updatePosition(int r1, int c1, int r2, int c2){
     if(r1+1 == r2){
         // south
         //direction = newCoord(1,0);
+				if(direction == NORTH) {
+					// Call U turn
+					//turnBack();
+					output = 3;
+				}
+				else if(direction == EAST) {
+					// Call Turn right 90
+					//turnRight();
+					output = 2;
+				}
+				else if(direction == WEST) {
+					// Call Turn left 90
+					//turnLeft();
+					output = 0;
+				}
+				else {
+					// Go forward
+					//turnForward();
+					output  = 1;
+				}
+				//outpunt = 3;
 			  direction = SOUTH;
     } else if(r2+1 == r1) {
         // north
         //direction = newCoord(-1,0);
+				if(direction == SOUTH) {
+				// Call U turn
+					//turnBack();
+					output = 3;
+				}
+				else if(direction == EAST) {
+					// Call Turn left 90
+					//turnLeft();
+					output = 0;
+				}
+				else if(direction == WEST) {
+					// Call Turn right 90
+					//turnRight();
+					output = 2;
+				}
+				else {
+					// Go forward
+					//turnForward();
+					output = 1;
+				}
 			  direction = NORTH;
     } else if(c1+1 == c2){
         // east
         //direction = newCoord(0,1);
+				if(direction == WEST) {
+					// Call U turn
+					//turnBack();
+					output = 3;
+				}
+				else if(direction == NORTH) {
+					// Call Turn right 90
+					//turnRight();
+					output = 2;
+				}
+				else if(direction == SOUTH) {
+					// Call Turn left 90
+					//turnLeft();
+					output = 0;
+				}
+				else {
+					// Move forward
+					//turnForward();
+					output = 1;
+					
+				}
 				direction = EAST;
     } else{
         // west
         //direction = newCoord(0,-1);
-			  direction = WEST;
+				if(direction == EAST) {
+					// Call U turn
+					//turnBack();
+					output = 3;
+				}
+				else if(direction == NORTH) {
+					// Call Turn left 90
+					//turnLeft();
+					output = 0;
+				}
+				else if(direction == SOUTH) {
+					// Call Turn right 90
+					//turnRight();
+					output = 2;
+				}
+				else {
+					// Move forward
+					//turnForward();
+					output = 1;
+				}
+				direction = WEST;
     }
-	
-	
 }
 
 void initFloodfill() {
@@ -167,10 +337,6 @@ void initFloodfill() {
 			      grid[i][j] = false;
         }
     }
-	
-		for(int i = 0 ; i < 15 ; i++) grid[i][1] = true, grid[14][i+1] = true;
-		grid[14][15] = false;
-		
 		
     Qx = newStack(10000);
     Qy = newStack(10000);
@@ -192,12 +358,15 @@ void initFloodfill() {
 
 }
 
-void driver(Stack * stack){
+int driver(int dir[], Stack * stack){
 /*
 	for(int i = 0; i < 8; i ++){
 		floodfill();
 	}*/
+		printf("Hello from floodfill!\n\r");
 		while(floodfill());
+		printf("Hello after we know best route!\n\r");
+
 		//STOP
 		int bestX = 0;
 		int bestY = 0;
@@ -209,11 +378,15 @@ void driver(Stack * stack){
 			nxtX = bestRouteX[bestX][bestY];
 			nxtY = bestRouteY[bestX][bestY];
 
+			updatePosition(bestX, bestY, nxtX, nxtY);
+			push(dir, stack, direction); 
+			
 			bestX = nxtX;
 			bestY = nxtY;
-			push(storex, stack, bestX);
-			push(storey, stack, bestY);
+//			push(storex, stack, bestX);
+//			push(storey, stack, bestY);
 		  printf("\rBestX = %d , BestY = %d \r\n",  bestX , bestY);
+			return output;
 		}
 }
 
