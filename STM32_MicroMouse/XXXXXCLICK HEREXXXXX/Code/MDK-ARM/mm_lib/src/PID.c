@@ -36,10 +36,12 @@ double PID(PID_Ctr* ctr, double currErr) {
 				ctr->isFirstIteration = 0;
 				ctr->prevErr = currErr;
 				ctr->prevT = micros();
-				return ctr->Kp * currErr;
+				ctr->pTerm = ctr->Kp * currErr;
+				return (-1.000f) * ctr->pTerm;
 		}
 		//P
 		ctr->pTerm = ctr->Kp * currErr;
+		
 		
 		//time management
 		uint32_t dT = micros() - ctr->prevT;
@@ -55,12 +57,14 @@ double PID(PID_Ctr* ctr, double currErr) {
 		ctr->iTerm = ctr->Ki * ctr->integrator;
 		
 		//D
-		ctr->dTerm = ctr->Kd * (currErr - ctr->prevErr) / us_to_sec(dT); 
+		ctr->dTerm = ctr->Kd * (currErr - ctr->prevErr) / (double)dT; 
 		
 		
 		ctr->prevT = micros();
 		ctr->prevErr = currErr;
+
 		return (-1.000f) * (ctr->pTerm + ctr->iTerm + ctr->dTerm);
+
 }
 
 
@@ -191,13 +195,14 @@ void goStraight(double speed) {
 		ResetEnc();
 		
 		PID_Ctr Angular_Disp;
-		initPID(&Angular_Disp, tP, tI, tD, 1);
+		initPID(&Angular_Disp, tP, tI, tD, 100);
 		//initPID(&Angular_Disp, 13.000f, 0.000f, 3.300f, 1);
 		
+	/*
 		PID_Ctr Linear_Vel;
 		initPID(&Linear_Vel, 3.000f, 0.000f, 0.000f, 100);  
 		
-	
+	*/
 		//PID_Ctr Angular_Disp_Inc;
 		//initPID(&Angular_Disp_Inc, 15.000f, 0.000f, 0.000f, 1);
 		
@@ -206,9 +211,10 @@ void goStraight(double speed) {
 		while(!End_Straight_Condition()) {
 				w = PID(&Angular_Disp, convertToAngle(LEnc() - REnc()) - AD_Exp );  // Error = Actual val - Expected val
 				//v = PID(&Linear_Vel, ((Lspeed() + Rspeed()) / 2.000f) * 0.46728f - LV_Exp);  // LorRspeed max is 214, 100/214 = 0.46
-				w_inc = IR_ErrGen() * (-25.000f); //PID(&Angular_Disp_Inc, IR_ErrGen());
-				curve(speed, (w + w_inc));
-				Straight_Parallel_Task();
+				//w_inc = IR_ErrGen() * (-25.000f); //PID(&Angular_Disp_Inc, IR_ErrGen());
+				//curve(speed, (w + w_inc));
+				curve(speed, w);
+				//Straight_Parallel_Task();
 		}
 }
 void gS_Tester(double speed) {

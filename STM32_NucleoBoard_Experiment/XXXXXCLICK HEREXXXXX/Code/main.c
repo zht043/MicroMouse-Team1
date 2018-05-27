@@ -206,6 +206,7 @@ void Gyro_Tester(void) {
 	SPI_InitStructure.SPI_CRCPolynomial = 7;
 	SPI_Init(SPI2, &SPI_InitStructure);
 	SPI_Cmd(SPI2, ENABLE);
+	/*
 	int r;
 	//delay(1000);
 					while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_TXE) == RESET);
@@ -225,7 +226,7 @@ void Gyro_Tester(void) {
 			delay(100);
 			//delay_us(1);
 			printf("\r%x\r\n", r);
-	}
+	}*/
 }
 TIM LpwmA, LpwmB, RpwmA, RpwmB;
 void motor(double Lpwr, double Rpwr) {

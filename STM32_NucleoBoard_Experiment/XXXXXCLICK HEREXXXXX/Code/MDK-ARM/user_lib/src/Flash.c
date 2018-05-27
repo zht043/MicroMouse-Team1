@@ -26,10 +26,10 @@ void writeFlash(uint16_t ** maze) {
     // unlock for writing 
     FLASH_Unlock();
 
-    FLASH_ClearFlag(FLASH_FLAG_EOP | FLASH_FLAG_PGERR | FLASH_FLAG_WRPRTERR);
+    //*FLASH_ClearFlag(FLASH_FLAG_EOP | FLASH_FLAG_PGERR | FLASH_FLAG_WRPRTERR);
     
     // we need to erase the entire page before we can start to write to it.
-    FLASH_ErasePage(startAddress);
+    //*FLASH_ErasePage(startAddress);
 
     for (i = 0; i < 16; i++) {
         for (j = 0; j < 16; j++) {

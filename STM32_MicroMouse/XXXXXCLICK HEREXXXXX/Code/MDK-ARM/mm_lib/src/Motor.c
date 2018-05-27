@@ -13,7 +13,6 @@ void initMotor(void) {
 		stop();
 }
 void motor(double Lpwr, double Rpwr) {
-		Rpwr *= 0.980f;
 		Rpwr	*= -1.00f;
 		if(LpwrMem != Lpwr) {
 				if(Lpwr > 0.00f) {

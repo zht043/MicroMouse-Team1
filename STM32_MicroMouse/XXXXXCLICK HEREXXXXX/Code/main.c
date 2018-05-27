@@ -67,7 +67,7 @@ void ProgramB_main() {
 		while(1) blinkLED(1);
 }
 
-double tP, tI, tD;
+double tP = 10.000f, tI = 0.000f, tD = 0.000f;
 
 //ProgramC : Calibration
 void ProgramC_main() {
