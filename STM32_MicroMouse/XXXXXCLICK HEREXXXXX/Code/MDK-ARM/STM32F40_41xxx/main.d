@@ -49,3 +49,7 @@ stm32f40_41xxx\main.o: .\mm_lib\inc\Led.h
 stm32f40_41xxx\main.o: .\mm_lib\inc\IR.h
 stm32f40_41xxx\main.o: .\mm_lib\inc\StartGesture.h
 stm32f40_41xxx\main.o: .\mm_lib\inc\PID.h
+stm32f40_41xxx\main.o: .\user_lib\inc\Stack.h
+stm32f40_41xxx\main.o: .\user_lib\inc\Floodfill.h
+stm32f40_41xxx\main.o: .\mm_lib\inc\PID.h
+stm32f40_41xxx\main.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h

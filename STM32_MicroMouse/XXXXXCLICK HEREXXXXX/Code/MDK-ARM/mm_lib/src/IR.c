@@ -6,7 +6,7 @@ __IO uint16_t IR_values[6] = {0, 0, 0, 0, 0, 0};
 
 // init pins to a "garbage" value of 0, they will be reassigned in the tester
 GPIO L_emitter, R_emitter, LF_emitter, RF_emitter;
-int L_receiver, R_receiver, LF0_receiver, LF1_receiver, RF0_receiver, RF1_receiver = 0;
+int L_receiver, R_receiver, LF0_receiver, LF1_receiver, RF0_receiver, RF1_receiver;
 uint8_t cc1Flag = 0;
 
 
@@ -20,13 +20,13 @@ void initIR(void) {
     L_receiver = addADC(PC3, ADC_Channel_13);
     R_receiver = addADC(PB1, ADC_Channel_9);
 		
-    LF0_receiver = addADC(PC1, ADC_Channel_10);
-    LF1_receiver = addADC(PC0, ADC_Channel_11);
+    LF0_receiver = addADC(PC1, ADC_Channel_11); 
+    LF1_receiver = addADC(PC0, ADC_Channel_10); //
     RF1_receiver = addADC(PB0, ADC_Channel_8);
-    RF0_receiver = addADC(PC5, ADC_Channel_15);
+    RF0_receiver = addADC(PC5, ADC_Channel_15); //
 	
 		initADC(ADC1);
-    CCR1_Val = usToCCR(10);
+    CCR1_Val = usToCCR(50);
     TIM3_initIT();  
 }
 /**
@@ -40,7 +40,7 @@ void IR_pulse(GPIO EM) {
         cc1Flag = 1;
     } else {
         digitalWrite(EM, LOW);
-				CCR1_Val = usToCCR(4 * Impulse_period);
+				CCR1_Val = usToCCR(8 * Impulse_period);
         cc1Flag = 0;
     }
 }

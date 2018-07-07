@@ -47,6 +47,8 @@
 "stm32f40_41xxx\timer.o"
 "stm32f40_41xxx\usart.o"
 "stm32f40_41xxx\adc.o"
+"stm32f40_41xxx\floodfill.o"
+"stm32f40_41xxx\stack.o"
 "stm32f40_41xxx\motor.o"
 "stm32f40_41xxx\led.o"
 "stm32f40_41xxx\ir.o"

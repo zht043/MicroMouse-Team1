@@ -74,10 +74,14 @@ double convertToAngle(double diff) {
 		return diff * EncoderDiffConversionFactor;	
 }
 
-//Test Me
+
 double EncoderDispConversionFactor = 0.000178880137; //0.0618025751;
 double convertToCM(double cnt) {
 		return cnt * EncoderDispConversionFactor;	
+}
+
+double Range(void) {
+		return convertToCM((double)(LEnc() + REnc()));
 }
 
 
@@ -166,23 +170,25 @@ void RspeedTester(void) {
 
 // ------ IR Helper Methods ------ //	
 extern __IO uint16_t IR_values[6];
-#define LF_th 1850	
-#define RF_th 1850	
-#define L_th 600
-#define R_th 600		
+#define LF_th 1400	
+#define RF_th 3500	
+#define L_th 500
+#define R_th 720		
 double IR_ErrGen(void) {
 		double ret = 0.000f;
-		if(IRv_L > L_th) ret -= (IRv_L - L_th) / (4095.000f - L_th);
-		if(IRv_LFA > LF_th) ret -= (IRv_LFA - LF_th) / (4095.000f - LF_th);
-		if(IRv_RFB > RF_th) ret += (IRv_RFB - RF_th) / (4095.000f - RF_th);
-		if(IRv_R > R_th) ret += (IRv_R - R_th) / (4095.000f - R_th);
+		if(IRv_L > L_th) ret -= (IRv_L - L_th) / (1700.000f - L_th);
+		if(IRv_LFB > LF_th) ret -= (IRv_LFB - LF_th) / (3700 - LF_th);
+		if(IRv_RFB > RF_th) ret += (IRv_RFB - RF_th) / (4095.000f*1.2 - RF_th);
+		if(IRv_R > R_th) ret += (IRv_R - R_th) / (4000.000f - R_th);
 		return ret;
 } 	
 	
 // ------ Straight ------ //
 uint32_t gS_t0;
+uint32_t periodFFF = 0.000f;
+double gS_d0;
 uint8_t End_Straight_Condition(void) {
-		if(millis() - gS_t0 < 800) return 0;
+		if(millis() - gS_t0 < periodFFF) return 0;
 		return 1;
 }
 uint32_t spt_cnt = 0;
@@ -191,73 +197,453 @@ void Straight_Parallel_Task(void) {
 }
 extern double tP, tI, tD;
 
+/*
+void vReg(double Vexp) {
+		PID_Ctr Linear_Vel;
+		initPID(&Linear_Vel, 5.000f, 0.000f, 0.000f, 1000);  
+		
+}*/
+void halt(double bufferRange) {
+		PID_Ctr Linear_Disp;
+		initPID(&Linear_Disp, 10, 0, 0, 100);
+		//initPID(&Linear_Disp, tP, tI, tD, 100);	
+	
+		PID_Ctr Angular_Disp;
+		initPID(&Angular_Disp, 12.000f, 0.000f, 100000.000f, 100);
+		
+		double v, w, dRange, Range0 = Range();;
+		uint32_t t0 = millis();
+		while(millis() - t0 < 1000) {
+				w = PID(&Angular_Disp, convertToAngle(LEnc() - REnc()));  
+				dRange = Range() - Range0; 
+				v = PID(&Linear_Disp, dRange - bufferRange);
+				curve(v, w);
+		}
+		stop();
+}
+
+extern double scalingIRErr;
+
 void goStraight(double speed) {
-		ResetEnc();
+		
 		
 		PID_Ctr Angular_Disp;
+		//initPID(&Angular_Disp, 10.000f, 0.000f, 10000.000f, 100);
 		initPID(&Angular_Disp, tP, tI, tD, 100);
-		//initPID(&Angular_Disp, 13.000f, 0.000f, 3.300f, 1);
 		
 	/*
 		PID_Ctr Linear_Vel;
-		initPID(&Linear_Vel, 3.000f, 0.000f, 0.000f, 100);  
-		
-	*/
+		initPID(&Linear_Vel, 3.000f, 0.000f, 0.000f, 1000);  
+		*/
+	
 		//PID_Ctr Angular_Disp_Inc;
 		//initPID(&Angular_Disp_Inc, 15.000f, 0.000f, 0.000f, 1);
 		
 		double v, w, w_inc = 0.000f;
 		double AD_Exp = 0.000f, LV_Exp = speed;
 		while(!End_Straight_Condition()) {
+				w_inc = IR_ErrGen() * scalingIRErr;
 				w = PID(&Angular_Disp, convertToAngle(LEnc() - REnc()) - AD_Exp );  // Error = Actual val - Expected val
 				//v = PID(&Linear_Vel, ((Lspeed() + Rspeed()) / 2.000f) * 0.46728f - LV_Exp);  // LorRspeed max is 214, 100/214 = 0.46
-				//w_inc = IR_ErrGen() * (-25.000f); //PID(&Angular_Disp_Inc, IR_ErrGen());
-				//curve(speed, (w + w_inc));
-				curve(speed, w);
-				//Straight_Parallel_Task();
+				//w_inc = IR_ErrGen(); //PID(&Angular_Disp_Inc, IR_ErrGen());
+				curve(speed, (w - w_inc));
+			//printf("\rv: %05.5lf w: %05.5lf, w_inc: %05.5lf.\n\r", v, w, w_inc);
+				//curve(v, w);
+				
 		}
+}
+
+double fabs(double variable) {
+	return variable < 0 ? -variable : variable;
+}
+
+void pidIR(double speed) {
+	
+	
+}
+/*
+void turn45(double speed, int8_t dir) {		
+		PID_Ctr Linear_VelL, Linear_VelR;
+		initPID(&Linear_VelL, tP, 0.000f, tD, 1000);  
+		initPID(&Linear_VelR, tP, 0.000f, tD, 1000);  
+			
+		double expectedAngle = 90.000f * dir, LV_Exp = speed; // TODO what is expec	ted linear velocity??
+		double realAngle = convertToAngle(LEnc() - REnc());
+
+		while(fabs(realAngle - expectedAngle) > 1) {	
+			realAngle = convertToAngle(LEnc() - REnc());
+			double Rexpected, Lexpected;
+			
+			if (dir == -1) { // right side is faster
+				Rexpected = 1.2632008 * speed ;
+				Lexpected = 0.7367991 * speed ;
+			} else {
+				Lexpected = 1.2632008 * speed ;
+				Rexpected = 0.7367991 * speed ;	
+			}
+			
+			vL = PID(&Linear_VelL, Lspeed() * 0.46728f - Lexpected);  // LorRspeed max is 214, 100/214 = 0.46
+			vR = PID(&Linear_VelR, Rspeed() * 0.46728f - Rexpected);
+			motor(vL, vR);
+		}	
+}
+*/
+
+void TurnLeft(void) {
+		double w0 = convertToAngle(LEnc() - REnc());
+		while(convertToAngle(LEnc() - REnc()) - w0 > -90.000f) motor(-50, 50);
+		//while(convertToAngle(LEnc() - REnc()) - w0 > -.000f) motor(.7 * speed, 1.3 * speed);
+		//motor(0.00f,0.00f);
+		//delay(300);
+		
+}
+void TurnRight(void) {
+		double w0 = convertToAngle(LEnc() - REnc());
+		while(convertToAngle(LEnc() - REnc()) - w0 < 90.000f) motor(50, -50);	
+}
+void turnBackX(void) {
+		double w0 = convertToAngle(LEnc() - REnc());
+		while(convertToAngle(LEnc() - REnc()) - w0 < 180.000f) motor(30, -30);
+		turnForward();
 }
 void gS_Tester(double speed) {
 		gS_t0 = millis();
+		//gS_d0 = convertToCM(LEnc() + REnc());
 		goStraight(speed);
+		halt(5.000f);
+		stop();
+		//TurnRight();
 		stop();
 }
 
+void irPID(double speed) {
+		PID_Ctr Angular_Disp;
+		initPID(&Angular_Disp, 10.000f, 0.000f, 10000.000f, 100);
+	
+		PID_Ctr Linear_Vel;
+		initPID(&Linear_Vel, 3.000f, 0.000f, 0.000f, 1000);  
+		
+		double v, w = 0.000f;
+		double AD_Exp = 0.000f, LV_Exp = speed;
+		while(!End_Straight_Condition()) {
+
+		// Error = Actual val - Expected val
+
+		w = PID(&Angular_Disp, convertToAngle(LEnc() - REnc()) - AD_Exp );  
+		// LorRspeed max is 214, 100/214 = 0.46
+
+		v = PID(&Linear_Vel, ((Lspeed() + Rspeed()) / 2.000f) * 0.46728f - LV_Exp);  
+		curve(v, w);
+		}
+}
+
+#define goForward 0x01
+#define goLeft 0x02
+#define goRight 0x03
+#define goBack 0x04
 
 
 
+typedef struct {
+		int wl, wr, wf;
+}Fcell;	
 
 
 
+Fcell updateCell(void) {
+		Fcell cell;
+		if(IRv_L > L_th && IRv_R > R_th)  cell.wf = 1;
+		else cell.wf = 0;
+		if(IRv_LFB > LF_th) cell.wl = 1;
+		else cell.wl = 0;
+		if(IRv_RFB > RF_th) cell.wr = 1;
+		else cell.wr = 0;
+		return cell;
+}
+
+int canMoveRight(){
+	Fcell cell = updateCell();
+	return !cell.wr;
+}
+
+int canMoveLeft(){
+	Fcell cell = updateCell();
+	return !cell.wl;
+}
+
+int canMoveForward(){
+	Fcell cell = updateCell();
+	return ((!cell.wr) & (!cell.wl));
+}
+
+void tUC(void) {
+		Fcell cell = updateCell();
+		if(cell.wf ) {L_LED_ON(); R_LED_ON();}
+		if(cell.wl ) {L_LED_ON();}
+		if(cell.wr ) {R_LED_ON();}
+		if(!cell.wf && !cell.wl && !cell.wr) {L_LED_OFF(); R_LED_OFF();}
+}
+
+Fcell wall;
+uint8_t getCmd() {
+		if(wall.wf) {
+			if(wall.wl) {
+					if(wall.wr) return goBack;
+					else return goRight;
+			}
+			else if(wall.wr) return goLeft;
+			else return goLeft; //random
+		}
+		else return goForward;
+}
+
+void turnRight() {
+		double v, w, w_inc = 0.000f;
+	double AD_Exp = 0.000f, LV_Exp = 35.00f;
+	double d0;
+	PID_Ctr Angular_Disp;
+	TurnRight();
+					d0 = convertToCM(LEnc() + REnc() );		
+					initPID(&Angular_Disp, tP, tI, tD, 100);	
+					while(convertToCM(LEnc() + REnc() ) - d0 < 14) {
+							//printf("Moving right");
+							w_inc = IR_ErrGen() * scalingIRErr;
+							w = PID(&Angular_Disp, convertToAngle(LEnc() - REnc()) - AD_Exp ); 
+							curve(35.000f, (w - w_inc));
+					}
+					halt(4);
+}
+
+void turnLeft() {
+			double v, w, w_inc = 0.000f;
+	double AD_Exp = 0.000f, LV_Exp = 35.00f;
+	double d0;
+	PID_Ctr Angular_Disp;
+					TurnLeft();
+					d0 = convertToCM(LEnc() + REnc() );		
+					initPID(&Angular_Disp, tP, tI, tD, 100);	
+					while(convertToCM(LEnc() + REnc() ) - d0 < 14) {
+						//	printf("Moving left");
+							w_inc = IR_ErrGen() * scalingIRErr;
+							w = PID(&Angular_Disp, convertToAngle(LEnc() - REnc()) - AD_Exp ); 
+							curve(35.000f, (w - w_inc));
+						
+					}
+					halt(4);
+}
+
+void turnForward() {
+	double v, w, w_inc = 0.000f;
+	double AD_Exp = 0.000f, LV_Exp = 35.00f;
+	double d0;
+	PID_Ctr Angular_Disp;
+					d0 = convertToCM(LEnc() + REnc() );		
+					initPID(&Angular_Disp, tP, tI, tD, 100);	
+					while(convertToCM(LEnc() + REnc() ) - d0 < 14) {
+							//printf("Moving forward");
+							w_inc = IR_ErrGen() * scalingIRErr;
+							w = PID(&Angular_Disp, convertToAngle(LEnc() - REnc()) - AD_Exp ); 
+							curve(35.000f, (w - w_inc));
+					}
+					halt(4);
+}
 
 
+void luckyGO(void) {
+Stack* result = newStack(MAX);
+
+	static int store[MAX];
+	initFloodfill();
+	driver(store, result);
+}
+
+uint8_t cmd = 0;
+void luckyGOGO(void) {
+	double v, w, w_inc = 0.000f;
+	double AD_Exp = 0.000f, LV_Exp = 35.00f;
+	double d0;
+	PID_Ctr Angular_Disp;
+
+			wall = updateCell();
+		//	cmd = getCmd();
+		//	printf("Command = %d\n\r", cmd);
+	
+	   static int store[MAX];
+	   Stack* result = newStack(MAX);
+	   initFloodfill();
+	   driver(store, result);
+		  if(cmd == 1){
+					d0 = convertToCM(LEnc() + REnc() );		
+					initPID(&Angular_Disp, tP, tI, tD, 100);	
+					while(convertToCM(LEnc() + REnc() ) - d0 < 14) {
+							//printf("Moving forward");
+							w_inc = IR_ErrGen() * scalingIRErr;
+							w = PID(&Angular_Disp, convertToAngle(LEnc() - REnc()) - AD_Exp ); 
+							curve(35.000f, (w - w_inc));
+					}
+					halt(4);
+			}
+			else if(cmd == 0) {
+					TurnLeft();
+					d0 = convertToCM(LEnc() + REnc() );		
+					initPID(&Angular_Disp, tP, tI, tD, 100);	
+					while(convertToCM(LEnc() + REnc() ) - d0 < 14) {
+						//	printf("Moving left");
+							w_inc = IR_ErrGen() * scalingIRErr;
+							w = PID(&Angular_Disp, convertToAngle(LEnc() - REnc()) - AD_Exp ); 
+							curve(35.000f, (w - w_inc));
+						
+					}
+					halt(4);
+			}
+			
+			else if(cmd == goRight) {
+					TurnRight();
+					d0 = convertToCM(LEnc() + REnc() );		
+					initPID(&Angular_Disp, tP, tI, tD, 100);	
+					while(convertToCM(LEnc() + REnc() ) - d0 < 14) {
+							//printf("Moving right");
+							w_inc = IR_ErrGen() * scalingIRErr;
+							w = PID(&Angular_Disp, convertToAngle(LEnc() - REnc()) - AD_Exp ); 
+							curve(35.000f, (w - w_inc));
+					}
+					halt(4);
+			}
+			
+			else if(cmd == goBack) {
+					//printf("Moving back");
+					turnBackX();
+			}
+	//stop();
+}
+/*
+while(1) {	
+		wall = updateCell();
+		if(skipCmd) skipCmd = 0; 
+		else cmd = getCmd();
+		
+		if(cmd == goForward) {
+					
+					d0 = convertToCM(LEnc() + REnc() );		
+					initPID(&Angular_Disp, tP, tI, tD, 100);	
+					while(convertToCM(LEnc() + REnc() ) - d0 < 9) {
+							w_inc = IR_ErrGen() * scalingIRErr;
+							w = PID(&Angular_Disp, convertToAngle(LEnc() - REnc()) - AD_Exp ); 
+							curve(35.000f, (w - w_inc));
+					}
+					
+					
+					wall = updateCell();
+					if(wall.wf) {L_LED_ON(); R_LED_OFF();}
+					else if(wall.wr) {R_LED_ON(); L_LED_OFF();}
+					else if(wall.wl) {L_LED_ON(); R_LED_ON();}
+					else {L_LED_OFF(); R_LED_OFF();}
+					cmd = getCmd();
+					
+					d0 = convertToCM(LEnc() + REnc() );
+					initPID(&Angular_Disp, tP, tI, tD, 100);	
+					while(convertToCM(LEnc() + REnc() ) - d0 < 5) {
+							w_inc = IR_ErrGen() * scalingIRErr;
+							w = PID(&Angular_Disp, convertToAngle(LEnc() - REnc()) - AD_Exp ); 
+							curve(35.000f, (w - w_inc));
+					}
+					
+					if(cmd == goForward) {
+							d0 = convertToCM(LEnc() + REnc() );
+							initPID(&Angular_Disp, tP, tI, tD, 100);	
+							while(convertToCM(LEnc() + REnc() ) - d0 < 4) {
+									w_inc = IR_ErrGen() * scalingIRErr;
+									w = PID(&Angular_Disp, convertToAngle(LEnc() - REnc()) - AD_Exp ); 
+									curve(35.000f, (w - w_inc));
+							}
+					}
+					else if(cmd == goLeft) {
+							halt(4);
+							TurnLeft();
+					}
+					else if(cmd == goRight) {
+							halt(4);
+							TurnRight();
+					}
+					
+		}
+		if(cmd == goLeft) {
+					d0 = convertToCM(LEnc() + REnc() );		
+					initPID(&Angular_Disp, tP, tI, tD, 100);	
+					while(convertToCM(LEnc() + REnc() ) - d0 < 9) {
+					w_inc = IR_ErrGen() * scalingIRErr;
+					w = PID(&Angular_Disp, convertToAngle(LEnc() - REnc()) - AD_Exp ); 
+					curve(35.000f, (w - w_inc));
+					TurnLeft(); 	
+		}
+		if(cmd == goRight) {
+					d0 = convertToCM(LEnc() + REnc() );		
+					initPID(&Angular_Disp, tP, tI, tD, 100);	
+					while(convertToCM(LEnc() + REnc() ) - d0 < 9) {
+					w_inc = IR_ErrGen() * scalingIRErr;
+					w = PID(&Angular_Disp, convertToAngle(LEnc() - REnc()) - AD_Exp ); 
+					curve(35.000f, (w - w_inc));
+					TurnRight(); 	
+		}				
+	}
+*/
 
 
+/*
+void newhalt(int period) {
+	double initTime = micros();
+	double curTime = micros();
+  double vt = (Lspeed() + Rspeed()) / 2; 
+	double vi = vt;
+	int percent = 100;
+	int dec = 10;
+	 PID_Ctr Angular_Disp;
+    initPID(&Angular_Disp, 12.000f, 0.000f, 100000.000f, 100);
+    double v, angularv, angularvIncrement = 0.00f;
+    double angularDisplacementExpected = 0.00f, linearVelocityExpected = vi;
+	
+	while(vt > 0.01f && percent > 0) {
+		vt = (Lspeed() + Rspeed()) / 2; 
+		curTime = micros();
+  	
+		if (curTime - initTime - period < 0.1f) {
+				initTime = micros();
+				percent -= dec;
+				
+		}		
+vt = vi * (double) percent / 100;
+			  angularv = PID(&Angular_Disp, convertToAngle(LEnc() - REnc()) - angularDisplacementExpected);
+        curve(vt, angularv);
+						
+	}
+}
 
+void halt(double dist) {
+    // average velocity of the mouse at a given time t
+    double vt = (Lspeed() + Rspeed()) / 2; 
+		double vi = vt;
+    PID_Ctr Angular_Disp;
+    initPID(&Angular_Disp, 12.000f, 0.000f, 100000.000f, 100);
+    double v, angularv, angularvIncrement = 0.00f;
+    double angularDisplacementExpected = 0.00f, linearVelocityExpected = vi;
+    // interval window is 1us
+    double decrementSize = 1.0e-6f; 
 
+    double expScalingFactor = 1.00f;
+    double timeStarted = micros();
+    double targetTime = dist/vi;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    while(vt > 0.01f) {
+        vt = (Lspeed() + Rspeed()) / 2; 
+        // calculate how much we need to decrement by
+        double decelerationAmount = ((double)(micros() - timeStarted)/(double)targetTime) * vi; 
+        // we will decrement vt by a predefined incrememnt for given distance
+        vt -= decelerationAmount * expScalingFactor;
+        // error calculation in angular velocity
+        angularv = PID(&Angular_Disp, convertToAngle(LEnc() - REnc()) - angularDisplacementExpected);
+        curve(vt, angularv);
+    }
+}*/
 
 
 

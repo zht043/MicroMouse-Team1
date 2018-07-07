@@ -434,6 +434,25 @@ void IR_Tester2(void) {
 				
 		}
 }
+void goodLuck(void) {
+SysTime_Init();
+		initUSART(USART2, PA2, PA3, 9600);
+	  printfForUx(USART2);
+		printf("\rEL PSY CONGROO <<<<<>>>>> Ich Liebe dich~\r\n");
+		
+		uint8_t re = addADC(PA0, ADC_Channel_0);
+		initADC(ADC1);
+		
+		
+		GPIO EM = initIO(PA1, OUTPUT);
+		while(1) {
+				digitalWrite(EM, HIGH);
+				delay_us(50);
+				digitalWrite(EM, LOW);
+				delay_us(950);
+				printf("\r%d\r\n",analogRead(re));
+		}
+}
 int main(void)
 {
 		//initAlles();
@@ -448,7 +467,8 @@ int main(void)
 		//TIM3_IT_tester();
 		//ADCtester();
 		//Encoder_Tester();
-		IR_Tester2();
+		//IR_Tester2();
+		goodLuck();
 }
 
 

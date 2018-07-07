@@ -43,3 +43,8 @@ stm32f40_41xxx\pid.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 stm32f40_41xxx\pid.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 stm32f40_41xxx\pid.o: .\user_lib\inc\Timer.h
 stm32f40_41xxx\pid.o: .\mm_lib\inc\Motor.h
+stm32f40_41xxx\pid.o: .\mm_lib\inc\Led.h
+stm32f40_41xxx\pid.o: .\user_lib\inc\Stack.h
+stm32f40_41xxx\pid.o: .\user_lib\inc\Floodfill.h
+stm32f40_41xxx\pid.o: .\mm_lib\inc\PID.h
+stm32f40_41xxx\pid.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h

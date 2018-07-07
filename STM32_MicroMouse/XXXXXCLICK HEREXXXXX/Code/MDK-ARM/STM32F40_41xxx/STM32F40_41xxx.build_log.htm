@@ -22,22 +22,32 @@ Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
 F:\Hongtao Zhang\Documents\GitHub\MicroMouse-Team1\STM32_MicroMouse\XXXXXCLICK HEREXXXXX\Code\MDK-ARM\MicroMouse.uvprojx
-Project File Date:  05/26/2018
+Project File Date:  05/27/2018
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'E:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'STM32F40_41xxx'
-compiling PID.c...
-mm_lib\src\PID.c(209): warning:  #177-D: variable "v"  was declared but never referenced
-  		double v, w, w_inc = 0.000f;
-mm_lib\src\PID.c(209): warning:  #177-D: variable "w_inc"  was declared but never referenced
-  		double v, w, w_inc = 0.000f;
-mm_lib\src\PID.c(210): warning:  #177-D: variable "LV_Exp"  was declared but never referenced
-  		double AD_Exp = 0.000f, LV_Exp = speed;
-mm_lib\src\PID.c: 3 warnings, 0 errors
+compiling main.c...
+.\mm_lib\inc\PID.h(14): warning:  #1295-D: Deprecated declaration canMoveRight - give arg types
+  int canMoveRight();
+.\mm_lib\inc\PID.h(15): warning:  #1295-D: Deprecated declaration canMoveLeft - give arg types
+  int canMoveLeft();
+.\mm_lib\inc\PID.h(16): warning:  #1295-D: Deprecated declaration canMoveForward - give arg types
+  int canMoveForward();
+.\mm_lib\inc\PID.h(17): warning:  #1295-D: Deprecated declaration turnRight - give arg types
+  void turnRight();
+.\mm_lib\inc\PID.h(18): warning:  #1295-D: Deprecated declaration turnLeft - give arg types
+  void turnLeft();
+.\mm_lib\inc\PID.h(19): warning:  #1295-D: Deprecated declaration turnForward - give arg types
+  void turnForward();
+.\mm_lib\inc\PID.h(20): warning:  #1295-D: Deprecated declaration turnBackX - give arg types
+  void turnBackX();
+../main.c(191): warning:  #177-D: variable "speed"  was declared but never referenced
+  				double speed = 35.00;
+../main.c: 8 warnings, 0 errors
 linking...
-Program Size: Code=16236 RO-data=560 RW-data=264 ZI-data=1240  
-"STM32F40_41xxx\STM32F40_41xxx.axf" - 0 Error(s), 3 Warning(s).
+Program Size: Code=21532 RO-data=560 RW-data=372 ZI-data=11556  
+"STM32F40_41xxx\STM32F40_41xxx.axf" - 0 Error(s), 8 Warning(s).
 
 <h2>Software Packages used:</h2>
 

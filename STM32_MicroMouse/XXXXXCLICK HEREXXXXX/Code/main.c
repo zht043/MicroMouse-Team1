@@ -23,7 +23,7 @@ void ProgramA_main(void);
 void ProgramB_main(void);
 void ProgramC_main(void);
 //////////////////////////////
-
+double scalingIRErr = 1000;
 
 
 void initPeriphs(void) {
@@ -56,8 +56,13 @@ int main(void)
 void ProgramA_main() {
 		//motor(30,30);
 		//delay(500);
-		gS_Tester(35);
-		motor(0,0);
+		//gS_Tester(30);
+		//TurnLeft();
+		luckyGO();
+		/*while(1) {
+				tUC();
+		}*/
+		//motor(0,0);
 }
 
 
@@ -67,13 +72,14 @@ void ProgramB_main() {
 		while(1) blinkLED(1);
 }
 
-double tP = 10.000f, tI = 0.000f, tD = 0.000f;
-
+double tP = 45.000f, tI = 0.000f, tD = 10000.000f;
+extern uint32_t periodFFF;
 //ProgramC : Calibration
 void ProgramC_main() {
 		char str[20];
 		printf("\rXXXXXXXXXXX\r\n");
 	while(1) {
+		ResetEnc();
 		readLine(str);
 		if(!strcmp(str, "IR")) {
 				while(1) { 	
@@ -115,6 +121,7 @@ void ProgramC_main() {
 		}
 		if(!strcmp(str, "GS")) {
 				while(1) {
+						
 						printf("\rEnter speed Plz\r\n");
 						readLine(str);
 						double speed = strtof(str, NULL);
@@ -126,18 +133,70 @@ void ProgramC_main() {
 						char * token;
 						token = strtok(str, " ");
 						tP = atof(token);
-					printf("\r Input: %s\r\n", str);
+					//printf("\r Input: %s\r\n", str);
 						token = strtok(NULL, " ");
 						tI = atof(token);				
 						token = strtok(NULL, " ");
 						tD = atof(token);
-					printf("\rP : %lf I : %lf D : %lf\r\n", tP, tI, tD); 
+					printf("\rEntered value:  P : %lf I : %lf D : %lf\r\n", tP, tI, tD); 
 						
+					
+						printf("\rEnter Time Plz\r\n");
+						readLine(str);
+						periodFFF = strtof(str, NULL);
 						gS_Tester(speed);
 						stop();
 					
 				}
 		}
+		
+		if(!strcmp(str, "TH")) {
+			while(1) {
+				printf("\rIR_Errgen Value: %lf\r\n", IR_ErrGen());
+			}
+		}
+		if(!strcmp(str, "IRT")) {
+			while(1) {
+			printf("\rSet scaling factor and speed seperated by space.\r\n");
+			char * token;
+			double speed;
+			readLine(str);
+			token = strtok(str, " ");
+		  scalingIRErr = atof(token);
+			token = strtok(NULL, " ");
+			speed = atof(token);
+				
+				
+			printf("\rEnter P I D values seprated by a space Plz\r\n");
+						readLine(str);
+						// tP, tI, tD
+						char * token2;
+						token2 = strtok(str, " ");
+						tP = atof(token2);
+					//printf("\r Input: %s\r\n", str);
+						token2 = strtok(NULL, " ");
+						tI = atof(token2);				
+						token2 = strtok(NULL, " ");
+						tD = atof(token2);
+					printf("\rEntered value:  P : %lf I : %lf D : %lf\r\n", tP, tI, tD); 
+							
+				
+			gS_Tester(speed);
+				stop();
+			}
+		}
+		
+		if(!strcmp(str, "TN")) {
+			while(1) {
+				double speed = 35.00;
+				printf("\r left Turn\n\r");
+				TurnLeft();
+				//printf("\r Left Turn\n\r");
+				//turn45(speed, -1);
+				scanf("press enter to continue");
+			}
+		}
+		
 	}
 }
 
